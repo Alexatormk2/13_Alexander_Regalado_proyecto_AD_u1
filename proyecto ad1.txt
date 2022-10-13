@@ -1,0 +1,31 @@
+
+registro partidas y mercado cross
+classes-------------
+bots---------
+survivors--------
+historial------mercado/misiones
+item------
+recursos-------
+partida---------
+vehiculo--------
+main(nucleo donde se llama a las clases via un menu siwtch/doWhile)
+
+export xml: se exportada al terminar la sesion de juego
+
+variables
+vehiculo: durabilidad,daño,nombre
+recursos:nombre,precio
+personas: String nombre, recurso ganado, fuel ganado, items comprados/vendidos en total, jugadores eliminados,vehiculos/planos
+item; titulo: precio, ofertas venta/compra, categoria,faccion,calidad. 
+historial(mercado), objeto personas,objeto comprado/vendido, 
+historial(partida), objeto personas, recursos ganado,resultado(ganado/perdido),kill totales,
+bot: nombre, ps, jugadores eliminados,vehiculo
+partida:objeto personas, objeto bot, arrray personas/bot(equipos)
+
+
+funciones
+personas: comprar objeto,vender objeto,desbloquear vehiculo aleatorio, iniciar sesion(crea usuario con contraseña (en caso de nombre existente añadir numeros)) guardar/cambiar vehiculo(
+cada jugador podra cambiar de carro pero no tendra mas de uno activo/guardado en su perfils) 
+partida: luchar(pone jugadores y bots con sus stats a luchar hasta que solo quede un equipo) y pasa resultado a historial
+historial misiones: guarda el desempeño(kill/victoria/derrota)del jugador/bot y lo exporta a un xml
+historial mercado: guarda las transciones que ha  hecho el jugador en el mercado.
