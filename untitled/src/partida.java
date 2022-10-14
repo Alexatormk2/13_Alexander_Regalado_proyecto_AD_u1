@@ -1,5 +1,8 @@
+import java.util.Date;
+
 public class partida {
 
+   Date fecha;
     survivor player;
     BOT bot;
     int scrapGanado;

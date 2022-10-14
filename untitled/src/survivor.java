@@ -9,7 +9,7 @@ public class survivor {
     vehiculos carro;
     int scrap;
     int copper;
-    double gold;
+    double gold = 100;
 
     public survivor(String nomnbre, int kills, int deaths, int soldItems, int bougthItems, vehiculos carro, int scrap, int copper, double gold) {
         this.nomnbre = nomnbre;
@@ -21,6 +21,16 @@ public class survivor {
         this.scrap = scrap;
         this.copper = copper;
         this.gold = gold;
+    }
+
+    public survivor(String nomnbre, int kills, int deaths, int soldItems, int bougthItems, vehiculos carro) {
+        this.nomnbre = nomnbre;
+        this.kills = kills;
+        this.deaths = deaths;
+        this.soldItems = soldItems;
+        this.bougthItems = bougthItems;
+        this.carro = carro;
+
     }
 
     public survivor() {
