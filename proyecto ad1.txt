@@ -35,3 +35,4 @@ checklist de cosas hechas:
 clases: hecho
 variables,constructor,getter/setter: hecho
 crear usuario/login: hecho
+compra venta: hecho

@@ -2,6 +2,7 @@ import javax.sound.midi.Soundbank;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Objects;
 
 public class Main {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -134,6 +135,15 @@ public class Main {
         System.out.println("Nombre de la cuanta");
         String name = br.readLine();
 
+        for (survivor listaPlayer : listaPlayers) {
+            if (Objects.equals(name, listaPlayer.getNomnbre())) {
+
+                System.out.println("Este usuario ya existe lo siento");
+                System.out.println("Cerrando programna :P");
+                System.exit(0);
+            }
+
+        }
 
         for (int p = 0; p < listaCarros.length; p++) {
 
