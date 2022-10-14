@@ -15,12 +15,12 @@ export xml: se exportada al terminar la sesion de juego
 variables
 vehiculo: durabilidad,daño,nombre
 recursos:nombre,precio
-personas: String nombre, items comprados/vendidos en total, jugadores eliminados,vehiculos/planos
+personas: String nombre, items comprados/vendidos en total, jugadores eliminados,muertes,vehiculo,oro,scrap,copper
 item; titulo: precio, ofertas venta/compra, categoria,faccion,calidad. 
 historial(mercado), objeto personas,objeto comprado/vendido, 
 historial(partida), objeto personas, recursos ganado,resultado(ganado/perdido),kill totales,
 bot: nombre, ps, jugadores eliminados,vehiculo
-partida:objeto personas, objeto bot,  recursos ganadaos,fuel ganado,
+partida:objeto personas, objeto bot,  recursos ganadaos(scrap,copper),fuel ganado,
 
 
 funciones

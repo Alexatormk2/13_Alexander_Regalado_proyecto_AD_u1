@@ -1,2 +1,2 @@
-public class bot {
+public class BOT {
 }

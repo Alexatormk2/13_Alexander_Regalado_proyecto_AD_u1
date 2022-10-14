@@ -11,7 +11,7 @@ public class recurso {
 
 
     public recurso() {
-        
+
     }
 
     public String getNombre() {
