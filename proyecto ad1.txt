@@ -29,3 +29,9 @@ cada jugador podra cambiar de carro pero no tendra mas de uno activo/guardado en
 partida: luchar(pone jugadores y bots con sus stats a luchar hasta que solo quede un equipo) y pasa resultado a historial
 historial misiones: guarda el desempeño(kill/victoria/derrota)del jugador/bot y lo exporta a un xml
 historial mercado: guarda las transciones que ha  hecho el jugador en el mercado.
+
+
+checklist de cosas hechas:
+clases: hecho
+variables,constructor,getter/setter: hecho
+crear usuario/login: hecho
