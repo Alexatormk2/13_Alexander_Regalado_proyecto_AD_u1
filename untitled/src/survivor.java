@@ -1,5 +1,9 @@
-public class survivor {
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
+public class survivor {
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
     String nomnbre;
     int kills;
@@ -24,12 +28,9 @@ public class survivor {
         this.gold = gold;
     }
 
-    public survivor(String nomnbre, int kills, int deaths, int soldItems, int bougthItems, vehiculos carro) {
+    public survivor(String nomnbre,  vehiculos carro) {
         this.nomnbre = nomnbre;
-        this.kills = kills;
-        this.deaths = deaths;
-        this.soldItems = soldItems;
-        this.bougthItems = bougthItems;
+
         this.carro = carro;
 
     }
@@ -116,4 +117,9 @@ public class survivor {
     public void setGold(double gold) {
         this.gold = gold;
     }
+
+
+    //metodos
+
+
 }

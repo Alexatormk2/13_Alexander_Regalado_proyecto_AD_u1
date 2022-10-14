@@ -3,6 +3,7 @@ public class vehiculos {
     int durabilidad;
     String nombre;
     int danio;
+    String descripcion;
 
     public vehiculos(int durabilidad, String nombre, int danio) {
         this.durabilidad = durabilidad;
@@ -11,6 +12,14 @@ public class vehiculos {
     }
     public vehiculos() {
 
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public int getDurabilidad() {
