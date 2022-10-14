@@ -9,7 +9,7 @@ public class survivor {
     int kills;
     int deaths;
     int soldItems;
-    item[] almacen;
+    item[] almacen  = new item[20];
     int bougthItems;
     vehiculos carro;
     int scrap;

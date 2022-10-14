@@ -52,13 +52,5 @@ public class historial_mercado {
         this.vendedor = vendedor;
     }
 
-    //funcion que le da item a jugador
-    public void comprar(survivor player, item parte){}
-    //funcio que resta item de jugador
-    public  void vender(survivor player, item parte){
-
-
-
-    }
 
 }
