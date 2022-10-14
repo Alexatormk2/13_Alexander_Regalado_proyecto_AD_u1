@@ -16,10 +16,10 @@ variables
 vehiculo: durabilidad,daño,nombre
 recursos:nombre,precio
 personas: String nombre, items comprados/vendidos en total, jugadores eliminados,muertes,vehiculo,oro,scrap,copper
-item; titulo: precio, ofertas venta/compra, categoria,faccion,calidad. 
+item; titulo: precio, ofertas venta/compra, categoria,calidad. 
 historial(mercado), objeto personas,objeto comprado/vendido, 
 historial(partida), objeto personas, recursos ganado,resultado(ganado/perdido),kill totales,
-bot: nombre, ps, jugadores eliminados,vehiculo
+bot: nombre, jugadores eliminados,vehiculo
 partida:objeto personas, objeto bot,  recursos ganadaos(scrap,copper),fuel ganado,
 
 

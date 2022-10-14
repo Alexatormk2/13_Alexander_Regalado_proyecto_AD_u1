@@ -5,6 +5,7 @@ public class survivor {
     int kills;
     int deaths;
     int soldItems;
+    item[] almacen;
     int bougthItems;
     vehiculos carro;
     int scrap;
@@ -34,6 +35,14 @@ public class survivor {
     }
 
     public survivor() {
+    }
+
+    public item[] getAlmacen() {
+        return almacen;
+    }
+
+    public void setAlmacen(item[] almacen) {
+        this.almacen = almacen;
     }
 
     public String getNomnbre() {
