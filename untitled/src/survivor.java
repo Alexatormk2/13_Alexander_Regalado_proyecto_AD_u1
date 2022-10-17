@@ -28,11 +28,7 @@ public class survivor {
         this.gold = gold;
     }
 
-    public survivor(String nomnbre,  vehiculos carro) {
-        this.nomnbre = nomnbre;
-
-        this.carro = carro;
-
+    public survivor(String nomnbre,vehiculos carro) {
     }
 
     public survivor() {

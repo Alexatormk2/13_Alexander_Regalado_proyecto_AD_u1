@@ -17,6 +17,7 @@ public class Main {
     static historial_mision log = new historial_mision();
 
 
+    //Carga los datos en la ejecucion desde los .dat los cuales la primera ves se cargan dese otro fichero
     public static void inicializador() {
 
 
@@ -28,6 +29,7 @@ public class Main {
 
         int opcion, opcion2, opcionMenu, playerChoose, mercado;
         opcionMenu = 0;
+        //menu el cual se encarga de dar acceso al programa esta fuera del do while por si se falla para que se cierre
         System.out.println("Hola antes de empezar mira si tu cuenta es una de estas o sino  crea una");
         System.out.println("1.Revisar Cuentas y seleccionar");
         System.out.println("2.Nuevo usuario");
