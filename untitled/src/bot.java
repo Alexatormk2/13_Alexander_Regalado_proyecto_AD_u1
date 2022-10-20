@@ -1,4 +1,6 @@
-public class BOT {
+import java.io.Serializable;
+
+public class BOT implements Serializable {
 
 
     String nombre;

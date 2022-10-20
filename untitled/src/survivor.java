@@ -1,8 +1,9 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 
-public class survivor {
+public class survivor implements Serializable {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
     String nomnbre;
@@ -11,12 +12,14 @@ public class survivor {
     int soldItems;
     item[] almacen  = new item[20];
     int bougthItems;
+
+    int victorias;
     vehiculos carro;
     int scrap;
     int copper;
     double gold = 100;
 
-    public survivor(String nomnbre, int kills, int deaths, int soldItems, int bougthItems, vehiculos carro, int scrap, int copper, double gold) {
+    public survivor(String nomnbre, int kills, int deaths, int soldItems, int bougthItems, vehiculos carro, int scrap, int copper, double gold, int victorias) {
         this.nomnbre = nomnbre;
         this.kills = kills;
         this.deaths = deaths;
@@ -26,6 +29,7 @@ public class survivor {
         this.scrap = scrap;
         this.copper = copper;
         this.gold = gold;
+        this.victorias = victorias;
     }
 
     public survivor(String nomnbre,vehiculos carro) {

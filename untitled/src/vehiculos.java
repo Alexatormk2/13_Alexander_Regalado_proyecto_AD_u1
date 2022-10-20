@@ -1,14 +1,17 @@
-public class vehiculos {
+import java.io.Serializable;
+
+public class vehiculos implements Serializable {
 
     int durabilidad;
     String nombre;
     int danio;
     String descripcion;
 
-    public vehiculos(int durabilidad, String nombre, int danio) {
+    public vehiculos(int durabilidad, String nombre, int danio, String description) {
         this.durabilidad = durabilidad;
         this.nombre = nombre;
         this.danio = danio;
+        this.descripcion = description;
     }
     public vehiculos() {
 

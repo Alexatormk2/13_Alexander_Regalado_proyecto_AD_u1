@@ -1,7 +1,6 @@
-import javax.sound.midi.Soundbank;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import com.thoughtworks.xstream.XStream;
+
+import java.io.*;
 import java.util.Objects;
 
 public class Main {
@@ -14,17 +13,12 @@ public class Main {
 
 
     static survivor playerActual;
-    static historial_mision log = new historial_mision();
 
 
     //Carga los datos en la ejecucion desde los .dat los cuales la primera ves se cargan dese otro fichero
-    public static void inicializador() {
-
-
-    }
 
     public static void main(String[] args) throws IOException {
-        inicializador();
+       Metodos_main.inicializador();
 
 
         int opcion, opcion2, opcionMenu, playerChoose, mercado;
@@ -35,12 +29,13 @@ public class Main {
         System.out.println("2.Nuevo usuario");
         System.out.println("3.Salir :c");
         //opcion 1 la cual es para crear y loguearse
+        opcionMenu = Integer.parseInt(br.readLine());
         switch (opcionMenu) {
             case 1:
                 for (int o = 0; o < listaPlayers.length; o++) {
                     System.out.println(o + ". Nombre de jugador: " + listaPlayers[o].getNomnbre());
                 }
-                System.out.println("Selecciona tu nick o po en numero 400 para salir");
+                System.out.println("Selecciona tu nick o pon el numero 400 para salir");
 
 
                 playerChoose = Integer.parseInt(br.readLine());
@@ -66,12 +61,6 @@ public class Main {
         }
 
         do {
-            opcion = 0;
-
-            opcion2 = 0;
-
-
-            opcionMenu = Integer.parseInt(br.readLine());
 
 
             System.out.println("Menu dle juego");
@@ -95,6 +84,8 @@ public class Main {
 
                             break;
                         case 2:
+
+
                             break;
                         case 3:
                             System.out.println("Volviendo a menu principal");
@@ -112,10 +103,10 @@ public class Main {
                     switch (mercado) {
 
                         case 1:
-                            comprar();
+                            Metodos_main.comprar();
                             break;
                         case 2:
-                            vender();
+                           Metodos_main.vender();
                             break;
                         default:
                             System.out.println("Saliendo del menu de mercado");
@@ -127,16 +118,58 @@ public class Main {
             }
 
         }
-        while (opcion != 6 || opcionMenu != 3);
+        while (opcion != 6);
+
+        exportarPlayer();
         System.out.println("Cerrando sesion");
-        log.exportatHistorial(matchs);
+
 
     }
 
+    //exportar jugadores a xml
+    public static void exportarPlayer() throws IOException {
+
+
+        File fichero = new File(".//src//survivor.dat");
+        FileInputStream filein = new FileInputStream(fichero);//crea el flujo de entrada
+//conecta el flujo de bytes al flujo de datos
+        ObjectInputStream dataIS = new ObjectInputStream(filein);
+        System.out.println("Comienza el proceso de creación del fichero a XML ...");
+//Creamos un objeto Lista de Personas
+        ListaSurvivor listasurv = new ListaSurvivor();
+        try {
+            while (true) { //lectura del fichero
+                survivor survivors = (survivor) dataIS.readObject(); //leer una Persona
+                listasurv.add(survivors); //añaadir persona a la lista
+            }
+        } catch (EOFException eo) {
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        dataIS.close(); //cerrar stream de entrada
+        try {
+            XStream xstream = new XStream();
+//cambiar de nombre a las etiquetas XML
+            xstream.alias("Lista_Registro_survivors", ListaSurvivor.class);
+            xstream.alias("Datos_Survivor", survivor.class);
+//quitar etiqueta lista (atributo de la clase ListaPersonas)
+            xstream.addImplicitCollection(ListaSurvivor.class, "lista");
+//Insrtar los objetos en el XML
+            xstream.toXML(listasurv, new FileOutputStream("survivor.xml"));
+            System.out.println("Creado fichero XML....");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        // fin
+
+
+    }
+
+    //crear nuevo survivor para usar
     public static void newUser() throws IOException {
         System.out.println("Nombre de la cuanta");
         String name = br.readLine();
-
+//revisa que no exista
         for (survivor listaPlayer : listaPlayers) {
             if (Objects.equals(name, listaPlayer.getNomnbre())) {
 
@@ -164,60 +197,7 @@ public class Main {
 
     }
 
-    //funcion que le da item a jugador
-    public static void comprar() throws IOException {
-        for (int q = 0; q < disponiblesPiezas.length; q++) {
-            System.out.println(q + " . Nombre  " + disponiblesPiezas[q].getNombre() + "  " + "Precio:" + disponiblesPiezas[q].getPrecio());
-        }
-        int selector = Integer.parseInt(br.readLine());
-        double plata = playerActual.getGold() - disponiblesPiezas[selector].getPrecio();
-        if (plata >= 0) {
-            if (playerActual.almacen[selector] == disponiblesPiezas[selector]) {
 
-                System.out.println("No se puede tener duplicados");
-            } else {
-                playerActual.almacen[selector] = disponiblesPiezas[selector];
-                System.out.println("Compra realizada");
-
-            }
-
-
-        }
-
-
-    }
-
-    //funcio que resta item de jugador
-    public static void vender() throws IOException {
-        item[] paraMover = new item[20];
-        if (playerActual.almacen.length == 0) {
-
-            System.out.println("No posees ningun item lo siento vuelve cuando tengas algo para vender");
-        } else {
-            for (int d = 0; d < playerActual.almacen.length; d++) {
-                System.out.println(d + " . Nombre  " + playerActual.almacen[d].getNombre() + "  " + "Precio:" + playerActual.almacen[d].getPrecio());
-            }
-            int selector = Integer.parseInt(br.readLine());
-            double plata = playerActual.getGold() + playerActual.almacen[selector].getPrecio();
-            //copar arrya pero sin el que a sido borrado
-            for (int a = 0; a < playerActual.almacen.length; a++) {
-                if (a == selector) {
-                    continue;
-                }
-
-                paraMover[a] = playerActual.almacen[a];
-
-            }
-
-            playerActual.setGold(plata);
-            for (int j = 0; j < paraMover.length; j++) {
-                playerActual.almacen[j] = paraMover[j];
-
-            }
-
-
-        }
-    }
 
 }
 
