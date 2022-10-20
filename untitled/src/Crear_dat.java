@@ -50,9 +50,9 @@ public class Crear_dat {
         File ficheroBot = new File(".//bot.dat");
         FileOutputStream escribirBot = new FileOutputStream(ficheroBot);
         ObjectOutputStream itemBot = new ObjectOutputStream(escribirBot);
-        BOT bot1 = new BOT("SoulTaker", carro13);
-        BOT bot2 = new BOT("Bowser", carro12);
-        BOT bot3 = new BOT("Miku", carro12);
+        BOT bot1 = new BOT("SoulTaker", 12414, 241, carro13, "Usando uno de los vehiculos de los jinetes de apocalipsis da casa a cualquier cosa que se mueva");
+        BOT bot2 = new BOT("Bowser", 124, 3141, carro12, "Creado por un fanatico de super mario este bot usar el fuego para acabar con todo");
+        BOT bot3 = new BOT("Miku", 1123, 13, carro12, "");
         itemBot.writeObject(bot1);
         itemBot.writeObject(bot2);
         itemBot.writeObject(bot3);
