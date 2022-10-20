@@ -7,9 +7,9 @@ public class Main {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     //listas--------------
     static item[] disponiblesPiezas = new item[20];
-    static survivor[] listaPlayers = new survivor[20];
+    static survivor[] listaPlayers = new survivor[30];
+    static BOT[] listaBots = new BOT[30];
     static vehiculos[] listaCarros = new vehiculos[25];
-    static partida[] matchs = new partida[30];
 
 
     static survivor playerActual;
@@ -18,7 +18,7 @@ public class Main {
     //Carga los datos en la ejecucion desde los .dat los cuales la primera ves se cargan dese otro fichero
 
     public static void main(String[] args) throws IOException {
-       Metodos_main.inicializador();
+        Metodos_main.inicializador();
 
 
         int opcion, opcion2, opcionMenu, playerChoose, mercado;
@@ -52,7 +52,7 @@ public class Main {
                 break;
 
             case 2:
-                newUser();
+                Metodos_main.newUser();
                 break;
             case 3:
                 System.exit(0);
@@ -106,7 +106,7 @@ public class Main {
                             Metodos_main.comprar();
                             break;
                         case 2:
-                           Metodos_main.vender();
+                            Metodos_main.vender();
                             break;
                         default:
                             System.out.println("Saliendo del menu de mercado");
@@ -126,6 +126,7 @@ public class Main {
 
     }
 
+    //Expotar a xml tanto jugadores como bots:
     //exportar jugadores a xml
     public static void exportarPlayer() throws IOException {
 
@@ -165,38 +166,13 @@ public class Main {
 
     }
 
-    //crear nuevo survivor para usar
-    public static void newUser() throws IOException {
-        System.out.println("Nombre de la cuanta");
-        String name = br.readLine();
-//revisa que no exista
-        for (survivor listaPlayer : listaPlayers) {
-            if (Objects.equals(name, listaPlayer.getNomnbre())) {
+    //exportar xml bot
+    public void exportarBot(){
 
-                System.out.println("Este usuario ya existe lo siento");
-                System.out.println("Cerrando programna :P");
-                System.exit(0);
-            }
 
-        }
-
-        for (int p = 0; p < listaCarros.length; p++) {
-
-            System.out.println(p + ". Nombre " + listaCarros[p].getNombre());
-            System.out.println("Descripcion: " + listaCarros[p].getDescripcion());
-        }
-
-        System.out.println("Seleciona un carro");
-
-        int k = Integer.parseInt(br.readLine());
-        vehiculos carro = listaCarros[k];
-
-        playerActual = new survivor(name, carro);
-        System.out.println("USUARIO:" + playerActual.getNomnbre());
 
 
     }
-
 
 
 }

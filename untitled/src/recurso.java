@@ -1,4 +1,6 @@
-public class recurso {
+import java.io.Serializable;
+
+public class recurso implements Serializable {
 
 
     String nombre;

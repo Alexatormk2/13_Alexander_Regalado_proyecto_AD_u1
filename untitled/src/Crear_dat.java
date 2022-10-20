@@ -24,7 +24,7 @@ public class Crear_dat {
         itemCarro.writeObject(carro11);
         itemCarro.writeObject(carro12);
         itemCarro.writeObject(carro13);
-
+        itemCarro.close();
 
         File ficheroSurvivor = new File(".//survivor.dat");
         FileOutputStream escribirSurvi = new FileOutputStream(ficheroSurvivor);
@@ -34,6 +34,7 @@ public class Crear_dat {
 
         itemSurvi.writeObject(survi1);
         itemSurvi.writeObject(survi2);
+        itemSurvi.close();
 
         File ficheroPiezas = new File(".//piezas.dat");
         FileOutputStream esribirPiezas = new FileOutputStream(ficheroPiezas);
@@ -46,8 +47,9 @@ public class Crear_dat {
         itemPiezas.writeObject(piezas2);
         itemPiezas.writeObject(piezas3);
         itemPiezas.writeObject(piezas4);
+        itemPiezas.close();
 
-        File ficheroBot = new File(".//bot.dat");
+        File ficheroBot = new File(".//BOT.dat");
         FileOutputStream escribirBot = new FileOutputStream(ficheroBot);
         ObjectOutputStream itemBot = new ObjectOutputStream(escribirBot);
         BOT bot1 = new BOT("SoulTaker", 12414, 241, carro13, "Usando uno de los vehiculos de los jinetes de apocalipsis da casa a cualquier cosa que se mueva");
@@ -56,6 +58,7 @@ public class Crear_dat {
         itemBot.writeObject(bot1);
         itemBot.writeObject(bot2);
         itemBot.writeObject(bot3);
+        itemBot.close();
 
 
     }

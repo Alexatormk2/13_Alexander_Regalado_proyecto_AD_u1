@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.io.Serializable;
 
 public class survivor implements Serializable {
-    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
 
     String nomnbre;
     int kills;

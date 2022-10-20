@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.Objects;
 
 public class Metodos_main {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -27,13 +28,14 @@ public class Metodos_main {
                 ad++;
 
             }
+
         } catch (EOFException e) {
             System.out.println(" Fin de la carga de piezas");
 
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-
+        dataIS.close();
         //leer vehiculos
 
 
@@ -47,7 +49,7 @@ public class Metodos_main {
         try {
             while (true) {
 
-                vehiculos carro = (vehiculos) dataIS.readObject();
+                vehiculos carro = (vehiculos) dataGET.readObject();
                 String nombre = carro.getNombre();
                 String descripcion = carro.getDescripcion();
                 int danio = carro.getDanio();
@@ -65,6 +67,7 @@ public class Metodos_main {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+        dataGET.close();
 
 
         //leer survivors
@@ -153,6 +156,41 @@ public class Metodos_main {
 
 
     }
+
+
+
+    //crear nuevo survivor para usar
+    public static void newUser() throws IOException {
+        System.out.println("Nombre de la cuanta");
+        String name = br.readLine();
+//revisa que no exista
+        for (survivor listaPlayer : Main.listaPlayers) {
+            if (Objects.equals(name, listaPlayer.getNomnbre())) {
+
+                System.out.println("Este usuario ya existe lo siento");
+                System.out.println("Cerrando programna :P");
+                System.exit(0);
+            }
+
+        }
+
+        for (int p = 0; p < Main.listaCarros.length; p++) {
+
+            System.out.println(p + ". Nombre " + Main.listaCarros[p].getNombre());
+            System.out.println("Descripcion: " + Main.listaCarros[p].getDescripcion());
+        }
+
+        System.out.println("Seleciona un carro");
+
+        int k = Integer.parseInt(br.readLine());
+        vehiculos carro = Main.listaCarros[k];
+
+        Main.playerActual = new survivor(name, carro);
+        System.out.println("USUARIO:" + Main.playerActual.getNomnbre());
+
+
+    }
+
 
 
 }
