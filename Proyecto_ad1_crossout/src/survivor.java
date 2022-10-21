@@ -9,9 +9,8 @@ public class survivor implements Serializable {
     String nomnbre;
     int kills;
     int deaths;
-    int soldItems;
-    item[] almacen = new item[20];
-    int bougthItems;
+
+
 
     int victorias;
     vehiculos carro;
@@ -19,12 +18,11 @@ public class survivor implements Serializable {
     int copper;
     double gold = 100;
 
-    public survivor(String nomnbre, int kills, int deaths, int soldItems, int bougthItems, vehiculos carro, int scrap, int copper, double gold, int victorias) {
+    public survivor(String nomnbre, int kills, int deaths,  vehiculos carro, int scrap, int copper, double gold, int victorias) {
         this.nomnbre = nomnbre;
         this.kills = kills;
         this.deaths = deaths;
-        this.soldItems = soldItems;
-        this.bougthItems = bougthItems;
+
         this.carro = carro;
         this.scrap = scrap;
         this.copper = copper;
@@ -40,13 +38,7 @@ public class survivor implements Serializable {
     public survivor() {
     }
 
-    public item[] getAlmacen() {
-        return almacen;
-    }
 
-    public void setAlmacen(item[] almacen) {
-        this.almacen = almacen;
-    }
 
     public String getNomnbre() {
         return nomnbre;
@@ -72,21 +64,7 @@ public class survivor implements Serializable {
         this.deaths = deaths;
     }
 
-    public int getSoldItems() {
-        return soldItems;
-    }
 
-    public void setSoldItems(int soldItems) {
-        this.soldItems = soldItems;
-    }
-
-    public int getBougthItems() {
-        return bougthItems;
-    }
-
-    public void setBougthItems(int bougthItems) {
-        this.bougthItems = bougthItems;
-    }
 
     public vehiculos getCarro() {
         return carro;

@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListaSurvivor {
-    ;
+
 
     private List<survivor> lista = new ArrayList<survivor>();
 

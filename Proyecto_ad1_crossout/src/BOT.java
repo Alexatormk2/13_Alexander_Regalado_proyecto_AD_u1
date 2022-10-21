@@ -11,9 +11,12 @@ public class BOT implements Serializable {
     String fraseVictoria;
     String fraseDerrota;
 
-    public BOT(String nombre, vehiculos carro) {
+    public BOT(String nombre, vehiculos carro,String DescriptionBot, String fraseVictoria, String fraseDerrota) {
         this.nombre = nombre;
         this.carro = carro;
+        this.descripcionBot = DescriptionBot;
+        this.fraseDerrota = fraseDerrota;
+        this.fraseVictoria = fraseVictoria;
     }
 
 

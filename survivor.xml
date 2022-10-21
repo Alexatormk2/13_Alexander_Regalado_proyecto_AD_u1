@@ -1,0 +1,41 @@
+<Lista__Registro__survivors>
+  <Datos__Survivor>
+    <nomnbre>Foxy</nomnbre>
+    <kills>0</kills>
+    <deaths>0</deaths>
+    <soldItems>0</soldItems>
+    <almacen>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+      <null/>
+    </almacen>
+    <bougthItems>0</bougthItems>
+    <victorias>0</victorias>
+    <carro>
+      <durabilidad>400</durabilidad>
+      <nombre>starter</nombre>
+      <danio>360</danio>
+      <descripcion>Lo mas simple y con lo que se empieza</descripcion>
+    </carro>
+    <scrap>0</scrap>
+    <copper>140</copper>
+    <gold>100.0</gold>
+  </Datos__Survivor>
+</Lista__Registro__survivors>

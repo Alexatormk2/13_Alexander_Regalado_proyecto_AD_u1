@@ -8,36 +8,6 @@ public class Metodos_main {
 
 //leer piezas
 
-        File fichero = new File(".//piezas.dat");
-
-//Flujo de entrada
-        FileInputStream filein = new FileInputStream(fichero);
-//Conecta el flujo de bytes al flujo de datos
-        ObjectInputStream dataIS = new ObjectInputStream(filein);
-        int ad = 0;
-        try {
-            while (true) {
-
-                item p21 = (item) dataIS.readObject();
-                String nombre = p21.getNombre();
-                String categoria = p21.getCategoria();
-
-                double precio = p21.getPrecio();
-                item a = new item(precio, nombre, categoria);
-                Main.disponiblesPiezas[ad] = a;
-                ad++;
-
-            }
-
-        } catch (EOFException e) {
-            System.out.println(" Fin de la carga de piezas");
-
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        dataIS.close();
-        //leer vehiculos
-
 
         File ficheroCarro = new File(".//vehiculos.dat");
 
@@ -96,6 +66,7 @@ public class Metodos_main {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+        dataSur.close();
 
         //leer bots
         File ficherobot = new File(".//bot.dat");
@@ -111,7 +82,10 @@ public class Metodos_main {
                 BOT bot = (BOT) dataBot.readObject();
                 String nombre2 = bot.getNombre();
                 vehiculos carro = bot.getCarro();
-                BOT a = new BOT(nombre2, carro);
+                String frased = bot.fraseDerrota;
+                String fraseV = bot.fraseVictoria;
+                String descr = bot.descripcionBot;
+                BOT a = new BOT(nombre2, carro, descr, fraseV, frased);
                 Main.listaBots[at] = a;
                 at++;
 
@@ -123,64 +97,12 @@ public class Metodos_main {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+        dataBot.close();
 
 
     }
 
     //funcio que resta item de jugador
-    public static void vender() throws IOException {
-        item[] paraMover = new item[20];
-        if (Main.playerActual.almacen.length == 0) {
-
-            System.out.println("No posees ningun item lo siento vuelve cuando tengas algo para vender");
-        } else {
-            for (int d = 0; d < Main.playerActual.almacen.length; d++) {
-                System.out.println(d + " . Nombre  " + Main.playerActual.almacen[d].getNombre() + "  " + "Precio:" + Main.playerActual.almacen[d].getPrecio());
-            }
-            int selector = Integer.parseInt(br.readLine());
-            double plata = Main.playerActual.getGold() + Main.playerActual.almacen[selector].getPrecio();
-            //copar arrya pero sin el que a sido borrado
-            for (int a = 0; a < Main.playerActual.almacen.length; a++) {
-                if (a == selector) {
-                    continue;
-                }
-
-                paraMover[a] = Main.playerActual.almacen[a];
-
-            }
-
-            Main.playerActual.setGold(plata);
-            for (int j = 0; j < paraMover.length; j++) {
-                Main.playerActual.almacen[j] = paraMover[j];
-
-            }
-
-
-        }
-    }
-
-    //funcion que le da item a jugador despudes de comprarlo aparte de revisar si ya lo tiene en tal caso no le deja comprar
-    public static void comprar() throws IOException {
-        for (int q = 0; q < Main.disponiblesPiezas.length; q++) {
-            System.out.println(q + " . Nombre  " + Main.disponiblesPiezas[q].getNombre() + "  " + "Precio:" + Main.disponiblesPiezas[q].getPrecio());
-        }
-        int selector = Integer.parseInt(br.readLine());
-        double plata = Main.playerActual.getGold() - Main.disponiblesPiezas[selector].getPrecio();
-        if (plata >= 0) {
-            if (Main.playerActual.almacen[selector] == Main.disponiblesPiezas[selector]) {
-
-                System.out.println("No se puede tener duplicados");
-            } else {
-                Main.playerActual.almacen[selector] = Main.disponiblesPiezas[selector];
-                System.out.println("Compra realizada");
-
-            }
-
-
-        }
-
-
-    }
 
 
     public static void chatarra() {
@@ -206,7 +128,10 @@ public class Metodos_main {
                 System.out.println("----" + bot + ": " + derrota);
                 int scraper = Main.playerActual.getScrap();
                 scraper = scraper + 40;
+                double gold = Main.playerActual.getGold();
+                gold = gold + 30;
                 Main.playerActual.setScrap(scraper);
+                Main.playerActual.setGold(gold);
 
             } else if (health == 0) {
                 System.out.println("---------Derrota------");
@@ -215,6 +140,9 @@ public class Metodos_main {
                 int scraper = Main.playerActual.getScrap();
                 scraper = scraper + 20;
                 Main.playerActual.setScrap(scraper);
+                double gold = Main.playerActual.getGold();
+                gold = gold + 15;
+                Main.playerActual.setGold(gold);
             } else {
                 int numeroAleatorio2 = (int) (Math.random() * 2 + 1);
                 switch (numeroAleatorio2) {
@@ -252,13 +180,48 @@ public class Metodos_main {
 
     }
 
+    public static void cambiarCarro() throws IOException {
+
+
+        System.out.println("Hola que carro quiere");
+        for (int k = 0; k < Main.listaCarros.length; k++) {
+            if (Main.listaCarros[k] == null) {
+
+
+                break;
+            } else if (Main.listaCarros[k] == Main.playerActual.getCarro()) {
+
+                System.out.println(" Este es el actual--" + k + ". Nombre: " + Main.listaCarros[k].getNombre() + " Descripcion :" + Main.listaCarros[k].getDescripcion() + " Durabilida/hp " + Main.listaCarros[k].getDurabilidad() + " Daño: " + Main.listaCarros[k].getDanio());
+            } else {
+                System.out.println(k + ". Nombre: " + Main.listaCarros[k].getNombre() + " Descripcion :" + Main.listaCarros[k].getDescripcion() + " Durabilida/hp " + Main.listaCarros[k].getDurabilidad() + " Daño: " + Main.listaCarros[k].getDanio());
+
+
+            }
+        }
+
+        int opcion = 0;
+        opcion = Integer.parseInt(br.readLine());
+        if (Main.listaCarros[opcion] == Main.playerActual.getCarro()) {
+            System.out.println("Este es el actual no se puede seleccionar");
+        } else {
+            System.out.println("Cambio el carro espera.....");
+            Main.playerActual.setCarro(Main.listaCarros[opcion]);
+
+        }
+
+
+    }
+
     public static void cobre() {
+
+
         String player = Main.playerActual.getNomnbre();
         String carro = Main.playerActual.carro.getNombre();
         int danio = Main.playerActual.carro.getDanio();
         int health = Main.playerActual.carro.getDurabilidad();
         int danioTotal = 0;
-        int numeroAleatorio = (int) (Math.random() * 2 + 0);
+        int numeroAleatorio = (int) (Math.random() * 3 + 0);
+        int vida = health;
 
         String bot = Main.listaBots[numeroAleatorio].getNombre();
         String Carrobot = Main.listaBots[numeroAleatorio].carro.getNombre();
@@ -266,78 +229,85 @@ public class Metodos_main {
         int Healthbot = Main.listaBots[numeroAleatorio].carro.getDurabilidad();
         String victoria = Main.listaBots[numeroAleatorio].getFraseVictoria();
         String derrota = Main.listaBots[numeroAleatorio].getFraseDerrota();
-        System.out.println("---------------  " + victoria);
-        System.out.println("---------------  " + derrota);
+        int vidaBot = Healthbot;
         int danioTotalBot = 0;
 
-        for (int round = 0; round < 5; round++) {
-
-                int numeroAleatorio3 = (int) (Math.random() * 2 + 1);
-                switch (numeroAleatorio3) {
+        for (int round = 0; round < 10; round++) {
+            if (vida <= 0 || vidaBot <= 0) {
+                continue;
+            } else {
+                int numeroAleatorio2 = (int) (Math.random() * 2 + 1);
+                switch (numeroAleatorio2) {
                     case 1:
                         //turno jugador
+                        System.out.println("+++++++++++++++++");
                         System.out.println("Survivor :" + player + " A dañado el vehiculo enemigo ");
                         danioTotal = Healthbot - danio;
-                        System.out.println(player + " A causado :" + danio + " de danio total al bot");
-                        System.out.println("Durabildiad total perdida  del jugador  " + danioTotalBot);
-                        if (danioTotal - Healthbot == 0) {
+                        vidaBot = vidaBot - danio;
+                        System.out.println("+++++++++++++++++");
+                        System.out.println(player + " A causado :" + danio + " de danio  al bot");
+                        System.out.println("Durabildiad restante del jugador  " + (health - danioTotalBot));
+                        System.out.println("+++++++++++++++++");
 
+
+                        if (vidaBot - danioTotal <= 0) {
                             System.out.println("----------Victoria--------");
-                            System.out.println("Enemigo eliminado ganador survivor: " + player);
+                            System.out.println("Enemigo eliminado ganador survivor:" + player);
                             System.out.println("----" + bot + ": " + derrota);
+
+
                             int copper = Main.playerActual.getCopper();
                             copper = copper + 40;
                             Main.playerActual.setCopper(copper);
 
-                        } else {
-                            System.out.println("---------Derrota------");
-                            System.out.println("Has sido eliminado" + player);
-                            System.out.println("----" + bot + ": " + victoria);
-                            int copper = Main.playerActual.getCopper();
-                            copper = copper + 20;
-                            Main.playerActual.setCopper(copper);
-                        }
+                            double gold = Main.playerActual.getGold();
+                            gold = gold + 30;
 
+                            Main.playerActual.setGold(gold);
+
+                            continue;
+                        }
                         break;
                     case 2:
 
                         //turno bot
+                        System.out.println("-----------");
                         System.out.println(" Bot:" + bot + "A dañado el vehiculo del survivor rival");
                         danioTotalBot = health - daniobot;
+                        vida = vida - daniobot;
+                        System.out.println(bot + " A causado :" + daniobot + " de danio  al survivor");
 
-                        System.out.println(player + " A causado :" + daniobot + " de danio total al bot");
-                        System.out.println("Durabildiad total perdida  del bot  " + danioTotal);
-                        if (danioTotalBot - health == 0) {
+                        System.out.println("-----------");
+                        System.out.println("Durabildiad total perdida  del bot  " + (Healthbot - danioTotal));
 
-                            System.out.println("----------Victoria--------");
-                            System.out.println("Enemigo eliminado ganador bot:" + bot);
+                        if (vida - danioTotalBot <= 0) {
+                            System.out.println("---------Derrota------");
+                            System.out.println("Has sido eliminado" + player);
                             System.out.println("----" + bot + ": " + victoria);
                             int copper = Main.playerActual.getCopper();
                             copper = copper + 20;
-                            Main.playerActual.setCopper(copper);
-                        } else {
-                            System.out.println("---------Derrota------");
-                            System.out.println("Has sido eliminado" + player);
+                            Main.playerActual.setScrap(copper);
+                            double gold = Main.playerActual.getGold();
+                            gold = gold + 15;
+                            Main.playerActual.setGold(gold);
 
-                            System.out.println("----" + bot + ": " + derrota);
+                            continue;
 
-                            int copper = Main.playerActual.getCopper();
-                            copper = copper + 40;
-                            Main.playerActual.setCopper(copper);
+                        }break;
 
-                        }
 
-                        break;
+
 
                 }
-
-
             }
+
+            /////
 
 
         }
 
 
+    }
 
 
     //crear nuevo survivor para usar
@@ -345,14 +315,19 @@ public class Metodos_main {
         System.out.println("Nombre de la cuanta");
         String name = br.readLine();
 //revisa que no exista
-        for (survivor listaPlayer : Main.listaPlayers) {
+        for (int o = 0; o < Main.listaPlayers.length; o++) {
+            if (Main.listaPlayers[o] == null) {
 
-            if (Objects.equals(name, listaPlayer.getNomnbre())) {
+
+                break;
+
+            } else if (Objects.equals(name, Main.listaPlayers[o].getNomnbre())) {
 
                 System.out.println("Este usuario ya existe lo siento");
                 System.out.println("Cerrando programna :P");
                 System.exit(0);
             }
+
 
         }
 

@@ -6,7 +6,7 @@ import java.util.Objects;
 public class Main {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     //listas--------------
-    static item[] disponiblesPiezas = new item[20];
+
     static survivor[] listaPlayers = new survivor[30];
     static BOT[] listaBots = new BOT[30];
     static vehiculos[] listaCarros = new vehiculos[25];
@@ -21,7 +21,7 @@ public class Main {
         Metodos_main.inicializador();
 
 
-        int opcion, opcion2, opcionMenu, playerChoose, mercado;
+        int opcion, opcion2 = 0, opcionMenu, playerChoose, mercado;
         opcionMenu = 0;
         //menu el cual se encarga de dar acceso al programa esta fuera del do while por si se falla para que se cierre
         System.out.println("Hola antes de empezar mira si tu cuenta es una de estas o sino  crea una");
@@ -69,9 +69,9 @@ public class Main {
         do {
 
 
-            System.out.println("Menu dle juego");
+            System.out.println("Menu del juego");
             System.out.println("1.Batalla");
-            System.out.println("2.Mercado");
+            System.out.println("2.Cambiar Carro");
             System.out.println("3.Salir");
 
             opcion = Integer.parseInt(br.readLine());
@@ -79,11 +79,18 @@ public class Main {
 
             switch (opcion) {
                 case 1:
-                    System.out.println("1. a por chatarra");
-                    System.out.println("2. a por cobre");
-                    System.out.println("3. volver a atras");
+                    System.out.println("1. A por chatarra");
+                    System.out.println("2. A por cobre");
+                    System.out.println("3. Volver a atras");
 
-                    opcion2 = Integer.parseInt(br.readLine());
+                    try {
+                        opcion2 = Integer.parseInt(br.readLine());
+                    } catch (NumberFormatException e) {
+                        throw new RuntimeException(e);
+                    } catch (IOException e) {
+                        System.out.println("Error inesperado");
+                    }
+
                     switch (opcion2) {
 
                         case 1:
@@ -103,36 +110,16 @@ public class Main {
                     }
                     break;
                 case 2:
-                    System.out.println("Queres comprar o vender");
-                    System.out.println("1.comprar");
-                    System.out.println("2.vender");
-                    mercado = Integer.parseInt(br.readLine());
-                    switch (mercado) {
-
-                        case 1:
-                            Metodos_main.comprar();
-                            break;
-                        case 2:
-                            Metodos_main.vender();
-                            break;
-                        default:
-                            System.out.println("Saliendo del menu de mercado");
-                            break;
-
-
-                    }
-
-                    break;
-                case 3:
-                    System.exit(0);
+                Metodos_main.cambiarCarro();
                     break;
             }
 
         }
-        while (opcion != 6);
+        while (opcion != 3);
         Metodos_main.guardarDatos();
         exportarPlayer();
         exportarBot();
+        exportarCarro();
         System.out.println("Cerrando sesion");
 
 
@@ -143,7 +130,7 @@ public class Main {
     public static void exportarPlayer() throws IOException {
 
 
-        File fichero = new File(".//src//survivor.dat");
+        File fichero = new File("survivor.dat");
         FileInputStream filein = new FileInputStream(fichero);//crea el flujo de entrada
 //conecta el flujo de bytes al flujo de datos
         ObjectInputStream dataIS = new ObjectInputStream(filein);
@@ -182,7 +169,7 @@ public class Main {
     public static void exportarBot() throws IOException {
 
 
-        File ficherobot = new File(".//src//bot.dat");
+        File ficherobot = new File("bot.dat");
         FileInputStream filebot = new FileInputStream(ficherobot);//crea el flujo de entrada
 //conecta el flujo de bytes al flujo de datos
         ObjectInputStream dataIS = new ObjectInputStream(filebot);
@@ -215,6 +202,41 @@ public class Main {
         // fin
     }
 
+    public static void exportarCarro() throws IOException {
+
+
+        File ficherobot = new File("vehiculos.dat");
+        FileInputStream fileCarro = new FileInputStream(ficherobot);//crea el flujo de entrada
+//conecta el flujo de bytes al flujo de datos
+        ObjectInputStream dataIS = new ObjectInputStream(fileCarro);
+        System.out.println("Comienza el proceso de creación del fichero a XML ...");
+//Creamos un objeto Lista de Personas
+        ListaCarro listaCa = new ListaCarro();
+        try {
+            while (true) { //lectura del fichero
+                vehiculos carro = (vehiculos) dataIS.readObject(); //leer una Persona
+                listaCa.add(carro); //añaadir persona a la lista
+            }
+        } catch (EOFException eo) {
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        dataIS.close(); //cerrar stream de entrada
+        try {
+            XStream xstream = new XStream();
+//cambiar de nombre a las etiquetas XML
+            xstream.alias("Lista_Registro_bot", ListaCarro.class);
+            xstream.alias("Datos_BOT", vehiculos.class);
+//quitar etiqueta lista (atributo de la clase ListaPersonas)
+            xstream.addImplicitCollection(ListaCarro.class, "lista");
+//Insrtar los objetos en el XML
+            xstream.toXML(listaCa, new FileOutputStream("bot.xml"));
+            System.out.println("Creado fichero XML....");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        // fin
+    }
 
 }
 
