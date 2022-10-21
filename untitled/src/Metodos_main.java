@@ -8,7 +8,7 @@ public class Metodos_main {
 
 //leer piezas
 
-        File fichero = new File(".//src//piezas.dat");
+        File fichero = new File(".//piezas.dat");
 
 //Flujo de entrada
         FileInputStream filein = new FileInputStream(fichero);
@@ -39,7 +39,7 @@ public class Metodos_main {
         //leer vehiculos
 
 
-        File ficheroCarro = new File(".//src//vehiculos.dat");
+        File ficheroCarro = new File(".//vehiculos.dat");
 
 //Flujo de entrada
         FileInputStream fileDEntro = new FileInputStream(ficheroCarro);
@@ -71,7 +71,7 @@ public class Metodos_main {
 
 
         //leer survivors
-        File ficheroSurv = new File(".//src//vehiculos.dat");
+        File ficheroSurv = new File(".//survivor.dat");
 
 //Flujo de entrada
         FileInputStream fileSur = new FileInputStream(ficheroSurv);
@@ -91,13 +91,38 @@ public class Metodos_main {
             }
 
         } catch (EOFException e) {
-            System.out.println(" Fin de la carga de carros");
+            System.out.println(" Fin de la carga de survivor");
 
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
 
         //leer bots
+        File ficherobot = new File(".//bot.dat");
+
+//Flujo de entrada
+        FileInputStream filebot = new FileInputStream(ficheroSurv);
+//Conecta el flujo de bytes al flujo de datos
+        ObjectInputStream dataBot = new ObjectInputStream(filebot);
+        int at = 0;
+        try {
+            while (true) {
+
+                survivor sur = (survivor) dataSur.readObject();
+                String nomnbre = sur.getNomnbre();
+                vehiculos carro = sur.getCarro();
+                BOT a = new BOT(nomnbre, carro);
+                Main.listaBots[at] = a;
+                ad++;
+
+            }
+
+        } catch (EOFException e) {
+            System.out.println(" Fin de la carga de bot");
+
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
 
     }
@@ -158,6 +183,133 @@ public class Metodos_main {
     }
 
 
+    public static void chatarra() {
+        String player = Main.playerActual.getNomnbre();
+        String carro = Main.playerActual.carro.getNombre();
+        int danio = Main.playerActual.carro.getDanio();
+        int health = Main.playerActual.carro.getDurabilidad();
+        int danioTotal = 0;
+        int numeroAleatorio = (int) (Math.random() * 2 + 0);
+
+        String bot = Main.listaBots[numeroAleatorio].getNombre();
+        String Carrobot = Main.listaBots[numeroAleatorio].carro.getNombre();
+        int daniobot = Main.listaBots[numeroAleatorio].carro.getDanio();
+        int Healthbot = Main.listaBots[numeroAleatorio].carro.getDurabilidad();
+        String victoria = Main.listaBots[numeroAleatorio].getFraseVictoria();
+        String derrota = Main.listaBots[numeroAleatorio].getFraseDerrota();
+        int danioTotalBot = 0;
+
+        for (int round = 0; round < 5; round++) {
+            if (Healthbot <= 0) {
+                System.out.println("----------Victoria--------");
+                System.out.println("Enemigo eliminado ganador survivor:" + player);
+                System.out.println("----" + bot + ": " + derrota);
+                int scraper = Main.playerActual.getScrap();
+                scraper = scraper + 40;
+                Main.playerActual.setScrap(scraper);
+
+            } else if (health <= 0) {
+                System.out.println("---------Derrota------");
+                System.out.println("Has sido eliminado" + player);
+                System.out.println("----" + bot + ": " + victoria);
+                int scraper = Main.playerActual.getScrap();
+                scraper = scraper + 20;
+                Main.playerActual.setScrap(scraper);
+            } else {
+                int numeroAleatorio2 = (int) (Math.random() * 2 + 1);
+                switch (numeroAleatorio2) {
+                    case 1:
+                        //turno jugador
+                        System.out.println("Survivor :" + player + " A dañado el vehiculo enemigo ");
+                        danioTotal = Healthbot - danio;
+                        System.out.println(player + " A causado :" + danio + " de danio total al bot");
+                        System.out.println("Durabildiad total perdida  del jugador  " + danioTotalBot);
+                        break;
+                    case 2:
+
+                        //turno bot
+                        System.out.println(" Bot:" + bot + "A dañado el vehiculo del survivor rival");
+                        danioTotalBot = health - daniobot;
+
+                        System.out.println(player + " A causado :" + daniobot + " de danio total al bot");
+                        System.out.println("Durabildiad total perdida  del bot  " + danioTotal);
+
+                        break;
+
+                }
+
+
+            }
+
+
+        }
+
+
+    }
+
+    public static void cobre() {
+        String player = Main.playerActual.getNomnbre();
+        String carro = Main.playerActual.carro.getNombre();
+        int danio = Main.playerActual.carro.getDanio();
+        int health = Main.playerActual.carro.getDurabilidad();
+        int danioTotal = 0;
+        int numeroAleatorio = (int) (Math.random() * 2 + 0);
+
+        String bot = Main.listaBots[numeroAleatorio].getNombre();
+        String Carrobot = Main.listaBots[numeroAleatorio].carro.getNombre();
+        int daniobot = Main.listaBots[numeroAleatorio].carro.getDanio();
+        int Healthbot = Main.listaBots[numeroAleatorio].carro.getDurabilidad();
+        String victoria = Main.listaBots[numeroAleatorio].getFraseVictoria();
+        String derrota = Main.listaBots[numeroAleatorio].getFraseDerrota();
+        int danioTotalBot = 0;
+
+        for (int round = 0; round < 5; round++) {
+            if (Healthbot <= 0) {
+                System.out.println("----------Victoria--------");
+                System.out.println("Enemigo eliminado ganador survivor:" + player);
+                System.out.println("----" + bot + ": " + derrota);
+                int copper = Main.playerActual.getCopper();
+                copper = copper + 40;
+                Main.playerActual.setCopper(copper);
+
+            } else if (health <= 0) {
+                System.out.println("---------Derrota------");
+                System.out.println("Has sido eliminado" + player);
+                System.out.println("----" + bot + ": " + victoria);
+                int copper = Main.playerActual.getCopper();
+                copper = copper + 20;
+                Main.playerActual.setCopper(copper);
+            } else {
+                int numeroAleatorio3 = (int) (Math.random() * 2 + 1);
+                switch (numeroAleatorio3) {
+                    case 1:
+                        //turno jugador
+                        System.out.println("Survivor :" + player + " A dañado el vehiculo enemigo ");
+                        danioTotal = Healthbot - danio;
+                        System.out.println(player + " A causado :" + danio + " de danio total al bot");
+                        System.out.println("Durabildiad total perdida  del jugador  " + danioTotalBot);
+                        break;
+                    case 2:
+
+                        //turno bot
+                        System.out.println(" Bot:" + bot + "A dañado el vehiculo del survivor rival");
+                        danioTotalBot = health - daniobot;
+
+                        System.out.println(player + " A causado :" + daniobot + " de danio total al bot");
+                        System.out.println("Durabildiad total perdida  del bot  " + danioTotal);
+
+                        break;
+
+                }
+
+
+            }
+
+
+        }
+
+
+    }
 
     //crear nuevo survivor para usar
     public static void newUser() throws IOException {
@@ -165,6 +317,7 @@ public class Metodos_main {
         String name = br.readLine();
 //revisa que no exista
         for (survivor listaPlayer : Main.listaPlayers) {
+
             if (Objects.equals(name, listaPlayer.getNomnbre())) {
 
                 System.out.println("Este usuario ya existe lo siento");
@@ -192,6 +345,13 @@ public class Metodos_main {
     }
 
 
+    public static void guardarDatos() throws IOException {
 
+        File ficheroSurvivor = new File(".//survivor.dat");
+        FileOutputStream escribirSurvi = new FileOutputStream(ficheroSurvivor);
+        ObjectOutputStream itemSurvi = new ObjectOutputStream(escribirSurvi);
+        itemSurvi.writeObject(Main.playerActual);
+
+    }
 }
 

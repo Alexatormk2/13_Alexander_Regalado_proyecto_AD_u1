@@ -80,11 +80,11 @@ public class Main {
                     switch (opcion2) {
 
                         case 1:
-
+                            Metodos_main.chatarra();
 
                             break;
                         case 2:
-
+                            Metodos_main.cobre();
 
                             break;
                         case 3:
@@ -119,8 +119,9 @@ public class Main {
 
         }
         while (opcion != 6);
-
+        Metodos_main.guardarDatos();
         exportarPlayer();
+        exportarBot();
         System.out.println("Cerrando sesion");
 
 
@@ -167,11 +168,40 @@ public class Main {
     }
 
     //exportar xml bot
-    public void exportarBot(){
+    public static void exportarBot() throws IOException {
 
 
-
-
+        File ficherobot = new File(".//src//bot.dat");
+        FileInputStream filebot = new FileInputStream(ficherobot);//crea el flujo de entrada
+//conecta el flujo de bytes al flujo de datos
+        ObjectInputStream dataIS = new ObjectInputStream(filebot);
+        System.out.println("Comienza el proceso de creación del fichero a XML ...");
+//Creamos un objeto Lista de Personas
+        ListaBot listaBo = new ListaBot();
+        try {
+            while (true) { //lectura del fichero
+                BOT bot = (BOT) dataIS.readObject(); //leer una Persona
+                listaBo.add(bot); //añaadir persona a la lista
+            }
+        } catch (EOFException eo) {
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        dataIS.close(); //cerrar stream de entrada
+        try {
+            XStream xstream = new XStream();
+//cambiar de nombre a las etiquetas XML
+            xstream.alias("Lista_Registro_bot", ListaBot.class);
+            xstream.alias("Datos_BOT", BOT.class);
+//quitar etiqueta lista (atributo de la clase ListaPersonas)
+            xstream.addImplicitCollection(ListaBot.class, "lista");
+//Insrtar los objetos en el XML
+            xstream.toXML(listaBo, new FileOutputStream("bot.xml"));
+            System.out.println("Creado fichero XML....");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        // fin
     }
 
 

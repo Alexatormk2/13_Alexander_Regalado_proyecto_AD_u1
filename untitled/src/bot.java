@@ -8,6 +8,8 @@ public class BOT implements Serializable {
     int deaths = 0;
     String descripcionBot;
     vehiculos carro;
+    String fraseVictoria;
+    String fraseDerrota;
 
     public BOT(String nombre, vehiculos carro) {
         this.nombre = nombre;
@@ -15,12 +17,14 @@ public class BOT implements Serializable {
     }
 
 
-    public BOT(String nombre, int kill, int deaths, vehiculos carro, String DescriptionBot) {
+    public BOT(String nombre, int kill, int deaths, vehiculos carro, String DescriptionBot, String fraseVictoria, String fraseDerrota) {
         this.nombre = nombre;
         this.kill = kill;
         this.deaths = deaths;
         this.carro = carro;
         this.descripcionBot = DescriptionBot;
+        this.fraseDerrota = fraseDerrota;
+        this.fraseVictoria = fraseVictoria;
     }
 
     public BOT() {
@@ -50,11 +54,35 @@ public class BOT implements Serializable {
         this.deaths = deaths;
     }
 
+    public String getDescripcionBot() {
+        return descripcionBot;
+    }
+
+    public void setDescripcionBot(String descripcionBot) {
+        this.descripcionBot = descripcionBot;
+    }
+
     public vehiculos getCarro() {
         return carro;
     }
 
     public void setCarro(vehiculos carro) {
         this.carro = carro;
+    }
+
+    public String getFraseVictoria() {
+        return fraseVictoria;
+    }
+
+    public void setFraseVictoria(String fraseVictoria) {
+        this.fraseVictoria = fraseVictoria;
+    }
+
+    public String getFraseDerrota() {
+        return fraseDerrota;
+    }
+
+    public void setFraseDerrota(String fraseDerrota) {
+        this.fraseDerrota = fraseDerrota;
     }
 }

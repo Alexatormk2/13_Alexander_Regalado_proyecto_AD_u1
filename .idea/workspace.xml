@@ -37,10 +37,11 @@
     "last_opened_file_path": "C:/Users/9FDAM10/Documents/13_Alexander_Regalado_proyecto_AD_u1",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Crear_dat">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Crear_dat" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Crear_dat" />
       <module name="untitled" />
@@ -57,8 +58,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Crear_dat" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Crear_dat" />
       </list>
     </recent_temporary>
   </component>
@@ -70,7 +71,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1666000368799</updated>
-      <workItem from="1666283746240" duration="4239000" />
+      <workItem from="1666283746240" duration="4531000" />
+      <workItem from="1666373885191" duration="3676000" />
     </task>
     <servers />
   </component>
