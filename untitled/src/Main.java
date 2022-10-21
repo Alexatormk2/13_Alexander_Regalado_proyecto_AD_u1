@@ -33,7 +33,13 @@ public class Main {
         switch (opcionMenu) {
             case 1:
                 for (int o = 0; o < listaPlayers.length; o++) {
-                    System.out.println(o + ". Nombre de jugador: " + listaPlayers[o].getNomnbre());
+                    if (listaPlayers[o] == null) {
+
+                        break;
+
+                    } else {
+                        System.out.println(o + ". Nombre de jugador: " + listaPlayers[o].getNomnbre());
+                    }
                 }
                 System.out.println("Selecciona tu nick o pon el numero 400 para salir");
 

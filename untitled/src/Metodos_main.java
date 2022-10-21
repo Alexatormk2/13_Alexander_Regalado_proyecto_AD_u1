@@ -58,7 +58,7 @@ public class Metodos_main {
 
                 vehiculos a = new vehiculos(durabilidad, nombre, danio, descripcion);
                 Main.listaCarros[aj] = a;
-                ad++;
+                aj++;
 
             }
         } catch (EOFException e) {
@@ -86,7 +86,7 @@ public class Metodos_main {
                 vehiculos carro = sur.getCarro();
                 survivor a = new survivor(nomnbre, carro);
                 Main.listaPlayers[aw] = a;
-                ad++;
+                aw++;
 
             }
 
@@ -108,12 +108,12 @@ public class Metodos_main {
         try {
             while (true) {
 
-                survivor sur = (survivor) dataSur.readObject();
+                survivor sur = (survivor) dataBot.readObject();
                 String nomnbre = sur.getNomnbre();
                 vehiculos carro = sur.getCarro();
                 BOT a = new BOT(nomnbre, carro);
                 Main.listaBots[at] = a;
-                ad++;
+                at++;
 
             }
 

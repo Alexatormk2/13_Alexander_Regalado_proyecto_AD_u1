@@ -10,7 +10,7 @@ public class survivor implements Serializable {
     int kills;
     int deaths;
     int soldItems;
-    item[] almacen  = new item[20];
+    item[] almacen = new item[20];
     int bougthItems;
 
     int victorias;
@@ -32,7 +32,9 @@ public class survivor implements Serializable {
         this.victorias = victorias;
     }
 
-    public survivor(String nomnbre,vehiculos carro) {
+    public survivor(String nomnbre, vehiculos carro) {
+        this.nomnbre = nomnbre;
+        this.carro = carro;
     }
 
     public survivor() {
