@@ -101,17 +101,17 @@ public class Metodos_main {
         File ficherobot = new File(".//bot.dat");
 
 //Flujo de entrada
-        FileInputStream filebot = new FileInputStream(ficheroSurv);
+        FileInputStream filebot = new FileInputStream(ficherobot);
 //Conecta el flujo de bytes al flujo de datos
         ObjectInputStream dataBot = new ObjectInputStream(filebot);
         int at = 0;
         try {
             while (true) {
 
-                survivor sur = (survivor) dataBot.readObject();
-                String nomnbre = sur.getNomnbre();
-                vehiculos carro = sur.getCarro();
-                BOT a = new BOT(nomnbre, carro);
+                BOT bot = (BOT) dataBot.readObject();
+                String nombre2 = bot.getNombre();
+                vehiculos carro = bot.getCarro();
+                BOT a = new BOT(nombre2, carro);
                 Main.listaBots[at] = a;
                 at++;
 
@@ -200,7 +200,7 @@ public class Metodos_main {
         int danioTotalBot = 0;
 
         for (int round = 0; round < 5; round++) {
-            if (Healthbot <= 0) {
+            if (Healthbot == 0) {
                 System.out.println("----------Victoria--------");
                 System.out.println("Enemigo eliminado ganador survivor:" + player);
                 System.out.println("----" + bot + ": " + derrota);
@@ -208,7 +208,7 @@ public class Metodos_main {
                 scraper = scraper + 40;
                 Main.playerActual.setScrap(scraper);
 
-            } else if (health <= 0) {
+            } else if (health == 0) {
                 System.out.println("---------Derrota------");
                 System.out.println("Has sido eliminado" + player);
                 System.out.println("----" + bot + ": " + victoria);
@@ -220,18 +220,23 @@ public class Metodos_main {
                 switch (numeroAleatorio2) {
                     case 1:
                         //turno jugador
+                        System.out.println("+++++++++++++++++");
                         System.out.println("Survivor :" + player + " A dañado el vehiculo enemigo ");
                         danioTotal = Healthbot - danio;
+                        System.out.println("+++++++++++++++++");
                         System.out.println(player + " A causado :" + danio + " de danio total al bot");
+                        System.out.println("+++++++++++++++++");
                         System.out.println("Durabildiad total perdida  del jugador  " + danioTotalBot);
                         break;
                     case 2:
 
                         //turno bot
+                        System.out.println("-----------");
                         System.out.println(" Bot:" + bot + "A dañado el vehiculo del survivor rival");
                         danioTotalBot = health - daniobot;
 
                         System.out.println(player + " A causado :" + daniobot + " de danio total al bot");
+                        System.out.println("-----------");
                         System.out.println("Durabildiad total perdida  del bot  " + danioTotal);
 
                         break;
@@ -261,25 +266,12 @@ public class Metodos_main {
         int Healthbot = Main.listaBots[numeroAleatorio].carro.getDurabilidad();
         String victoria = Main.listaBots[numeroAleatorio].getFraseVictoria();
         String derrota = Main.listaBots[numeroAleatorio].getFraseDerrota();
+        System.out.println("---------------  " + victoria);
+        System.out.println("---------------  " + derrota);
         int danioTotalBot = 0;
 
         for (int round = 0; round < 5; round++) {
-            if (Healthbot <= 0) {
-                System.out.println("----------Victoria--------");
-                System.out.println("Enemigo eliminado ganador survivor:" + player);
-                System.out.println("----" + bot + ": " + derrota);
-                int copper = Main.playerActual.getCopper();
-                copper = copper + 40;
-                Main.playerActual.setCopper(copper);
 
-            } else if (health <= 0) {
-                System.out.println("---------Derrota------");
-                System.out.println("Has sido eliminado" + player);
-                System.out.println("----" + bot + ": " + victoria);
-                int copper = Main.playerActual.getCopper();
-                copper = copper + 20;
-                Main.playerActual.setCopper(copper);
-            } else {
                 int numeroAleatorio3 = (int) (Math.random() * 2 + 1);
                 switch (numeroAleatorio3) {
                     case 1:
@@ -288,6 +280,24 @@ public class Metodos_main {
                         danioTotal = Healthbot - danio;
                         System.out.println(player + " A causado :" + danio + " de danio total al bot");
                         System.out.println("Durabildiad total perdida  del jugador  " + danioTotalBot);
+                        if (danioTotal - Healthbot == 0) {
+
+                            System.out.println("----------Victoria--------");
+                            System.out.println("Enemigo eliminado ganador survivor: " + player);
+                            System.out.println("----" + bot + ": " + derrota);
+                            int copper = Main.playerActual.getCopper();
+                            copper = copper + 40;
+                            Main.playerActual.setCopper(copper);
+
+                        } else {
+                            System.out.println("---------Derrota------");
+                            System.out.println("Has sido eliminado" + player);
+                            System.out.println("----" + bot + ": " + victoria);
+                            int copper = Main.playerActual.getCopper();
+                            copper = copper + 20;
+                            Main.playerActual.setCopper(copper);
+                        }
+
                         break;
                     case 2:
 
@@ -297,6 +307,25 @@ public class Metodos_main {
 
                         System.out.println(player + " A causado :" + daniobot + " de danio total al bot");
                         System.out.println("Durabildiad total perdida  del bot  " + danioTotal);
+                        if (danioTotalBot - health == 0) {
+
+                            System.out.println("----------Victoria--------");
+                            System.out.println("Enemigo eliminado ganador bot:" + bot);
+                            System.out.println("----" + bot + ": " + victoria);
+                            int copper = Main.playerActual.getCopper();
+                            copper = copper + 20;
+                            Main.playerActual.setCopper(copper);
+                        } else {
+                            System.out.println("---------Derrota------");
+                            System.out.println("Has sido eliminado" + player);
+
+                            System.out.println("----" + bot + ": " + derrota);
+
+                            int copper = Main.playerActual.getCopper();
+                            copper = copper + 40;
+                            Main.playerActual.setCopper(copper);
+
+                        }
 
                         break;
 
@@ -309,7 +338,7 @@ public class Metodos_main {
         }
 
 
-    }
+
 
     //crear nuevo survivor para usar
     public static void newUser() throws IOException {

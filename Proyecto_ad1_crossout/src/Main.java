@@ -72,6 +72,7 @@ public class Main {
             System.out.println("Menu dle juego");
             System.out.println("1.Batalla");
             System.out.println("2.Mercado");
+            System.out.println("3.Salir");
 
             opcion = Integer.parseInt(br.readLine());
 
@@ -118,9 +119,13 @@ public class Main {
                             System.out.println("Saliendo del menu de mercado");
                             break;
 
-                    }
-                    break;
 
+                    }
+
+                    break;
+                case 3:
+                    System.exit(0);
+                    break;
             }
 
         }
