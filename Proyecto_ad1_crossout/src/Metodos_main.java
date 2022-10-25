@@ -293,9 +293,8 @@ public class Metodos_main {
 
                             continue;
 
-                        }break;
-
-
+                        }
+                        break;
 
 
                 }
@@ -312,38 +311,52 @@ public class Metodos_main {
 
     //crear nuevo survivor para usar
     public static void newUser() throws IOException {
-        System.out.println("Nombre de la cuanta");
-        String name = br.readLine();
+        try {
+            System.out.println("Nombre de la cuanta");
+            String name = br.readLine();
 //revisa que no exista
-        for (int o = 0; o < Main.listaPlayers.length; o++) {
-            if (Main.listaPlayers[o] == null) {
+            for (int o = 0; o < Main.listaPlayers.length; o++) {
+                if (Main.listaPlayers[o] == null) {
 
 
-                break;
+                    break;
 
-            } else if (Objects.equals(name, Main.listaPlayers[o].getNomnbre())) {
+                } else if (Objects.equals(name, Main.listaPlayers[o].getNomnbre())) {
 
-                System.out.println("Este usuario ya existe lo siento");
-                System.out.println("Cerrando programna :P");
-                System.exit(0);
+                    System.out.println("Este usuario ya existe lo siento");
+                    System.out.println("Cerrando programna :P");
+                    System.exit(0);
+                }
+
+
             }
 
+            for (int p = 0; p < Main.listaCarros.length; p++) {
+                if (Main.listaCarros[p] == null) {
+                    break;
+                } else {
 
+                    System.out.println(p + ". Nombre " + Main.listaCarros[p].getNombre());
+                    System.out.println("Descripcion: " + Main.listaCarros[p].getDescripcion());
+                }
+            }
+
+            System.out.println("Seleciona un carro");
+
+            int k = Integer.parseInt(br.readLine());
+
+
+            vehiculos carro = Main.listaCarros[k];
+
+            Main.playerActual = new survivor(name, carro);
+            System.out.println("USUARIO:" + Main.playerActual.getNomnbre());
+        } catch (IOException e) {
+            System.out.println("Error al meter los datos cerrando :P");
+            System.exit(0);
+        } catch (NumberFormatException e) {
+            System.out.println("Error al meter los datos cerrando :P");
+            System.exit(0);
         }
-
-        for (int p = 0; p < Main.listaCarros.length; p++) {
-
-            System.out.println(p + ". Nombre " + Main.listaCarros[p].getNombre());
-            System.out.println("Descripcion: " + Main.listaCarros[p].getDescripcion());
-        }
-
-        System.out.println("Seleciona un carro");
-
-        int k = Integer.parseInt(br.readLine());
-        vehiculos carro = Main.listaCarros[k];
-
-        Main.playerActual = new survivor(name, carro);
-        System.out.println("USUARIO:" + Main.playerActual.getNomnbre());
 
 
     }
@@ -354,7 +367,22 @@ public class Metodos_main {
         File ficheroSurvivor = new File(".//survivor.dat");
         FileOutputStream escribirSurvi = new FileOutputStream(ficheroSurvivor);
         ObjectOutputStream itemSurvi = new ObjectOutputStream(escribirSurvi);
-        itemSurvi.writeObject(Main.playerActual);
+
+        for (int a = 0; a < Main.listaPlayers.length; a++) {
+
+            if (Main.listaPlayers[a] == null) {
+                break;
+            } else if (Main.listaPlayers[a] == Main.playerActual) {
+
+                Main.listaPlayers[a] = Main.playerActual;
+
+            }
+            Main.playerActual = Main.listaPlayers[a];
+
+            itemSurvi.writeObject(Main.playerActual);
+
+        }
+        ;
 
     }
 }

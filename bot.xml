@@ -1,0 +1,44 @@
+<Lista__Registro__bot>
+  <Datos__BOT>
+    <durabilidad>575</durabilidad>
+    <nombre>Viper</nombre>
+    <danio>420</danio>
+    <descripcion>Un pequeño buggy armado con dos escopetas</descripcion>
+  </Datos__BOT>
+  <Datos__BOT>
+    <durabilidad>1575</durabilidad>
+    <nombre>Bombarder</nombre>
+    <danio>420</danio>
+    <descripcion>Un camion infectado por un parasito ravager ,seguro que quiere usarlo? </descripcion>
+  </Datos__BOT>
+  <Datos__BOT>
+    <durabilidad>600</durabilidad>
+    <nombre>Equilibrium</nombre>
+    <danio>220</danio>
+    <descripcion>Rapido y resistente poco, de quien fue la ide a de poner mecheros es como arma ?</descripcion>
+  </Datos__BOT>
+  <Datos__BOT>
+    <durabilidad>400</durabilidad>
+    <nombre>starter</nombre>
+    <danio>360</danio>
+    <descripcion>Lo mas simple y con lo que se empieza</descripcion>
+  </Datos__BOT>
+  <Datos__BOT>
+    <durabilidad>1001</durabilidad>
+    <nombre>Song of hell</nombre>
+    <danio>520</danio>
+    <descripcion>Cuano escuche una cancion en las tierras de wasteland no es el camion de los helaods es solo alquien que viene a por tu vida</descripcion>
+  </Datos__BOT>
+  <Datos__BOT>
+    <durabilidad>500</durabilidad>
+    <nombre>Fire koopa</nombre>
+    <danio>520</danio>
+    <descripcion>Rapido y letal para quemar a quienes se ponganen tu camino</descripcion>
+  </Datos__BOT>
+  <Datos__BOT>
+    <durabilidad>1200</durabilidad>
+    <nombre>Death_Machine</nombre>
+    <danio>320</danio>
+    <descripcion>Un vehiculo que usa drones robados para luchar</descripcion>
+  </Datos__BOT>
+</Lista__Registro__bot>

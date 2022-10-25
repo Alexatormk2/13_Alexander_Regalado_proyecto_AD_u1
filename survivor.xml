@@ -1,41 +1,32 @@
 <Lista__Registro__survivors>
   <Datos__Survivor>
+    <nomnbre>IVX</nomnbre>
+    <kills>0</kills>
+    <deaths>0</deaths>
+    <victorias>0</victorias>
+    <carro>
+      <durabilidad>575</durabilidad>
+      <nombre>Viper</nombre>
+      <danio>420</danio>
+      <descripcion>Un pequeño buggy armado con dos escopetas</descripcion>
+    </carro>
+    <scrap>0</scrap>
+    <copper>0</copper>
+    <gold>100.0</gold>
+  </Datos__Survivor>
+  <Datos__Survivor>
     <nomnbre>Foxy</nomnbre>
     <kills>0</kills>
     <deaths>0</deaths>
-    <soldItems>0</soldItems>
-    <almacen>
-      <null/>
-      <null/>
-      <null/>
-      <null/>
-      <null/>
-      <null/>
-      <null/>
-      <null/>
-      <null/>
-      <null/>
-      <null/>
-      <null/>
-      <null/>
-      <null/>
-      <null/>
-      <null/>
-      <null/>
-      <null/>
-      <null/>
-      <null/>
-    </almacen>
-    <bougthItems>0</bougthItems>
     <victorias>0</victorias>
     <carro>
-      <durabilidad>400</durabilidad>
-      <nombre>starter</nombre>
-      <danio>360</danio>
-      <descripcion>Lo mas simple y con lo que se empieza</descripcion>
+      <durabilidad>600</durabilidad>
+      <nombre>Equilibrium</nombre>
+      <danio>220</danio>
+      <descripcion>Rapido y resistente poco, de quien fue la ide a de poner mecheros es como arma ?</descripcion>
     </carro>
     <scrap>0</scrap>
-    <copper>140</copper>
+    <copper>0</copper>
     <gold>100.0</gold>
   </Datos__Survivor>
 </Lista__Registro__survivors>

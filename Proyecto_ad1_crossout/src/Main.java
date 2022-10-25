@@ -29,7 +29,16 @@ public class Main {
         System.out.println("2.Nuevo usuario");
         System.out.println("3.Salir :c");
         //opcion 1 la cual es para crear y loguearse
-        opcionMenu = Integer.parseInt(br.readLine());
+
+        try {
+            opcionMenu = Integer.parseInt(br.readLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Error de valor revise, de un numero");
+        } catch (IOException e) {
+            System.out.println("Error de valor revise");
+            ;
+        }
+
         switch (opcionMenu) {
             case 1:
                 for (int o = 0; o < listaPlayers.length; o++) {
@@ -44,15 +53,24 @@ public class Main {
                 System.out.println("Selecciona tu nick o pon el numero 400 para salir");
 
 
-                playerChoose = Integer.parseInt(br.readLine());
+                try {
+                    playerChoose = Integer.parseInt(br.readLine());
 
-                if (playerChoose == 400) {
+                    if (playerChoose == 400) {
 
+                        System.exit(0);
+
+                    } else {
+
+                        playerActual = listaPlayers[playerChoose];
+                    }
+                } catch (NumberFormatException e) {
+
+                    System.out.println("Error de valor inesperado cerrando...");
                     System.exit(0);
-
-                } else {
-
-                    playerActual = listaPlayers[playerChoose];
+                } catch (IOException e) {
+                    System.out.println("Error de valor revise");
+                    ;
                 }
 
                 break;
@@ -66,6 +84,7 @@ public class Main {
 
         }
 
+        try {
         do {
 
 
@@ -74,57 +93,63 @@ public class Main {
             System.out.println("2.Cambiar Carro");
             System.out.println("3.Salir");
 
-            opcion = Integer.parseInt(br.readLine());
+                opcion = Integer.parseInt(br.readLine());
 
 
-            switch (opcion) {
-                case 1:
-                    System.out.println("1. A por chatarra");
-                    System.out.println("2. A por cobre");
-                    System.out.println("3. Volver a atras");
+                switch (opcion) {
+                    case 1:
+                        System.out.println("1. A por chatarra");
+                        System.out.println("2. A por cobre");
+                        System.out.println("3. Volver a atras");
 
-                    try {
-                        opcion2 = Integer.parseInt(br.readLine());
-                    } catch (NumberFormatException e) {
-                        throw new RuntimeException(e);
-                    } catch (IOException e) {
-                        System.out.println("Error inesperado");
-                    }
+                        try {
+                            opcion2 = Integer.parseInt(br.readLine());
+                        } catch (NumberFormatException e) {
+                            System.out.println("Error de un numero por favor");
+                        } catch (IOException e) {
+                            System.out.println("Error inesperado");
+                        }
 
-                    switch (opcion2) {
+                        switch (opcion2) {
 
-                        case 1:
-                            Metodos_main.chatarra();
+                            case 1:
+                                Metodos_main.chatarra();
 
-                            break;
-                        case 2:
-                            Metodos_main.cobre();
+                                break;
+                            case 2:
+                                Metodos_main.cobre();
 
-                            break;
-                        case 3:
-                            System.out.println("Volviendo a menu principal");
+                                break;
+                            case 3:
+                                System.out.println("Volviendo a menu principal");
 
 
-                            break;
+                                break;
 
-                    }
-                    break;
-                case 2:
-                Metodos_main.cambiarCarro();
-                    break;
-            }
+                        }
+                        break;
+                    case 2:
+                        Metodos_main.cambiarCarro();
+                        break;
+                }
 
-        }
-        while (opcion != 3);
+
+
+
+
+        } while (opcion != 3) ;
         Metodos_main.guardarDatos();
         exportarPlayer();
         exportarBot();
         exportarCarro();
         System.out.println("Cerrando sesion");
+        } catch (NumberFormatException e) {
+            System.out.println("Error de valor revise de un  numero");
 
-
+        } catch (IOException e) {
+            System.out.println("error");
+        }
     }
-
     //Expotar a xml tanto jugadores como bots:
     //exportar jugadores a xml
     public static void exportarPlayer() throws IOException {
