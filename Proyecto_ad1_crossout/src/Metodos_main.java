@@ -234,7 +234,7 @@ public class Metodos_main {
 
         for (int round = 0; round < 10; round++) {
             if (vida <= 0 || vidaBot <= 0) {
-                continue;
+               break;
             } else {
                 int numeroAleatorio2 = (int) (Math.random() * 2 + 1);
                 switch (numeroAleatorio2) {
@@ -300,7 +300,7 @@ public class Metodos_main {
                 }
             }
 
-            /////
+
 
 
         }
@@ -354,7 +354,7 @@ public class Metodos_main {
             System.out.println("Error al meter los datos cerrando :P");
             System.exit(0);
         } catch (NumberFormatException e) {
-            System.out.println("Error al meter los datos cerrando :P");
+            System.out.println("Error al meter los datos cerrando:P");
             System.exit(0);
         }
 
@@ -374,7 +374,11 @@ public class Metodos_main {
                 break;
             } else if (Main.listaPlayers[a] == Main.playerActual) {
 
-                Main.listaPlayers[a] = Main.playerActual;
+                try {
+                    Main.listaPlayers[a] = Main.playerActual;
+                } catch (Exception e) {
+                    System.out.println("Error inesperado");
+                }
 
             }
             Main.playerActual = Main.listaPlayers[a];
