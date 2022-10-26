@@ -1,5 +1,6 @@
 import javax.sound.midi.Soundbank;
 import java.io.*;
+import java.sql.SQLOutput;
 import java.util.Objects;
 
 public class Metodos_main {
@@ -112,7 +113,8 @@ public class Metodos_main {
         int danio = Main.playerActual.carro.getDanio();
         int health = Main.playerActual.carro.getDurabilidad();
         int danioTotal = 0;
-        int numeroAleatorio = (int) (Math.random() * 2 + 0);
+        int numeroAleatorio = (int) (Math.random() * 4 + 0);
+        int vida = health;
 
         String bot = Main.listaBots[numeroAleatorio].getNombre();
         String Carrobot = Main.listaBots[numeroAleatorio].carro.getNombre();
@@ -120,30 +122,12 @@ public class Metodos_main {
         int Healthbot = Main.listaBots[numeroAleatorio].carro.getDurabilidad();
         String victoria = Main.listaBots[numeroAleatorio].getFraseVictoria();
         String derrota = Main.listaBots[numeroAleatorio].getFraseDerrota();
+        int vidaBot = Healthbot;
         int danioTotalBot = 0;
 
-        for (int round = 0; round < 5; round++) {
-            if (Healthbot == 0) {
-                System.out.println("----------Victoria--------");
-                System.out.println("Enemigo eliminado ganador survivor:" + player);
-                System.out.println("----" + bot + ": " + derrota);
-                int scraper = Main.playerActual.getScrap();
-                scraper = scraper + 40;
-                double gold = Main.playerActual.getGold();
-                gold = gold + 30;
-                Main.playerActual.setScrap(scraper);
-                Main.playerActual.setGold(gold);
-
-            } else if (health == 0) {
-                System.out.println("---------Derrota------");
-                System.out.println("Has sido eliminado" + player);
-                System.out.println("----" + bot + ": " + victoria);
-                int scraper = Main.playerActual.getScrap();
-                scraper = scraper + 20;
-                Main.playerActual.setScrap(scraper);
-                double gold = Main.playerActual.getGold();
-                gold = gold + 15;
-                Main.playerActual.setGold(gold);
+        for (int round = 0; round < 10; round++) {
+            if (vida <= 0 || vidaBot <= 0) {
+                break;
             } else {
                 int numeroAleatorio2 = (int) (Math.random() * 2 + 1);
                 switch (numeroAleatorio2) {
@@ -152,10 +136,26 @@ public class Metodos_main {
                         System.out.println("+++++++++++++++++");
                         System.out.println("Survivor :" + player + " A dañado el vehiculo enemigo ");
                         danioTotal = Healthbot - danio;
+                        vidaBot = vidaBot - danio;
                         System.out.println("+++++++++++++++++");
-                        System.out.println(player + " A causado :" + danio + " de danio total al bot");
+                        System.out.println(player + " A causado :" + danio + " de danio  al bot");
+                        System.out.println("Durabildiad restante del jugador  " + (health - danioTotalBot));
                         System.out.println("+++++++++++++++++");
-                        System.out.println("Durabildiad total perdida  del jugador  " + danioTotalBot);
+                        System.out.println("Durabilidad del bot restante " + vidaBot);
+                        System.out.println("+++++++++++++++++");
+                        //Condcion que revisa la vida restante del bot
+                        if (vidaBot <= 0) {
+                            System.out.println("----------Victoria--------");
+                            System.out.println("Enemigo eliminado ganador survivor: " + player);
+                            System.out.println("----" + bot + ": " + derrota);
+                            //Asignar recursos al jugador
+                            Main.playerActual.setScrap(Main.playerActual.getScrap() + 50);
+                            Main.playerActual.setGold(Main.playerActual.getGold() + 30);
+                            Main.listaBots[numeroAleatorio].setDeaths(Main.listaBots[numeroAleatorio].getDeaths() + 1);
+                            Main.playerActual.setKills(Main.playerActual.getKills() + 1);
+                        } else {
+                            break;
+                        }
                         break;
                     case 2:
 
@@ -163,21 +163,32 @@ public class Metodos_main {
                         System.out.println("-----------");
                         System.out.println(" Bot:" + bot + "A dañado el vehiculo del survivor rival");
                         danioTotalBot = health - daniobot;
-
-                        System.out.println(player + " A causado :" + daniobot + " de danio total al bot");
+                        vida = vida - daniobot;
+                        System.out.println(bot + " A causado :" + daniobot + " de danio  al survivor");
                         System.out.println("-----------");
-                        System.out.println("Durabildiad total perdida  del bot  " + danioTotal);
-
+                        System.out.println("Durabildiad total perdida  del bot  " + (Healthbot - danioTotal));
+                        System.out.println("-----------");
+                        System.out.println("Durabilidad del jugador restante " + vida);
+                        System.out.println("-----------");
+                        //Condcion que revisa la vida restante del juguador
+                        if (vida <= 0) {
+                            System.out.println("---------Derrota------");
+                            System.out.println("Has sido eliminado" + player);
+                            System.out.println("----" + bot + ": " + victoria);
+                            //Asignar recursos al jugador
+                            Main.playerActual.setScrap(Main.playerActual.getScrap() + 25);
+                            Main.playerActual.setGold(Main.playerActual.getGold() + 15);
+                            Main.playerActual.setDeaths(Main.playerActual.getDeaths() + 1);
+                            Main.listaBots[numeroAleatorio].setKill(Main.listaBots[numeroAleatorio].getKill() + 1);
+                        } else {
+                            break;
+                        }
                         break;
-
                 }
-
-
             }
 
 
         }
-
 
     }
 
@@ -354,6 +365,39 @@ public class Metodos_main {
 
     }
 
+    public static void BorrarUser() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        if (Main.playerActual.getNomnbre().equals("IVY_XO") || Main.playerActual.getNomnbre().equals("Foxy")) {
+            for (int a = 0; a < Main.listaPlayers.length; a++) {
+                if (Main.listaPlayers[a] == null) {
+                    break;
+                } else {
+                    try {
+
+                        if (Main.listaPlayers[a].getNomnbre().equals("IVY_XO") || Main.listaPlayers[a].getNomnbre().equals("Foxy")) {
+                            System.out.println("Admin no se puede borrar");
+
+                        } else {
+                            System.out.println(a + ". Nombre :" + Main.listaPlayers[a].getNomnbre());
+                        }
+                    } catch (Exception e) {
+                        System.out.println("Error datos vacios");
+                    }
+                }
+            }
+            System.out.println("--------------------");
+            System.out.println("Cual queres borrar");
+            int opcion = Integer.parseInt(br.readLine());
+
+           Main.listaPlayers[opcion] = null;
+
+
+        } else {
+
+            System.out.println("No eres admin no podes borrar nada");
+        }
+
+    }
 
     public static void guardarDatos() throws IOException {
 

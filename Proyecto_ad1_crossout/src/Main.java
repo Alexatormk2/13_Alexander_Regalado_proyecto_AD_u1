@@ -91,7 +91,8 @@ public class Main {
                 System.out.println("Menu del juego");
                 System.out.println("1.Batalla");
                 System.out.println("2.Cambiar Carro");
-                System.out.println("3.Salir");
+                System.out.println("3.Borrar usuario :D");
+                System.out.println("4.Salir");
 
                 opcion = Integer.parseInt(br.readLine());
 
@@ -120,6 +121,8 @@ public class Main {
                                 Metodos_main.cobre();
 
                                 break;
+
+
                             case 3:
                                 System.out.println("Volviendo a menu principal");
 
@@ -131,10 +134,17 @@ public class Main {
                     case 2:
                         Metodos_main.cambiarCarro();
                         break;
+                    case 3:
+                        Metodos_main.BorrarUser();
+                        break;
+
+                    case 4:
+
+                        break;
                 }
 
 
-            } while (opcion != 3);
+            } while (opcion != 4);
             Metodos_main.guardarDatos();
             Metodos_main.guardarDatosBot();
             exportarPlayer();
@@ -249,12 +259,12 @@ public class Main {
         try {
             XStream xstream = new XStream();
 //cambiar de nombre a las etiquetas XML
-            xstream.alias("Lista_Registro_bot", ListaCarro.class);
-            xstream.alias("Datos_BOT", vehiculos.class);
+            xstream.alias("Lista_Carro", ListaCarro.class);
+            xstream.alias("Datos_Carro", vehiculos.class);
 //quitar etiqueta lista (atributo de la clase ListaPersonas)
             xstream.addImplicitCollection(ListaCarro.class, "lista");
 //Insrtar los objetos en el XML
-            xstream.toXML(listaCa, new FileOutputStream("bot.xml"));
+            xstream.toXML(listaCa, new FileOutputStream("Vehiculos.xml"));
             System.out.println("Creado fichero XML....");
         } catch (Exception e) {
             e.printStackTrace();

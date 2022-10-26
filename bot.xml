@@ -1,44 +1,53 @@
 <Lista__Registro__bot>
   <Datos__BOT>
-    <durabilidad>575</durabilidad>
-    <nombre>Viper</nombre>
-    <danio>420</danio>
-    <descripcion>Un pequeño buggy armado con dos escopetas</descripcion>
+    <nombre>Megatron</nombre>
+    <kill>0</kill>
+    <deaths>0</deaths>
+    <descripcionBot>Un agresivo bot con la memoria de un bot alienigena que se transformaba en un tanque</descripcionBot>
+    <carro>
+      <durabilidad>1500</durabilidad>
+      <nombre>Mega-TANQUE</nombre>
+      <danio>420</danio>
+      <descripcion>Un tanque de color gris que se recuerda a un lider cybertroniano curel y tirano</descripcion>
+    </carro>
+    <fraseVictoria>Muere,survivor muere</fraseVictoria>
+    <fraseDerrota>.......Pero todavia sigo funcionando</fraseDerrota>
   </Datos__BOT>
   <Datos__BOT>
-    <durabilidad>1575</durabilidad>
-    <nombre>Bombarder</nombre>
-    <danio>420</danio>
-    <descripcion>Un camion infectado por un parasito ravager ,seguro que quiere usarlo? </descripcion>
+    <nombre>Muerte</nombre>
+    <kill>0</kill>
+    <deaths>0</deaths>
+    <descripcionBot>Usando uno de los vehiculos de los jinetes de apocalipsis da casa a cualquier cosa que se mueva</descripcionBot>
+    <carro>
+      <durabilidad>1200</durabilidad>
+      <nombre>Death_Machine</nombre>
+      <danio>320</danio>
+      <descripcion>Un vehiculo que usa drones robados para luchar</descripcion>
+    </carro>
+    <fraseVictoria>La muerte es algo con lo que te as encontrado y no has podido escapar</fraseVictoria>
+    <fraseDerrota>.................</fraseDerrota>
   </Datos__BOT>
   <Datos__BOT>
-    <durabilidad>600</durabilidad>
-    <nombre>Equilibrium</nombre>
-    <danio>220</danio>
-    <descripcion>Rapido y resistente poco, de quien fue la ide a de poner mecheros es como arma ?</descripcion>
+    <nombre>Bowser</nombre>
+    <kill>0</kill>
+    <deaths>0</deaths>
+    <descripcionBot>Creado por un fanatico de super mario este bot usa el fuego para acabar con todo</descripcionBot>
+    <carro>
+      <durabilidad>500</durabilidad>
+      <nombre>Fire koopa</nombre>
+      <danio>520</danio>
+      <descripcion>Rapido y letal para quemar a quienes se ponganen tu camino</descripcion>
+    </carro>
+    <fraseVictoria>Yo el gran bowser e aplastado a un insecto</fraseVictoria>
+    <fraseDerrota>Noooooooooooooo</fraseDerrota>
   </Datos__BOT>
   <Datos__BOT>
-    <durabilidad>400</durabilidad>
-    <nombre>starter</nombre>
-    <danio>360</danio>
-    <descripcion>Lo mas simple y con lo que se empieza</descripcion>
-  </Datos__BOT>
-  <Datos__BOT>
-    <durabilidad>1001</durabilidad>
-    <nombre>Song of hell</nombre>
-    <danio>520</danio>
-    <descripcion>Cuano escuche una cancion en las tierras de wasteland no es el camion de los helaods es solo alquien que viene a por tu vida</descripcion>
-  </Datos__BOT>
-  <Datos__BOT>
-    <durabilidad>500</durabilidad>
-    <nombre>Fire koopa</nombre>
-    <danio>520</danio>
-    <descripcion>Rapido y letal para quemar a quienes se ponganen tu camino</descripcion>
-  </Datos__BOT>
-  <Datos__BOT>
-    <durabilidad>1200</durabilidad>
-    <nombre>Death_Machine</nombre>
-    <danio>320</danio>
-    <descripcion>Un vehiculo que usa drones robados para luchar</descripcion>
+    <nombre>Miku</nombre>
+    <kill>0</kill>
+    <deaths>0</deaths>
+    <descripcionBot>Una Cantante virtuual del viejo mundo, algun idiota le hizo un cuerpo usando un cadave ry un ravager la dejo libre por el valle</descripcionBot>
+    <carro reference="../../Datos__BOT[3]/carro"/>
+    <fraseVictoria>Me diverti espero que no estes enfadado conmigo :D</fraseVictoria>
+    <fraseDerrota>Fue creada para cantar no para luchar, pero estoy feliz de sentir emociones distintas</fraseDerrota>
   </Datos__BOT>
 </Lista__Registro__bot>

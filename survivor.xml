@@ -1,6 +1,21 @@
 <Lista__Registro__survivors>
   <Datos__Survivor>
-    <nomnbre>IVX</nomnbre>
+    <nomnbre>Foxy</nomnbre>
+    <kills>0</kills>
+    <deaths>0</deaths>
+    <victorias>0</victorias>
+    <carro>
+      <durabilidad>400</durabilidad>
+      <nombre>starter</nombre>
+      <danio>360</danio>
+      <descripcion>Lo mas simple y con lo que se empieza</descripcion>
+    </carro>
+    <scrap>0</scrap>
+    <copper>0</copper>
+    <gold>100.0</gold>
+  </Datos__Survivor>
+  <Datos__Survivor>
+    <nomnbre>IVY_XO</nomnbre>
     <kills>0</kills>
     <deaths>0</deaths>
     <victorias>0</victorias>
@@ -14,19 +29,5 @@
     <copper>0</copper>
     <gold>100.0</gold>
   </Datos__Survivor>
-  <Datos__Survivor>
-    <nomnbre>Foxy</nomnbre>
-    <kills>0</kills>
-    <deaths>0</deaths>
-    <victorias>0</victorias>
-    <carro>
-      <durabilidad>600</durabilidad>
-      <nombre>Equilibrium</nombre>
-      <danio>220</danio>
-      <descripcion>Rapido y resistente poco, de quien fue la ide a de poner mecheros es como arma ?</descripcion>
-    </carro>
-    <scrap>0</scrap>
-    <copper>0</copper>
-    <gold>100.0</gold>
-  </Datos__Survivor>
+  <Datos__Survivor reference="../Datos__Survivor"/>
 </Lista__Registro__survivors>
