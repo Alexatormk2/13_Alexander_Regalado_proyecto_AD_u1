@@ -85,13 +85,13 @@ public class Main {
         }
 
         try {
-        do {
+            do {
 
 
-            System.out.println("Menu del juego");
-            System.out.println("1.Batalla");
-            System.out.println("2.Cambiar Carro");
-            System.out.println("3.Salir");
+                System.out.println("Menu del juego");
+                System.out.println("1.Batalla");
+                System.out.println("2.Cambiar Carro");
+                System.out.println("3.Salir");
 
                 opcion = Integer.parseInt(br.readLine());
 
@@ -134,15 +134,13 @@ public class Main {
                 }
 
 
-
-
-
-        } while (opcion != 3) ;
-        Metodos_main.guardarDatos();
-        exportarPlayer();
-        exportarBot();
-        exportarCarro();
-        System.out.println("Cerrando sesion");
+            } while (opcion != 3);
+            Metodos_main.guardarDatos();
+            Metodos_main.guardarDatosBot();
+            exportarPlayer();
+            exportarBot();
+            exportarCarro();
+            System.out.println("Cerrando sesion");
         } catch (NumberFormatException e) {
             System.out.println("Error de valor revise de un  numero");
 
@@ -150,6 +148,7 @@ public class Main {
             System.out.println("error");
         }
     }
+
     //Expotar a xml tanto jugadores como bots:
     //exportar jugadores a xml
     public static void exportarPlayer() throws IOException {

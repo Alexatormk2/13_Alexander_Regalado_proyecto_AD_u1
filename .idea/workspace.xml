@@ -41,7 +41,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.Crear_dat">
     <configuration name="Crear_dat" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Crear_dat" />
       <module name="Proyecto_ad1_crossout" />
@@ -58,8 +58,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Crear_dat" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -73,6 +73,7 @@
       <updated>1666000368799</updated>
       <workItem from="1666283746240" duration="4531000" />
       <workItem from="1666373885191" duration="6290000" />
+      <workItem from="1666801963693" duration="2244000" />
     </task>
     <servers />
   </component>

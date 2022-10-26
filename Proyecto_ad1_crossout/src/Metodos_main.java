@@ -1,3 +1,4 @@
+import javax.sound.midi.Soundbank;
 import java.io.*;
 import java.util.Objects;
 
@@ -220,7 +221,7 @@ public class Metodos_main {
         int danio = Main.playerActual.carro.getDanio();
         int health = Main.playerActual.carro.getDurabilidad();
         int danioTotal = 0;
-        int numeroAleatorio = (int) (Math.random() * 3 + 0);
+        int numeroAleatorio = (int) (Math.random() * 4 + 0);
         int vida = health;
 
         String bot = Main.listaBots[numeroAleatorio].getNombre();
@@ -234,7 +235,7 @@ public class Metodos_main {
 
         for (int round = 0; round < 10; round++) {
             if (vida <= 0 || vidaBot <= 0) {
-               break;
+                break;
             } else {
                 int numeroAleatorio2 = (int) (Math.random() * 2 + 1);
                 switch (numeroAleatorio2) {
@@ -248,24 +249,20 @@ public class Metodos_main {
                         System.out.println(player + " A causado :" + danio + " de danio  al bot");
                         System.out.println("Durabildiad restante del jugador  " + (health - danioTotalBot));
                         System.out.println("+++++++++++++++++");
-
-
-                        if (vidaBot - danioTotal <= 0) {
+                        System.out.println("Durabilidad del bot restante " + vidaBot);
+                        System.out.println("+++++++++++++++++");
+                        //Condcion que revisa la vida restante del bot
+                        if (vidaBot <= 0) {
                             System.out.println("----------Victoria--------");
-                            System.out.println("Enemigo eliminado ganador survivor:" + player);
+                            System.out.println("Enemigo eliminado ganador survivor: " + player);
                             System.out.println("----" + bot + ": " + derrota);
-
-
-                            int copper = Main.playerActual.getCopper();
-                            copper = copper + 40;
-                            Main.playerActual.setCopper(copper);
-
-                            double gold = Main.playerActual.getGold();
-                            gold = gold + 30;
-
-                            Main.playerActual.setGold(gold);
-
-                            continue;
+                            //Asignar recursos al jugador
+                            Main.playerActual.setCopper(Main.playerActual.getCopper() + 50);
+                            Main.playerActual.setGold(Main.playerActual.getGold() + 30);
+                            Main.listaBots[numeroAleatorio].setDeaths(Main.listaBots[numeroAleatorio].getDeaths() + 1);
+                            Main.playerActual.setKills(Main.playerActual.getKills() + 1);
+                        } else {
+                            break;
                         }
                         break;
                     case 2:
@@ -276,31 +273,27 @@ public class Metodos_main {
                         danioTotalBot = health - daniobot;
                         vida = vida - daniobot;
                         System.out.println(bot + " A causado :" + daniobot + " de danio  al survivor");
-
                         System.out.println("-----------");
                         System.out.println("Durabildiad total perdida  del bot  " + (Healthbot - danioTotal));
-
-                        if (vida - danioTotalBot <= 0) {
+                        System.out.println("-----------");
+                        System.out.println("Durabilidad del jugador restante " + vida);
+                        System.out.println("-----------");
+                        //Condcion que revisa la vida restante del juguador
+                        if (vida <= 0) {
                             System.out.println("---------Derrota------");
                             System.out.println("Has sido eliminado" + player);
                             System.out.println("----" + bot + ": " + victoria);
-                            int copper = Main.playerActual.getCopper();
-                            copper = copper + 20;
-                            Main.playerActual.setScrap(copper);
-                            double gold = Main.playerActual.getGold();
-                            gold = gold + 15;
-                            Main.playerActual.setGold(gold);
-
-                            continue;
-
+                            //Asignar recursos al jugador
+                            Main.playerActual.setCopper(Main.playerActual.getCopper() + 25);
+                            Main.playerActual.setGold(Main.playerActual.getGold() + 15);
+                            Main.playerActual.setDeaths(Main.playerActual.getDeaths() + 1);
+                            Main.listaBots[numeroAleatorio].setKill(Main.listaBots[numeroAleatorio].getKill() + 1);
+                        } else {
+                            break;
                         }
                         break;
-
-
                 }
             }
-
-
 
 
         }
@@ -367,7 +360,7 @@ public class Metodos_main {
         File ficheroSurvivor = new File(".//survivor.dat");
         FileOutputStream escribirSurvi = new FileOutputStream(ficheroSurvivor);
         ObjectOutputStream itemSurvi = new ObjectOutputStream(escribirSurvi);
-
+        itemSurvi.writeObject(Main.playerActual);
         for (int a = 0; a < Main.listaPlayers.length; a++) {
 
             if (Main.listaPlayers[a] == null) {
@@ -386,7 +379,35 @@ public class Metodos_main {
             itemSurvi.writeObject(Main.playerActual);
 
         }
-        ;
+
+
+    }
+
+    public static void guardarDatosBot() throws IOException {
+
+        File ficheroBot = new File(".//BOT.dat");
+        FileOutputStream escribirbot = new FileOutputStream(ficheroBot);
+        ObjectOutputStream itemBot = new ObjectOutputStream(escribirbot);
+
+
+        for (int a = 0; a < Main.listaPlayers.length; a++) {
+
+            if (Main.listaBots[a] == null) {
+                break;
+            } else {
+
+                try {
+                    itemBot.writeObject(Main.listaBots[a]);
+                    Main.listaPlayers[a] = Main.playerActual;
+                } catch (Exception e) {
+                    System.out.println("Error inesperado");
+                }
+
+
+            }
+
+        }
+
 
     }
 }
