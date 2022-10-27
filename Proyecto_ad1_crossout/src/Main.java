@@ -192,7 +192,7 @@ public class Main {
             xstream.toXML(listasurv, new FileOutputStream("survivor.xml"));
             System.out.println("Creado fichero XML....");
         } catch (Exception e) {
-            e.printStackTrace();
+                e.printStackTrace();
         }
         // fin
 

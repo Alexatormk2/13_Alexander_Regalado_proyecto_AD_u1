@@ -1,5 +1,20 @@
 <Lista__Registro__survivors>
   <Datos__Survivor>
+    <nomnbre>IVY_XO</nomnbre>
+    <kills>1</kills>
+    <deaths>1</deaths>
+    <victorias>0</victorias>
+    <carro>
+      <durabilidad>575</durabilidad>
+      <nombre>Viper</nombre>
+      <danio>420</danio>
+      <descripcion>Un pequeño buggy armado con 3 escopetas</descripcion>
+    </carro>
+    <scrap>25</scrap>
+    <copper>50</copper>
+    <gold>145.0</gold>
+  </Datos__Survivor>
+  <Datos__Survivor>
     <nomnbre>Foxy</nomnbre>
     <kills>0</kills>
     <deaths>0</deaths>
@@ -14,20 +29,4 @@
     <copper>0</copper>
     <gold>100.0</gold>
   </Datos__Survivor>
-  <Datos__Survivor>
-    <nomnbre>IVY_XO</nomnbre>
-    <kills>0</kills>
-    <deaths>0</deaths>
-    <victorias>0</victorias>
-    <carro>
-      <durabilidad>575</durabilidad>
-      <nombre>Viper</nombre>
-      <danio>420</danio>
-      <descripcion>Un pequeño buggy armado con dos escopetas</descripcion>
-    </carro>
-    <scrap>0</scrap>
-    <copper>0</copper>
-    <gold>100.0</gold>
-  </Datos__Survivor>
-  <Datos__Survivor reference="../Datos__Survivor"/>
 </Lista__Registro__survivors>

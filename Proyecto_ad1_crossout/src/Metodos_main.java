@@ -258,9 +258,9 @@ public class Metodos_main {
                         vidaBot = vidaBot - danio;
                         System.out.println("+++++++++++++++++");
                         System.out.println(player + " A causado :" + danio + " de danio  al bot");
-                        System.out.println("Durabildiad restante del jugador  " + (health - danioTotalBot));
+                        System.out.println("Durabilidad restante del jugador  " + (health - danioTotalBot));
                         System.out.println("+++++++++++++++++");
-                        System.out.println("Durabilidad del bot restante " + vidaBot);
+                        System.out.println("Durabilidad restante  del bot  " + vidaBot);
                         System.out.println("+++++++++++++++++");
                         //Condcion que revisa la vida restante del bot
                         if (vidaBot <= 0) {
@@ -280,14 +280,14 @@ public class Metodos_main {
 
                         //turno bot
                         System.out.println("-----------");
-                        System.out.println(" Bot:" + bot + "A dañado el vehiculo del survivor rival");
+                        System.out.println(" Bot:" + bot + " A dañado el vehiculo del survivor rival");
                         danioTotalBot = health - daniobot;
                         vida = vida - daniobot;
                         System.out.println(bot + " A causado :" + daniobot + " de danio  al survivor");
                         System.out.println("-----------");
                         System.out.println("Durabildiad total perdida  del bot  " + (Healthbot - danioTotal));
                         System.out.println("-----------");
-                        System.out.println("Durabilidad del jugador restante " + vida);
+                        System.out.println("Durabilidad  restante del jugador " + vida);
                         System.out.println("-----------");
                         //Condcion que revisa la vida restante del juguador
                         if (vida <= 0) {
@@ -404,6 +404,7 @@ public class Metodos_main {
         File ficheroSurvivor = new File(".//survivor.dat");
         FileOutputStream escribirSurvi = new FileOutputStream(ficheroSurvivor);
         ObjectOutputStream itemSurvi = new ObjectOutputStream(escribirSurvi);
+        survivor surv = Main.playerActual;
         itemSurvi.writeObject(Main.playerActual);
         for (int a = 0; a < Main.listaPlayers.length; a++) {
 
@@ -419,9 +420,11 @@ public class Metodos_main {
 
             }
             Main.playerActual = Main.listaPlayers[a];
-
-            itemSurvi.writeObject(Main.playerActual);
-
+if (Main.playerActual == surv){
+    continue;
+}else {
+    itemSurvi.writeObject(Main.playerActual);
+}
         }
 
 
