@@ -24,15 +24,33 @@
     <descripcion>Lo mas simple y con lo que se empieza</descripcion>
   </Datos__Carro>
   <Datos__Carro>
+    <durabilidad>800</durabilidad>
+    <nombre>Pestilence</nombre>
+    <danio>500</danio>
+    <descripcion>Un carro creado para acabar con las plagas que se encuentran por le valle, con fuego</descripcion>
+  </Datos__Carro>
+  <Datos__Carro>
+    <durabilidad>1250</durabilidad>
+    <nombre>War_Machine</nombre>
+    <danio>350</danio>
+    <descripcion>Un gran vehiculo armado con una ballesta y lanzacohetes, listo para la querra</descripcion>
+  </Datos__Carro>
+  <Datos__Carro>
+    <durabilidad>900</durabilidad>
+    <nombre>Famine_Machine</nombre>
+    <danio>420</danio>
+    <descripcion>Un vehiculo   hambriento el cual desea devorar tanto carros como survivors</descripcion>
+  </Datos__Carro>
+  <Datos__Carro>
     <durabilidad>1001</durabilidad>
     <nombre>Song of hell</nombre>
-    <danio>520</danio>
+    <danio>420</danio>
     <descripcion>Cuadno escuchas una cancion en las tierras de wasteland no es el camion de los helaods es solo alquien que viene a por tu vida</descripcion>
   </Datos__Carro>
   <Datos__Carro>
     <durabilidad>500</durabilidad>
     <nombre>Fire koopa</nombre>
-    <danio>520</danio>
+    <danio>480</danio>
     <descripcion>Rapido y letal para quemar a quienes se ponganen tu camino</descripcion>
   </Datos__Carro>
   <Datos__Carro>

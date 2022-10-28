@@ -104,18 +104,21 @@ public class Metodos_main {
 
     }
 
-    //funcio que resta item de jugador
 
 
+    //Batalla ambas sus iguales solo cambiar el material
     public static void chatarra() {
+    // carga de las variables para su uso posterior
+    //survivor
         String player = Main.playerActual.getNomnbre();
         String carro = Main.playerActual.carro.getNombre();
         int danio = Main.playerActual.carro.getDanio();
         int health = Main.playerActual.carro.getDurabilidad();
         int danioTotal = 0;
-        int numeroAleatorio = (int) (Math.random() * 4 + 0);
         int vida = health;
-
+    //random que seleciona el bot de forma aleatoria
+        int numeroAleatorio = (int) (Math.random() * 6 + 0);
+    //bot/enemigo
         String bot = Main.listaBots[numeroAleatorio].getNombre();
         String Carrobot = Main.listaBots[numeroAleatorio].carro.getNombre();
         int daniobot = Main.listaBots[numeroAleatorio].carro.getDanio();
@@ -124,11 +127,13 @@ public class Metodos_main {
         String derrota = Main.listaBots[numeroAleatorio].getFraseDerrota();
         int vidaBot = Healthbot;
         int danioTotalBot = 0;
-
+    //for que lleva la batalla
         for (int round = 0; round < 10; round++) {
+            //if que revisa la vida del bot y jugador
             if (vida <= 0 || vidaBot <= 0) {
                 break;
             } else {
+                //random para los turnos de la batalla
                 int numeroAleatorio2 = (int) (Math.random() * 2 + 1);
                 switch (numeroAleatorio2) {
                     case 1:
@@ -143,7 +148,7 @@ public class Metodos_main {
                         System.out.println("+++++++++++++++++");
                         System.out.println("Durabilidad del bot restante " + vidaBot);
                         System.out.println("+++++++++++++++++");
-                        //Condcion que revisa la vida restante del bot
+                        //Condcion que revisa la vida restante del bot y si es zero se ejecuta para
                         if (vidaBot <= 0) {
                             System.out.println("----------Victoria--------");
                             System.out.println("Enemigo eliminado ganador survivor: " + player);
@@ -153,6 +158,8 @@ public class Metodos_main {
                             Main.playerActual.setGold(Main.playerActual.getGold() + 30);
                             Main.listaBots[numeroAleatorio].setDeaths(Main.listaBots[numeroAleatorio].getDeaths() + 1);
                             Main.playerActual.setKills(Main.playerActual.getKills() + 1);
+                        //Poner la condicion del for al maximo para saltar el loop
+                            round = 11;
                         } else {
                             break;
                         }
@@ -180,6 +187,8 @@ public class Metodos_main {
                             Main.playerActual.setGold(Main.playerActual.getGold() + 15);
                             Main.playerActual.setDeaths(Main.playerActual.getDeaths() + 1);
                             Main.listaBots[numeroAleatorio].setKill(Main.listaBots[numeroAleatorio].getKill() + 1);
+                        //Poner la condicion del for al maximo para saltar el loop
+                            round = 11;
                         } else {
                             break;
                         }
@@ -189,38 +198,6 @@ public class Metodos_main {
 
 
         }
-
-    }
-
-    public static void cambiarCarro() throws IOException {
-
-
-        System.out.println("Hola que carro quiere");
-        for (int k = 0; k < Main.listaCarros.length; k++) {
-            if (Main.listaCarros[k] == null) {
-
-
-                break;
-            } else if (Main.listaCarros[k] == Main.playerActual.getCarro()) {
-
-                System.out.println(" Este es el actual--" + k + ". Nombre: " + Main.listaCarros[k].getNombre() + " Descripcion :" + Main.listaCarros[k].getDescripcion() + " Durabilida/hp " + Main.listaCarros[k].getDurabilidad() + " Daño: " + Main.listaCarros[k].getDanio());
-            } else {
-                System.out.println(k + ". Nombre: " + Main.listaCarros[k].getNombre() + " Descripcion :" + Main.listaCarros[k].getDescripcion() + " Durabilida/hp " + Main.listaCarros[k].getDurabilidad() + " Daño: " + Main.listaCarros[k].getDanio());
-
-
-            }
-        }
-
-        int opcion = 0;
-        opcion = Integer.parseInt(br.readLine());
-        if (Main.listaCarros[opcion] == Main.playerActual.getCarro()) {
-            System.out.println("Este es el actual no se puede seleccionar");
-        } else {
-            System.out.println("Cambio el carro espera.....");
-            Main.playerActual.setCarro(Main.listaCarros[opcion]);
-
-        }
-
 
     }
 
@@ -272,6 +249,8 @@ public class Metodos_main {
                             Main.playerActual.setGold(Main.playerActual.getGold() + 30);
                             Main.listaBots[numeroAleatorio].setDeaths(Main.listaBots[numeroAleatorio].getDeaths() + 1);
                             Main.playerActual.setKills(Main.playerActual.getKills() + 1);
+                        //Poner la condicion del for al maximo para saltar el loop
+                            round = 11;
                         } else {
                             break;
                         }
@@ -299,6 +278,8 @@ public class Metodos_main {
                             Main.playerActual.setGold(Main.playerActual.getGold() + 15);
                             Main.playerActual.setDeaths(Main.playerActual.getDeaths() + 1);
                             Main.listaBots[numeroAleatorio].setKill(Main.listaBots[numeroAleatorio].getKill() + 1);
+                        //Poner la condicion del for al maximo para saltar el loop
+                            round = 11;
                         } else {
                             break;
                         }
@@ -312,21 +293,56 @@ public class Metodos_main {
 
     }
 
+    public static void cambiarCarro() throws IOException {
+
+
+        System.out.println("Hola que carro quiere");
+        for (int k = 0; k < Main.listaCarros.length; k++) {
+            if (Main.listaCarros[k] == null) {
+
+
+                break;
+            } else if (Main.listaCarros[k] == Main.playerActual.getCarro()) {
+
+                System.out.println(" Este es el actual--" + k + ". Nombre: " + Main.listaCarros[k].getNombre() + " Descripcion :" + Main.listaCarros[k].getDescripcion() + " Durabilida/hp " + Main.listaCarros[k].getDurabilidad() + " Daño: " + Main.listaCarros[k].getDanio());
+            } else {
+                System.out.println(k + ". Nombre: " + Main.listaCarros[k].getNombre() + " Descripcion :" + Main.listaCarros[k].getDescripcion() + " Durabilida/hp " + Main.listaCarros[k].getDurabilidad() + " Daño: " + Main.listaCarros[k].getDanio());
+
+
+            }
+        }
+
+        int opcion = 0;
+        opcion = Integer.parseInt(br.readLine());
+        if (Main.listaCarros[opcion] == Main.playerActual.getCarro()) {
+            System.out.println("Este es el actual no se puede seleccionar");
+        } else {
+            System.out.println("Cambio el carro espera.....");
+            Main.playerActual.setCarro(Main.listaCarros[opcion]);
+
+        }
+
+
+    }
+
+
+
 
     //crear nuevo survivor para usar
     public static void newUser() throws IOException {
         try {
             System.out.println("Nombre de la cuanta");
             String name = br.readLine();
-//revisa que no exista
+
             for (int o = 0; o < Main.listaPlayers.length; o++) {
+    //en caso de que la posicion sea null la salta
                 if (Main.listaPlayers[o] == null) {
 
 
                     break;
 
                 } else if (Objects.equals(name, Main.listaPlayers[o].getNomnbre())) {
-
+   //revisa que el nombre no haiga sido usado o no exista y en caso de que exista se cierra el programa
                     System.out.println("Este usuario ya existe lo siento");
                     System.out.println("Cerrando programna :P");
                     System.exit(0);
@@ -334,7 +350,7 @@ public class Metodos_main {
 
 
             }
-
+    //lista los carros disponibles y el usuario debe selecionar uno
             for (int p = 0; p < Main.listaCarros.length; p++) {
                 if (Main.listaCarros[p] == null) {
                     break;
@@ -389,7 +405,7 @@ public class Metodos_main {
             System.out.println("Cual queres borrar");
             int opcion = Integer.parseInt(br.readLine());
 
-           Main.listaPlayers[opcion] = null;
+            Main.listaPlayers[opcion] = null;
 
 
         } else {
@@ -420,11 +436,11 @@ public class Metodos_main {
 
             }
             Main.playerActual = Main.listaPlayers[a];
-if (Main.playerActual == surv){
-    continue;
-}else {
-    itemSurvi.writeObject(Main.playerActual);
-}
+            if (Main.playerActual == surv) {
+                continue;
+            } else {
+                itemSurvi.writeObject(Main.playerActual);
+            }
         }
 
 

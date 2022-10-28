@@ -52,9 +52,9 @@ public class Crear_dat {
         BOT bot1 = new BOT("Muerte", 0, 0, carro13, "Uno de los lideres de los jinetes de apocalipsis que da caza a cualquier idiota que se le cruze", "La muerte es algo con lo que te as encontrado y no has podido escapar", ".................");
         BOT bot2 = new BOT("Bowser", 0, 0, carro12, "Creado por un fanatico de super mario este bot usa el fuego para acabar con todo", "Yo el gran bowser e aplastado a un insecto", "Noooooooooooooo");
         BOT bot3 = new BOT("Miku", 0, 0, carro12, "Una Cantante virtual del viejo mundo, algun idiota le hizo un cuerpo usando un par de cadaveres y una unidad ravager y la dejo libre por el valle", "Me diverti bastante espero que no estes enfadado conmigo :D", "Fui creada para cantar no para luchar, pero estoy feliz de probar cosas distintas");
-        BOT bot4 = new BOT("Hambre", 0, 0, carro9, "Uno de los liderese de los jinetes del apocalipsis, su hambre no tiene comparacion y tampoco nada lo sacia", "Comsumire todo a mi paso", "Esto no es lo planeado joder");
-        BOT bot5 = new BOT("Peste", 0, 0, carro8, "Una de los liderese de los jinetes del apocalipsis, carbonizada a cualquiera que se cruze en su ruta o tenga alguna peste", "Las llamas purificaran tu carne", ".... No estas emfermeo seguro ?.........Podria darte una muerte rapida con mis llamas");
-        BOT bot6 = new BOT("Guerra", 0, 0, carro7, "Uno de los liderese de los jinetes del apocalipsis, luchara para destrozar a cualquiera que lo desafie", "Tu final a llegado", ".... La guerra nunca cambia no lo olvides");
+        BOT bot4 = new BOT("Hambre", 0, 0, carro9, "Uno de los lideres de los jinetes del apocalipsis, su hambre no tiene comparacion y tampoco nada lo sacia", "Comsumire todo a mi paso", "Esto no es lo planeado joder");
+        BOT bot5 = new BOT("Peste", 0, 0, carro8, "Una de las lideres de los jinetes del apocalipsis, carbonizada a cualquiera que se cruze en su ruta o tenga alguna peste", "Las llamas purificaran tu carne", ".... No estas emfermeo seguro ?.........Podria darte una muerte rapida con mis llamas");
+        BOT bot6 = new BOT("Guerra", 0, 0, carro7, "Uno de los lideres de los jinetes del apocalipsis, luchara para destrozar a cualquiera que lo desafie", "Tu final a llegado", ".... La guerra nunca cambia no lo olvides");
         itemBot.writeObject(bot0);
         itemBot.writeObject(bot1);
         itemBot.writeObject(bot2);

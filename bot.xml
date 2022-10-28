@@ -1,7 +1,7 @@
 <Lista__Registro__bot>
   <Datos__BOT>
     <nombre>Megatron</nombre>
-    <kill>0</kill>
+    <kill>1</kill>
     <deaths>0</deaths>
     <descripcionBot>Un agresivo bot con la memoria de un bot alienigena que se transformaba en un tanque</descripcionBot>
     <carro>
@@ -17,7 +17,7 @@
     <nombre>Muerte</nombre>
     <kill>0</kill>
     <deaths>0</deaths>
-    <descripcionBot>Usando uno de los vehiculos de los jinetes de apocalipsis da caza a cualquier cosa que se mueva</descripcionBot>
+    <descripcionBot>Uno de los lideres de los jinetes de apocalipsis que da caza a cualquier idiota que se le cruze</descripcionBot>
     <carro>
       <durabilidad>1200</durabilidad>
       <nombre>Death_Machine</nombre>
@@ -29,13 +29,13 @@
   </Datos__BOT>
   <Datos__BOT>
     <nombre>Bowser</nombre>
-    <kill>1</kill>
+    <kill>0</kill>
     <deaths>0</deaths>
     <descripcionBot>Creado por un fanatico de super mario este bot usa el fuego para acabar con todo</descripcionBot>
     <carro>
       <durabilidad>500</durabilidad>
       <nombre>Fire koopa</nombre>
-      <danio>520</danio>
+      <danio>480</danio>
       <descripcion>Rapido y letal para quemar a quienes se ponganen tu camino</descripcion>
     </carro>
     <fraseVictoria>Yo el gran bowser e aplastado a un insecto</fraseVictoria>
@@ -44,10 +44,52 @@
   <Datos__BOT>
     <nombre>Miku</nombre>
     <kill>0</kill>
-    <deaths>1</deaths>
-    <descripcionBot>Una Cantante virtual del viejo mundo, algun idiota le hizo un cuerpo usando un cadaver y un ravager y la dejo libre por el valle</descripcionBot>
+    <deaths>0</deaths>
+    <descripcionBot>Una Cantante virtual del viejo mundo, algun idiota le hizo un cuerpo usando un par de cadaveres y una unidad ravager y la dejo libre por el valle</descripcionBot>
     <carro reference="../../Datos__BOT[3]/carro"/>
     <fraseVictoria>Me diverti bastante espero que no estes enfadado conmigo :D</fraseVictoria>
     <fraseDerrota>Fui creada para cantar no para luchar, pero estoy feliz de probar cosas distintas</fraseDerrota>
+  </Datos__BOT>
+  <Datos__BOT>
+    <nombre>Hambre</nombre>
+    <kill>0</kill>
+    <deaths>0</deaths>
+    <descripcionBot>Uno de los lideres de los jinetes del apocalipsis, su hambre no tiene comparacion y tampoco nada lo sacia</descripcionBot>
+    <carro>
+      <durabilidad>900</durabilidad>
+      <nombre>Famine_Machine</nombre>
+      <danio>420</danio>
+      <descripcion>Un vehiculo   hambriento el cual desea devorar tanto carros como survivors</descripcion>
+    </carro>
+    <fraseVictoria>Comsumire todo a mi paso</fraseVictoria>
+    <fraseDerrota>Esto no es lo planeado joder</fraseDerrota>
+  </Datos__BOT>
+  <Datos__BOT>
+    <nombre>Peste</nombre>
+    <kill>0</kill>
+    <deaths>0</deaths>
+    <descripcionBot>Una de las lideres de los jinetes del apocalipsis, carbonizada a cualquiera que se cruze en su ruta o tenga alguna peste</descripcionBot>
+    <carro>
+      <durabilidad>800</durabilidad>
+      <nombre>Pestilence</nombre>
+      <danio>500</danio>
+      <descripcion>Un carro creado para acabar con las plagas que se encuentran por le valle, con fuego</descripcion>
+    </carro>
+    <fraseVictoria>Las llamas purificaran tu carne</fraseVictoria>
+    <fraseDerrota>.... No estas emfermeo seguro ?.........Podria darte una muerte rapida con mis llamas</fraseDerrota>
+  </Datos__BOT>
+  <Datos__BOT>
+    <nombre>Guerra</nombre>
+    <kill>0</kill>
+    <deaths>0</deaths>
+    <descripcionBot>Uno de los lideres de los jinetes del apocalipsis, luchara para destrozar a cualquiera que lo desafie</descripcionBot>
+    <carro>
+      <durabilidad>1250</durabilidad>
+      <nombre>War_Machine</nombre>
+      <danio>350</danio>
+      <descripcion>Un gran vehiculo armado con una ballesta y lanzacohetes, listo para la querra</descripcion>
+    </carro>
+    <fraseVictoria>Tu final a llegado</fraseVictoria>
+    <fraseDerrota>.... La guerra nunca cambia no lo olvides</fraseDerrota>
   </Datos__BOT>
 </Lista__Registro__bot>

@@ -40,6 +40,7 @@ public class Main {
         }
 
         switch (opcionMenu) {
+            //printea la lista de usuarios disponible y luego el usuario tiene que dar un numero para seleccionar el perfil
             case 1:
                 for (int o = 0; o < listaPlayers.length; o++) {
                     if (listaPlayers[o] == null) {
@@ -74,7 +75,7 @@ public class Main {
                 }
 
                 break;
-
+//llama al metodo newUser que sirve para crear un usuario nuevo
             case 2:
                 Metodos_main.newUser();
                 break;
