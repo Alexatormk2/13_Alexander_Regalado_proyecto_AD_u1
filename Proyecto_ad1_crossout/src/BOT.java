@@ -6,6 +6,9 @@ public class BOT implements Serializable {
     String nombre;
     int kill = 0;
     int deaths = 0;
+
+    int victorias;
+    int derrotas;
     String descripcionBot;
     vehiculos carro;
     String fraseVictoria;
@@ -20,7 +23,7 @@ public class BOT implements Serializable {
     }
 
 
-    public BOT(String nombre, int kill, int deaths, vehiculos carro, String DescriptionBot, String fraseVictoria, String fraseDerrota) {
+    public BOT(String nombre, int kill, int deaths, vehiculos carro, String DescriptionBot, String fraseVictoria, String fraseDerrota,int victorias, int derrotas) {
         this.nombre = nombre;
         this.kill = kill;
         this.deaths = deaths;
@@ -28,9 +31,27 @@ public class BOT implements Serializable {
         this.descripcionBot = DescriptionBot;
         this.fraseDerrota = fraseDerrota;
         this.fraseVictoria = fraseVictoria;
+        this.victorias = victorias;
+        this.derrotas  = derrotas;
     }
 
     public BOT() {
+    }
+
+    public int getVictorias() {
+        return victorias;
+    }
+
+    public void setVictorias(int victorias) {
+        this.victorias = victorias;
+    }
+
+    public int getDerrotas() {
+        return derrotas;
+    }
+
+    public void setDerrotas(int derrotas) {
+        this.derrotas = derrotas;
     }
 
     public String getNombre() {

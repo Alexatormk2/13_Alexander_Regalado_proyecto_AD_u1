@@ -10,6 +10,7 @@ public class survivor implements Serializable {
     int kills;
     int deaths;
 
+    int derrotas;
 
 
     int victorias;
@@ -18,7 +19,7 @@ public class survivor implements Serializable {
     int copper;
     double gold = 100;
 
-    public survivor(String nomnbre, int kills, int deaths,  vehiculos carro, int scrap, int copper, double gold, int victorias) {
+    public survivor(String nomnbre, int kills, int deaths,  vehiculos carro, int scrap, int copper, double gold, int victorias, int derrotas) {
         this.nomnbre = nomnbre;
         this.kills = kills;
         this.deaths = deaths;
@@ -28,6 +29,7 @@ public class survivor implements Serializable {
         this.copper = copper;
         this.gold = gold;
         this.victorias = victorias;
+        this.derrotas = derrotas;
     }
 
     public survivor(String nomnbre, vehiculos carro) {
@@ -39,6 +41,21 @@ public class survivor implements Serializable {
     }
 
 
+    public int getDerrotas() {
+        return derrotas;
+    }
+
+    public void setDerrotas(int derrotas) {
+        this.derrotas = derrotas;
+    }
+
+    public int getVictorias() {
+        return victorias;
+    }
+
+    public void setVictorias(int victorias) {
+        this.victorias = victorias;
+    }
 
     public String getNomnbre() {
         return nomnbre;

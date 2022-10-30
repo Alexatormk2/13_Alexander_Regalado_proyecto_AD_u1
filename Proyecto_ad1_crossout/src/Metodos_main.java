@@ -105,20 +105,19 @@ public class Metodos_main {
     }
 
 
-
     //Batalla ambas sus iguales solo cambiar el material
     public static void chatarra() {
-    // carga de las variables para su uso posterior
-    //survivor
+        // carga de las variables para su uso posterior
+        //survivor
         String player = Main.playerActual.getNomnbre();
         String carro = Main.playerActual.carro.getNombre();
         int danio = Main.playerActual.carro.getDanio();
         int health = Main.playerActual.carro.getDurabilidad();
         int danioTotal = 0;
         int vida = health;
-    //random que seleciona el bot de forma aleatoria
+        //random que seleciona el bot de forma aleatoria
         int numeroAleatorio = (int) (Math.random() * 6 + 0);
-    //bot/enemigo
+        //bot/enemigo
         String bot = Main.listaBots[numeroAleatorio].getNombre();
         String Carrobot = Main.listaBots[numeroAleatorio].carro.getNombre();
         int daniobot = Main.listaBots[numeroAleatorio].carro.getDanio();
@@ -127,7 +126,7 @@ public class Metodos_main {
         String derrota = Main.listaBots[numeroAleatorio].getFraseDerrota();
         int vidaBot = Healthbot;
         int danioTotalBot = 0;
-    //for que lleva la batalla
+        //for que lleva la batalla
         for (int round = 0; round < 10; round++) {
             //if que revisa la vida del bot y jugador
             if (vida <= 0 || vidaBot <= 0) {
@@ -158,7 +157,7 @@ public class Metodos_main {
                             Main.playerActual.setGold(Main.playerActual.getGold() + 30);
                             Main.listaBots[numeroAleatorio].setDeaths(Main.listaBots[numeroAleatorio].getDeaths() + 1);
                             Main.playerActual.setKills(Main.playerActual.getKills() + 1);
-                        //Poner la condicion del for al maximo para saltar el loop
+                            //Poner la condicion del for al maximo para saltar el loop
                             round = 11;
                         } else {
                             break;
@@ -186,9 +185,14 @@ public class Metodos_main {
                             Main.playerActual.setScrap(Main.playerActual.getScrap() + 25);
                             Main.playerActual.setGold(Main.playerActual.getGold() + 15);
                             Main.playerActual.setDeaths(Main.playerActual.getDeaths() + 1);
+                            //asignar derrota
+                            Main.playerActual.setDerrotas(Main.playerActual.getDerrotas() +1);
+                            //asignar kill bot
                             Main.listaBots[numeroAleatorio].setKill(Main.listaBots[numeroAleatorio].getKill() + 1);
-                        //Poner la condicion del for al maximo para saltar el loop
-                            round = 11;
+                            //asigna victoria bot
+                            Main.listaBots[numeroAleatorio].setVictorias(Main.listaBots[numeroAleatorio].getVictorias() +1);
+                            //Poner la condicion del for al maximo para saltar el loop
+                              round = 11;
                         } else {
                             break;
                         }
@@ -247,9 +251,18 @@ public class Metodos_main {
                             //Asignar recursos al jugador
                             Main.playerActual.setCopper(Main.playerActual.getCopper() + 50);
                             Main.playerActual.setGold(Main.playerActual.getGold() + 30);
+                            //asignar muerte bot
                             Main.listaBots[numeroAleatorio].setDeaths(Main.listaBots[numeroAleatorio].getDeaths() + 1);
+                            //asignar kill
                             Main.playerActual.setKills(Main.playerActual.getKills() + 1);
-                        //Poner la condicion del for al maximo para saltar el loop
+                                                      //asignar victoria
+                            Main.playerActual.setVictorias(Main.playerActual.getVictorias() +1);
+                            //asignar kill bot
+                            Main.listaBots[numeroAleatorio].setDeaths(Main.listaBots[numeroAleatorio].getDeaths() + 1);
+                            //asigna victoria bot
+                            Main.listaBots[numeroAleatorio].setDerrotas(Main.listaBots[numeroAleatorio].getDerrotas() +1);
+                            //Poner la condicion del for al maximo para saltar el loop
+                            //Poner la condicion del for al maximo para saltar el loop
                             round = 11;
                         } else {
                             break;
@@ -276,9 +289,15 @@ public class Metodos_main {
                             //Asignar recursos al jugador
                             Main.playerActual.setCopper(Main.playerActual.getCopper() + 25);
                             Main.playerActual.setGold(Main.playerActual.getGold() + 15);
+                            //asignar muerte
                             Main.playerActual.setDeaths(Main.playerActual.getDeaths() + 1);
+                            //asignar derrota
+                            Main.playerActual.setDerrotas(Main.playerActual.getDerrotas() +1);
+                            //asignar kill bot
                             Main.listaBots[numeroAleatorio].setKill(Main.listaBots[numeroAleatorio].getKill() + 1);
-                        //Poner la condicion del for al maximo para saltar el loop
+                            //asigna victoria bot
+                            Main.listaBots[numeroAleatorio].setVictorias(Main.listaBots[numeroAleatorio].getVictorias() +1);
+                            //Poner la condicion del for al maximo para saltar el loop
                             round = 11;
                         } else {
                             break;
@@ -295,7 +314,7 @@ public class Metodos_main {
 
     public static void cambiarCarro() throws IOException {
 
-
+        //sirve para cambiar el crro actual del jugador
         System.out.println("Hola que carro quiere");
         for (int k = 0; k < Main.listaCarros.length; k++) {
             if (Main.listaCarros[k] == null) {
@@ -313,19 +332,26 @@ public class Metodos_main {
         }
 
         int opcion = 0;
-        opcion = Integer.parseInt(br.readLine());
+        //no puede selecionar el carro actual
+
+        try {
+            opcion = Integer.parseInt(br.readLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Se esperaba un numero");
+        } catch (IOException e) {
+            System.out.println("Error inesperado");
+        }
+
         if (Main.listaCarros[opcion] == Main.playerActual.getCarro()) {
             System.out.println("Este es el actual no se puede seleccionar");
         } else {
-            System.out.println("Cambio el carro espera.....");
+            System.out.println("Cambiandio el carro espera.....");
             Main.playerActual.setCarro(Main.listaCarros[opcion]);
 
         }
 
 
     }
-
-
 
 
     //crear nuevo survivor para usar
@@ -335,14 +361,14 @@ public class Metodos_main {
             String name = br.readLine();
 
             for (int o = 0; o < Main.listaPlayers.length; o++) {
-    //en caso de que la posicion sea null la salta
+                //en caso de que la posicion sea null la salta
                 if (Main.listaPlayers[o] == null) {
 
 
                     break;
 
                 } else if (Objects.equals(name, Main.listaPlayers[o].getNomnbre())) {
-   //revisa que el nombre no haiga sido usado o no exista y en caso de que exista se cierra el programa
+                    //revisa que el nombre no haiga sido usado o no exista y en caso de que exista se cierra el programa
                     System.out.println("Este usuario ya existe lo siento");
                     System.out.println("Cerrando programna :P");
                     System.exit(0);
@@ -350,7 +376,7 @@ public class Metodos_main {
 
 
             }
-    //lista los carros disponibles y el usuario debe selecionar uno
+            //lista los carros disponibles y el usuario debe selecionar uno
             for (int p = 0; p < Main.listaCarros.length; p++) {
                 if (Main.listaCarros[p] == null) {
                     break;
@@ -389,6 +415,7 @@ public class Metodos_main {
                     break;
                 } else {
                     try {
+                        //lista todos los usuarios y pone texto en los que son admins
 
                         if (Main.listaPlayers[a].getNomnbre().equals("IVY_XO") || Main.listaPlayers[a].getNomnbre().equals("Foxy")) {
                             System.out.println("Admin no se puede borrar");
@@ -404,9 +431,14 @@ public class Metodos_main {
             System.out.println("--------------------");
             System.out.println("Cual queres borrar");
             int opcion = Integer.parseInt(br.readLine());
+            //en caso de que se de la opcion de los admins estos no seran borrados
+            if (Main.listaPlayers[opcion].getNomnbre().equals("IVY_XO") || Main.listaPlayers[opcion].getNomnbre().equals("Foxy")) {
+                System.out.println("Admin no se puede borrar");
+            } else {
 
-            Main.listaPlayers[opcion] = null;
-
+                Main.listaPlayers[opcion] = null;
+                System.out.println("Borrado con exito");
+            }
 
         } else {
 
@@ -416,7 +448,7 @@ public class Metodos_main {
     }
 
     public static void guardarDatos() throws IOException {
-
+        //Coge los datos de las listas los vuelve a meter al dat
         File ficheroSurvivor = new File(".//survivor.dat");
         FileOutputStream escribirSurvi = new FileOutputStream(ficheroSurvivor);
         ObjectOutputStream itemSurvi = new ObjectOutputStream(escribirSurvi);
@@ -447,7 +479,7 @@ public class Metodos_main {
     }
 
     public static void guardarDatosBot() throws IOException {
-
+        //Coge los datos de las listas los vuelve a meter al dat
         File ficheroBot = new File(".//BOT.dat");
         FileOutputStream escribirbot = new FileOutputStream(ficheroBot);
         ObjectOutputStream itemBot = new ObjectOutputStream(escribirbot);

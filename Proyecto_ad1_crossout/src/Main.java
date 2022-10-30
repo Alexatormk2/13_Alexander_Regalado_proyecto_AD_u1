@@ -100,6 +100,7 @@ public class Main {
 
                 switch (opcion) {
                     case 1:
+                        //Menu para seleccionar la batalla que se luchara
                         System.out.println("1. A por chatarra");
                         System.out.println("2. A por cobre");
                         System.out.println("3. Volver a atras");
@@ -113,7 +114,7 @@ public class Main {
                         }
 
                         switch (opcion2) {
-
+                    //Segun la opcion dada llamada a uno de los 2 metodos
                             case 1:
                                 Metodos_main.chatarra();
 
@@ -122,7 +123,6 @@ public class Main {
                                 Metodos_main.cobre();
 
                                 break;
-
 
                             case 3:
                                 System.out.println("Volviendo a menu principal");

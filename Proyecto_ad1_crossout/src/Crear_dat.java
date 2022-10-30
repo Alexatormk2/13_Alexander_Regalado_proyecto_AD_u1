@@ -36,8 +36,8 @@ public class Crear_dat {
         File ficheroSurvivor = new File("survivor.dat");
         FileOutputStream escribirSurvi = new FileOutputStream(ficheroSurvivor);
         ObjectOutputStream itemSurvi = new ObjectOutputStream(escribirSurvi);
-        survivor survi1 = new survivor("IVY_XO", 0, 0, carro1, 0, 0, 100, 0);
-        survivor survi2 = new survivor("Foxy", 0, 0, carro4, 0, 0, 100, 0);
+        survivor survi1 = new survivor("IVY_XO", 0, 0, carro1, 0, 0, 100, 0,0);
+        survivor survi2 = new survivor("Foxy", 0, 0, carro4, 0, 0, 100, 0,0);
 
         itemSurvi.writeObject(survi1);
         itemSurvi.writeObject(survi2);
@@ -48,13 +48,13 @@ public class Crear_dat {
         FileOutputStream escribirBot = new FileOutputStream(ficheroBot);
         ObjectOutputStream itemBot = new ObjectOutputStream(escribirBot);
 
-        BOT bot0 = new BOT("Megatron", 0, 0, carro10, "Un agresivo bot con la memoria de un bot alienigena que se transformaba en un tanque", "Muere,survivor muere", "....... Todavia sigo funcionando");
-        BOT bot1 = new BOT("Muerte", 0, 0, carro13, "Uno de los lideres de los jinetes de apocalipsis que da caza a cualquier idiota que se le cruze", "La muerte es algo con lo que te as encontrado y no has podido escapar", ".................");
-        BOT bot2 = new BOT("Bowser", 0, 0, carro12, "Creado por un fanatico de super mario este bot usa el fuego para acabar con todo", "Yo el gran bowser e aplastado a un insecto", "Noooooooooooooo");
-        BOT bot3 = new BOT("Miku", 0, 0, carro12, "Una Cantante virtual del viejo mundo, algun idiota le hizo un cuerpo usando un par de cadaveres y una unidad ravager y la dejo libre por el valle", "Me diverti bastante espero que no estes enfadado conmigo :D", "Fui creada para cantar no para luchar, pero estoy feliz de probar cosas distintas");
-        BOT bot4 = new BOT("Hambre", 0, 0, carro9, "Uno de los lideres de los jinetes del apocalipsis, su hambre no tiene comparacion y tampoco nada lo sacia", "Comsumire todo a mi paso", "Esto no es lo planeado joder");
-        BOT bot5 = new BOT("Peste", 0, 0, carro8, "Una de las lideres de los jinetes del apocalipsis, carbonizada a cualquiera que se cruze en su ruta o tenga alguna peste", "Las llamas purificaran tu carne", ".... No estas emfermeo seguro ?.........Podria darte una muerte rapida con mis llamas");
-        BOT bot6 = new BOT("Guerra", 0, 0, carro7, "Uno de los lideres de los jinetes del apocalipsis, luchara para destrozar a cualquiera que lo desafie", "Tu final a llegado", ".... La guerra nunca cambia no lo olvides");
+        BOT bot0 = new BOT("Megatron", 0, 0, carro10, "Un agresivo bot con la memoria de un bot alienigena que se transformaba en un tanque", "Muere,survivor muere", "....... Todavia sigo funcionando",0,0);
+        BOT bot1 = new BOT("Muerte", 0, 0, carro13, "Uno de los lideres de los jinetes de apocalipsis que da caza a cualquier idiota que se le cruze", "La muerte es algo con lo que te as encontrado y no has podido escapar", ".................",0,0);
+        BOT bot2 = new BOT("Bowser", 0, 0, carro12, "Creado por un fanatico de super mario este bot usa el fuego para acabar con todo", "Yo el gran bowser e aplastado a un insecto", "Noooooooooooooo",0,0);
+        BOT bot3 = new BOT("Miku", 0, 0, carro12, "Una Cantante virtual del viejo mundo, algun idiota le hizo un cuerpo usando un par de cadaveres y una unidad ravager y la dejo libre por el valle", "Me diverti bastante espero que no estes enfadado conmigo :D", "Fui creada para cantar no para luchar, pero estoy feliz de probar cosas distintas",0,0);
+        BOT bot4 = new BOT("Hambre", 0, 0, carro9, "Uno de los lideres de los jinetes del apocalipsis, su hambre no tiene comparacion y tampoco nada lo sacia", "Comsumire todo a mi paso", "Esto no es lo planeado joder",0,0);
+        BOT bot5 = new BOT("Peste", 0, 0, carro8, "Una de las lideres de los jinetes del apocalipsis, carbonizada a cualquiera que se cruze en su ruta o tenga alguna peste", "Las llamas purificaran tu carne", ".... No estas emfermo seguro ?.........Podria darte una muerte rapida con mis llamas",0,0);
+        BOT bot6 = new BOT("Guerra", 0, 0, carro7, "Uno de los lideres de los jinetes del apocalipsis, luchara para destrozar a cualquiera que lo desafie", "Tu final a llegado", ".... La guerra nunca cambia no lo olvides",0,0);
         itemBot.writeObject(bot0);
         itemBot.writeObject(bot1);
         itemBot.writeObject(bot2);
