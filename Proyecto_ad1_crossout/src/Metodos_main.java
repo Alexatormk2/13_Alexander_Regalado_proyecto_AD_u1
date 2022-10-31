@@ -8,7 +8,6 @@ public class Metodos_main {
 
     public static void inicializador() throws IOException {
 
-//leer piezas
 
 
         File ficheroCarro = new File(".//vehiculos.dat");
