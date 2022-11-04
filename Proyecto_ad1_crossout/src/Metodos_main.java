@@ -356,7 +356,7 @@ public class Metodos_main {
     //crear nuevo survivor para usar
     public static void newUser() throws IOException {
         try {
-            System.out.println("Nombre de la cuanta");
+            System.out.println("Nombre de la cuenta");
             String name = br.readLine();
 
             for (int o = 0; o < Main.listaPlayers.length; o++) {
@@ -376,6 +376,7 @@ public class Metodos_main {
 
             }
             //lista los carros disponibles y el usuario debe selecionar uno
+            System.out.println("Selecciona un carro:");
             for (int p = 0; p < Main.listaCarros.length; p++) {
                 if (Main.listaCarros[p] == null) {
                     break;
