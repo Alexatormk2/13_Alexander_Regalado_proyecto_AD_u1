@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="da89f297-2a9b-4889-b0ea-a04694a55b93" name="Changes" comment="" />
+    <list default="true" id="da89f297-2a9b-4889-b0ea-a04694a55b93" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/_xmlrpc-server-3.1.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/exist-1.2.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/exist-xqj-1.0.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/exist-xqj-examples.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/exist.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/log4j-1.2.15.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ws-commons-util-1.0.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/xml-apis-1.3.04.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/xmldb.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/xmlrpc-client-3.1.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/xmlrpc-common-3.1.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/xqj2-0.0.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/xqjapi.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto_ad1_crossout/Proyecto_ad1_crossout.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto_ad1_crossout/Proyecto_ad1_crossout.iml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,12 +37,16 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2GG1zTjqMGhIvWYmv9fw1V8PKZV" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "Downloaded.Files.Path.Enabled": "true",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
@@ -34,7 +54,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/9FDAM10/Documents/13_Alexander_Regalado_proyecto_AD_u1",
+    "last_opened_file_path": "C:/Users/9fdam12/Documents/13_Alexander_Regalado_proyecto_AD_u1",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -94,5 +114,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
