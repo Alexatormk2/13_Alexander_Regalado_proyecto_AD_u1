@@ -1,29 +1,47 @@
 <Lista__Registro__survivors>
   <Datos__Survivor>
-    <nomnbre>Foxy</nomnbre>
-    <kills>0</kills>
-    <deaths>1</deaths>
-    <victorias>0</victorias>
+    <nomnbre>Alexa</nomnbre>
+    <kills>12</kills>
+    <deaths>8</deaths>
+    <derrotas>8</derrotas>
+    <victorias>5</victorias>
     <carro>
-      <durabilidad>400</durabilidad>
-      <nombre>starter</nombre>
-      <danio>360</danio>
-      <descripcion>Lo mas simple y con lo que se empieza</descripcion>
+      <durabilidad>1200</durabilidad>
+      <nombre>Death_Machine</nombre>
+      <danio>320</danio>
+      <descripcion>Un vehiculo que usa drones robados para luchar</descripcion>
     </carro>
-    <scrap>0</scrap>
-    <copper>25</copper>
-    <gold>115.0</gold>
+    <scrap>525</scrap>
+    <copper>275</copper>
+    <gold>580.0</gold>
   </Datos__Survivor>
   <Datos__Survivor>
     <nomnbre>IVY_XO</nomnbre>
     <kills>0</kills>
     <deaths>0</deaths>
+    <derrotas>0</derrotas>
     <victorias>0</victorias>
     <carro>
       <durabilidad>575</durabilidad>
       <nombre>Viper</nombre>
       <danio>420</danio>
       <descripcion>Un pequeño buggy armado con 3 escopetas</descripcion>
+    </carro>
+    <scrap>0</scrap>
+    <copper>0</copper>
+    <gold>100.0</gold>
+  </Datos__Survivor>
+  <Datos__Survivor>
+    <nomnbre>Foxy</nomnbre>
+    <kills>0</kills>
+    <deaths>0</deaths>
+    <derrotas>0</derrotas>
+    <victorias>0</victorias>
+    <carro>
+      <durabilidad>400</durabilidad>
+      <nombre>starter</nombre>
+      <danio>360</danio>
+      <descripcion>Lo mas simple y con lo que se empieza</descripcion>
     </carro>
     <scrap>0</scrap>
     <copper>0</copper>
