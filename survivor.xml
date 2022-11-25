@@ -1,19 +1,35 @@
 <Lista__Registro__survivors>
   <Datos__Survivor>
-    <nomnbre>Alexa</nomnbre>
-    <kills>12</kills>
-    <deaths>8</deaths>
-    <derrotas>8</derrotas>
-    <victorias>5</victorias>
+    <nomnbre>loki</nomnbre>
+    <kills>0</kills>
+    <deaths>0</deaths>
+    <derrotas>0</derrotas>
+    <victorias>0</victorias>
     <carro>
       <durabilidad>1200</durabilidad>
       <nombre>Death_Machine</nombre>
       <danio>320</danio>
       <descripcion>Un vehiculo que usa drones robados para luchar</descripcion>
     </carro>
-    <scrap>525</scrap>
-    <copper>275</copper>
-    <gold>580.0</gold>
+    <scrap>0</scrap>
+    <copper>0</copper>
+    <gold>100.0</gold>
+  </Datos__Survivor>
+  <Datos__Survivor>
+    <nomnbre>ikue</nomnbre>
+    <kills>0</kills>
+    <deaths>0</deaths>
+    <derrotas>0</derrotas>
+    <victorias>0</victorias>
+    <carro>
+      <durabilidad>800</durabilidad>
+      <nombre>Pestilence</nombre>
+      <danio>500</danio>
+      <descripcion>Un carro creado para acabar con las plagas que se encuentran por le valle, con fuego</descripcion>
+    </carro>
+    <scrap>0</scrap>
+    <copper>0</copper>
+    <gold>100.0</gold>
   </Datos__Survivor>
   <Datos__Survivor>
     <nomnbre>IVY_XO</nomnbre>

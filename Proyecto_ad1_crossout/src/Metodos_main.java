@@ -9,7 +9,6 @@ public class Metodos_main {
     public static void inicializador() throws IOException {
 
 
-
         File ficheroCarro = new File(".//vehiculos.dat");
 
 //Flujo de entrada
@@ -25,9 +24,9 @@ public class Metodos_main {
                 String descripcion = carro.getDescripcion();
                 int danio = carro.getDanio();
                 int durabilidad = carro.getDurabilidad();
+                String tipo = carro.getTipo();
 
-
-                vehiculos a = new vehiculos(durabilidad, nombre, danio, descripcion);
+                vehiculos a = new vehiculos(durabilidad, nombre, danio, descripcion, tipo);
                 Main.listaCarros[aj] = a;
                 aj++;
 
@@ -185,13 +184,13 @@ public class Metodos_main {
                             Main.playerActual.setGold(Main.playerActual.getGold() + 15);
                             Main.playerActual.setDeaths(Main.playerActual.getDeaths() + 1);
                             //asignar derrota
-                            Main.playerActual.setDerrotas(Main.playerActual.getDerrotas() +1);
+                            Main.playerActual.setDerrotas(Main.playerActual.getDerrotas() + 1);
                             //asignar kill bot
                             Main.listaBots[numeroAleatorio].setKill(Main.listaBots[numeroAleatorio].getKill() + 1);
                             //asigna victoria bot
-                            Main.listaBots[numeroAleatorio].setVictorias(Main.listaBots[numeroAleatorio].getVictorias() +1);
+                            Main.listaBots[numeroAleatorio].setVictorias(Main.listaBots[numeroAleatorio].getVictorias() + 1);
                             //Poner la condicion del for al maximo para saltar el loop
-                              round = 11;
+                            round = 11;
                         } else {
                             break;
                         }
@@ -254,12 +253,12 @@ public class Metodos_main {
                             Main.listaBots[numeroAleatorio].setDeaths(Main.listaBots[numeroAleatorio].getDeaths() + 1);
                             //asignar kill
                             Main.playerActual.setKills(Main.playerActual.getKills() + 1);
-                                                      //asignar victoria
-                            Main.playerActual.setVictorias(Main.playerActual.getVictorias() +1);
+                            //asignar victoria
+                            Main.playerActual.setVictorias(Main.playerActual.getVictorias() + 1);
                             //asignar kill bot
                             Main.listaBots[numeroAleatorio].setDeaths(Main.listaBots[numeroAleatorio].getDeaths() + 1);
                             //asigna victoria bot
-                            Main.listaBots[numeroAleatorio].setDerrotas(Main.listaBots[numeroAleatorio].getDerrotas() +1);
+                            Main.listaBots[numeroAleatorio].setDerrotas(Main.listaBots[numeroAleatorio].getDerrotas() + 1);
                             //Poner la condicion del for al maximo para saltar el loop
                             //Poner la condicion del for al maximo para saltar el loop
                             round = 11;
@@ -291,11 +290,11 @@ public class Metodos_main {
                             //asignar muerte
                             Main.playerActual.setDeaths(Main.playerActual.getDeaths() + 1);
                             //asignar derrota
-                            Main.playerActual.setDerrotas(Main.playerActual.getDerrotas() +1);
+                            Main.playerActual.setDerrotas(Main.playerActual.getDerrotas() + 1);
                             //asignar kill bot
                             Main.listaBots[numeroAleatorio].setKill(Main.listaBots[numeroAleatorio].getKill() + 1);
                             //asigna victoria bot
-                            Main.listaBots[numeroAleatorio].setVictorias(Main.listaBots[numeroAleatorio].getVictorias() +1);
+                            Main.listaBots[numeroAleatorio].setVictorias(Main.listaBots[numeroAleatorio].getVictorias() + 1);
                             //Poner la condicion del for al maximo para saltar el loop
                             round = 11;
                         } else {

@@ -6,14 +6,23 @@ public class vehiculos implements Serializable {
     String nombre;
     int danio;
     String descripcion;
+    String tipo;
 
 
-    public vehiculos(int durabilidad, String nombre, int danio, String description) {
+    public vehiculos(int durabilidad, String nombre, int danio, String description, String tipo) {
         this.durabilidad = durabilidad;
         this.nombre = nombre;
         this.danio = danio;
-
+        this.tipo = tipo;
         this.descripcion = description;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public vehiculos() {

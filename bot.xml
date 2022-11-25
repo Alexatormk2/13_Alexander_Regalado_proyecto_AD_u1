@@ -2,9 +2,9 @@
   <Datos__BOT>
     <nombre>Megatron</nombre>
     <kill>0</kill>
-    <deaths>4</deaths>
+    <deaths>0</deaths>
     <victorias>0</victorias>
-    <derrotas>2</derrotas>
+    <derrotas>0</derrotas>
     <descripcionBot>Un agresivo bot con la memoria de un bot alienigena que se transformaba en un tanque</descripcionBot>
     <carro>
       <durabilidad>1500</durabilidad>
@@ -17,9 +17,9 @@
   </Datos__BOT>
   <Datos__BOT>
     <nombre>Muerte</nombre>
-    <kill>1</kill>
-    <deaths>2</deaths>
-    <victorias>1</victorias>
+    <kill>0</kill>
+    <deaths>0</deaths>
+    <victorias>0</victorias>
     <derrotas>0</derrotas>
     <descripcionBot>Uno de los lideres de los jinetes de apocalipsis que da caza a cualquier idiota que se le cruze</descripcionBot>
     <carro>
@@ -33,10 +33,10 @@
   </Datos__BOT>
   <Datos__BOT>
     <nombre>Bowser</nombre>
-    <kill>3</kill>
-    <deaths>5</deaths>
-    <victorias>3</victorias>
-    <derrotas>2</derrotas>
+    <kill>0</kill>
+    <deaths>0</deaths>
+    <victorias>0</victorias>
+    <derrotas>0</derrotas>
     <descripcionBot>Creado por un fanatico de super mario este bot usa el fuego para acabar con todo</descripcionBot>
     <carro>
       <durabilidad>500</durabilidad>
@@ -50,9 +50,9 @@
   <Datos__BOT>
     <nombre>Miku</nombre>
     <kill>0</kill>
-    <deaths>2</deaths>
+    <deaths>0</deaths>
     <victorias>0</victorias>
-    <derrotas>1</derrotas>
+    <derrotas>0</derrotas>
     <descripcionBot>Una Cantante virtual del viejo mundo, algun idiota le hizo un cuerpo usando un par de cadaveres y una unidad ravager y la dejo libre por el valle</descripcionBot>
     <carro reference="../../Datos__BOT[3]/carro"/>
     <fraseVictoria>Me diverti bastante espero que no estes enfadado conmigo :D</fraseVictoria>
@@ -60,9 +60,9 @@
   </Datos__BOT>
   <Datos__BOT>
     <nombre>Hambre</nombre>
-    <kill>2</kill>
-    <deaths>3</deaths>
-    <victorias>2</victorias>
+    <kill>0</kill>
+    <deaths>0</deaths>
+    <victorias>0</victorias>
     <derrotas>0</derrotas>
     <descripcionBot>Uno de los lideres de los jinetes del apocalipsis, su hambre no tiene comparacion y tampoco nada lo sacia</descripcionBot>
     <carro>
@@ -76,9 +76,9 @@
   </Datos__BOT>
   <Datos__BOT>
     <nombre>Peste</nombre>
-    <kill>2</kill>
-    <deaths>1</deaths>
-    <victorias>2</victorias>
+    <kill>0</kill>
+    <deaths>0</deaths>
+    <victorias>0</victorias>
     <derrotas>0</derrotas>
     <descripcionBot>Una de las lideres de los jinetes del apocalipsis, carbonizada a cualquiera que se cruze en su ruta o tenga alguna peste</descripcionBot>
     <carro>

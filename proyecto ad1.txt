@@ -36,3 +36,9 @@ clases: hecho
 variables,constructor,getter/setter: hecho
 crear usuario/login: hecho
 compra venta: hecho
+
+
+parte 2 del proyecto:
+Añadir nodos y atributos a los xml.
+Añadir capacidad de fabricar y vender el mercaro(cuales ne la parte 1 fueron descartados)
+Conseguir mejores imagenes para los bots y si eso crear una galeria con cada bot y su foto y otra para los carros

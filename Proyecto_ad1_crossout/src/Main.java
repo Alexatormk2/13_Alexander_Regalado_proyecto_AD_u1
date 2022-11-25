@@ -1,15 +1,22 @@
 import com.thoughtworks.xstream.XStream;
 
 import java.io.*;
-import java.util.Objects;
-import java.util.logging.Level;
+import java.lang.reflect.InvocationTargetException;
 
+import org.xmldb.api.DatabaseManager;
+import org.xmldb.api.base.Collection;
+import org.xmldb.api.base.Database;
+import org.xmldb.api.base.XMLDBException;
+import org.xmldb.api.modules.XMLResource;
 
 public class Main {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     //listas--------------
     static String driver = "org.exist.xmldb.DatabaseImpl"; //Driver para eXist
     static String URI = "xmldb:exist://localhost:8080/exist/xmlrpc/db/ColeccionCross"; //URI colección
+    static String usu = "admin"; //Usuario
+    static String usuPwd = "admin"; //Clave
+    static Collection col;
     static survivor[] listaPlayers = new survivor[30];
     static BOT[] listaBots = new BOT[30];
     static vehiculos[] listaCarros = new vehiculos[25];
@@ -117,7 +124,7 @@ public class Main {
                         }
 
                         switch (opcion2) {
-                    //Segun la opcion dada llamada a uno de los 2 metodos
+                            //Segun la opcion dada llamada a uno de los 2 metodos
                             case 1:
                                 Metodos_main.chatarra();
 
@@ -154,6 +161,12 @@ public class Main {
             exportarPlayer();
             exportarBot();
             exportarCarro();
+            conectar();
+            exportarExisSurvi();
+            exportarExisBot();
+            exportarExisCarro();
+
+            System.out.println("export completa por favor recarga exist");
             System.out.println("Cerrando sesion");
         } catch (NumberFormatException e) {
             System.out.println("Error de valor revise de un  numero");
@@ -195,8 +208,11 @@ public class Main {
 //Insrtar los objetos en el XML
             xstream.toXML(listasurv, new FileOutputStream("survivor.xml"));
             System.out.println("Creado fichero XML....");
+            System.out.println("Exportando a exist");
+
+
         } catch (Exception e) {
-                e.printStackTrace();
+            e.printStackTrace();
         }
         // fin
 
@@ -239,27 +255,73 @@ public class Main {
         }
         // fin
     }
-    public static  void exportarExis(){
+
+    public static void exportarExisSurvi() {
 
 
         try {
 
             XMLResource resource;
-            resource = (XMLResource) collection.createResource("survivor.xml", "XMLResource");
+            resource = (XMLResource) col.createResource("survivor.xml", "XMLResource");
 
-            File file = new File(".survivor.xml");
+            File file = new File("survivor.xml");
             resource.setContent(file);
-            collection.storeResource(resource);
-            for (String s : collection.listResources()) {
+            col.storeResource(resource);
+            for (String s : col.listResources()) {
                 System.out.println(s);
             }
-            collection.close();
+            col.close();
 
         } catch (Exception e) {
             System.out.println("Error al consultar colección: " + e.getLocalizedMessage());
-            Logs.logger.log(Level.SEVERE, "Error al consultar colección: " + e.getLocalizedMessage());
+
         }
     }
+
+    public static void exportarExisCarro() {
+
+
+        try {
+
+            XMLResource resource;
+            resource = (XMLResource) col.createResource("vehiculos.xml", "XMLResource");
+
+            File file = new File("vehiculos.xml");
+            resource.setContent(file);
+            col.storeResource(resource);
+            for (String s : col.listResources()) {
+                System.out.println(s);
+            }
+            col.close();
+
+        } catch (Exception e) {
+            System.out.println("Error al consultar colección: " + e.getLocalizedMessage());
+
+        }
+    }
+
+    public static void exportarExisBot() {
+
+
+        try {
+
+            XMLResource resource;
+            resource = (XMLResource) col.createResource("bot.xml", "XMLResource");
+
+            File file = new File("bot.xml");
+            resource.setContent(file);
+            col.storeResource(resource);
+            for (String s : col.listResources()) {
+                System.out.println(s);
+            }
+            col.close();
+
+        } catch (Exception e) {
+            System.out.println("Error al consultar colección: " + e.getLocalizedMessage());
+
+        }
+    }
+
 
     public static void exportarCarro() throws IOException {
 
@@ -288,14 +350,45 @@ public class Main {
             xstream.alias("Datos_Carro", vehiculos.class);
 //quitar etiqueta lista (atributo de la clase ListaPersonas)
             xstream.addImplicitCollection(ListaCarro.class, "lista");
+            xstream.useAttributeFor(vehiculos.class, "tipo");
+            xstream.aliasField("categoria", vehiculos.class, "tipo");
 //Insrtar los objetos en el XML
             xstream.toXML(listaCa, new FileOutputStream("Vehiculos.xml"));
             System.out.println("Creado fichero XML....");
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
         // fin
     }
+
+    public static void conectar() {
+
+        try {
+            Class<Database> cl = (Class<Database>) Class.forName(driver); //Cargar del driver
+            Database database = cl.getDeclaredConstructor().newInstance(); //Instancia de la BD
+            DatabaseManager.registerDatabase(database); //Registro del driver
+            col = DatabaseManager.getCollection(URI, usu, usuPwd);
+        } catch (XMLDBException e) {
+            System.out.println("Error al inicializar la BD eXist.");
+            //e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            System.out.println("Error en el driver.");
+            //e.printStackTrace();
+        } catch (InstantiationException e) {
+            System.out.println("Error al instanciar la BD.");
+            //e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            System.out.println("Error al instanciar la BD.");
+            //e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }
 
