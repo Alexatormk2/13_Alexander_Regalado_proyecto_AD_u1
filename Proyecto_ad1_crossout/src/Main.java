@@ -2,11 +2,14 @@ import com.thoughtworks.xstream.XStream;
 
 import java.io.*;
 import java.util.Objects;
+import java.util.logging.Level;
+
 
 public class Main {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     //listas--------------
-
+    static String driver = "org.exist.xmldb.DatabaseImpl"; //Driver para eXist
+    static String URI = "xmldb:exist://localhost:8080/exist/xmlrpc/db/ColeccionCross"; //URI colección
     static survivor[] listaPlayers = new survivor[30];
     static BOT[] listaBots = new BOT[30];
     static vehiculos[] listaCarros = new vehiculos[25];
@@ -235,6 +238,27 @@ public class Main {
             e.printStackTrace();
         }
         // fin
+    }
+    public static  void exportarExis(){
+
+
+        try {
+
+            XMLResource resource;
+            resource = (XMLResource) collection.createResource("survivor.xml", "XMLResource");
+
+            File file = new File(".survivor.xml");
+            resource.setContent(file);
+            collection.storeResource(resource);
+            for (String s : collection.listResources()) {
+                System.out.println(s);
+            }
+            collection.close();
+
+        } catch (Exception e) {
+            System.out.println("Error al consultar colección: " + e.getLocalizedMessage());
+            Logs.logger.log(Level.SEVERE, "Error al consultar colección: " + e.getLocalizedMessage());
+        }
     }
 
     public static void exportarCarro() throws IOException {

@@ -2,26 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="da89f297-2a9b-4889-b0ea-a04694a55b93" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/thoughtworks_xstream2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/_xmlrpc-server-3.1.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/exist-xqj-1.0.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/exist-xqj-examples.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/exist.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/log4j-1.2.15.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ws-commons-util-1.0.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/xml-apis-1.3.04.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/xmldb.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/xmlrpc-client-3.1.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/xmlrpc-common-3.1.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/xqj2-0.0.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/xqjapi.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BOT.dat" beforeDir="false" afterPath="$PROJECT_DIR$/BOT.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto_ad1_crossout/Proyecto_ad1_crossout.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto_ad1_crossout/Proyecto_ad1_crossout.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vehiculos.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Vehiculos.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bot.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/_xmlrpc-server-3.1.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/exist-xqj-1.0.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/exist-xqj-examples.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/exist.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/log4j-1.2.15.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ws-commons-util-1.0.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/xml-apis-1.3.04.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/xmldb.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/xmlrpc-client-3.1.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/xmlrpc-common-3.1.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/xqj2-0.0.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/xqjapi.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/survivor.dat" beforeDir="false" afterPath="$PROJECT_DIR$/survivor.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/survivor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/survivor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto_ad1_crossout/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto_ad1_crossout/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,24 +43,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/9fdam12/Documents/13_Alexander_Regalado_proyecto_AD_u1/lib/xstream-1.4.19.jar",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/9fdam12/Documents/13_Alexander_Regalado_proyecto_AD_u1&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Crear_dat" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Crear_dat" />
@@ -104,6 +98,7 @@
       <workItem from="1666979484625" duration="506000" />
       <workItem from="1667410459370" duration="34000" />
       <workItem from="1667501054278" duration="477000" />
+      <workItem from="1669403224775" duration="35000" />
     </task>
     <servers />
   </component>
