@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="da89f297-2a9b-4889-b0ea-a04694a55b93" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/_xmlrpc_server_3_1_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BOT.dat" beforeDir="false" afterPath="$PROJECT_DIR$/BOT.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto_ad1_crossout/Proyecto_ad1_crossout.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto_ad1_crossout/Proyecto_ad1_crossout.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto_ad1_crossout/src/Crear_dat.java" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto_ad1_crossout/src/Crear_dat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto_ad1_crossout/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto_ad1_crossout/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto_ad1_crossout/src/Metodos_main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto_ad1_crossout/src/Metodos_main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto_ad1_crossout/src/vehiculos.java" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto_ad1_crossout/src/vehiculos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vehiculos.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Vehiculos.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bot.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto_ad1_crossout/Crear_dat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto_ad1_crossout/Crear_dat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto_ad1_crossout/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto_ad1_crossout/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto_ad1_crossout/Metodos_main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto_ad1_crossout/Metodos_main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto_ad1_crossout/vehiculos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto_ad1_crossout/vehiculos.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/survivor.dat" beforeDir="false" afterPath="$PROJECT_DIR$/survivor.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/survivor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/survivor.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vehiculos.dat" beforeDir="false" afterPath="$PROJECT_DIR$/vehiculos.dat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +41,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/9fdam12/Documents/13_Alexander_Regalado_proyecto_AD_u1/lib/xstream-1.4.19.jar",
+    "last_opened_file_path": "C:/Users/9fdam12/Documents/aelxander_regalado_13_procesos_final",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -102,6 +86,7 @@
       <workItem from="1667410459370" duration="34000" />
       <workItem from="1667501054278" duration="477000" />
       <workItem from="1669403224775" duration="35000" />
+      <workItem from="1669656766157" duration="18000" />
     </task>
     <servers />
   </component>

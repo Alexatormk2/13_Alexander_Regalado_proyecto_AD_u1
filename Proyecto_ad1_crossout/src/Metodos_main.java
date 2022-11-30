@@ -484,7 +484,7 @@ public class Metodos_main {
         ObjectOutputStream itemBot = new ObjectOutputStream(escribirbot);
 
 
-        for (int a = 0; a < Main.listaPlayers.length; a++) {
+        for (int a = 0; a < Main.listaBots.length; a++) {
 
             if (Main.listaBots[a] == null) {
                 break;
@@ -492,7 +492,7 @@ public class Metodos_main {
 
                 try {
                     itemBot.writeObject(Main.listaBots[a]);
-                    Main.listaPlayers[a] = Main.playerActual;
+            
                 } catch (Exception e) {
                     System.out.println("Error inesperado");
                 }
