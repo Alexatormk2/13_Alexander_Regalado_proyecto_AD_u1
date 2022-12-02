@@ -72,9 +72,9 @@
   </Datos__BOT>
   <Datos__BOT>
     <nombre>Hambre</nombre>
-    <kill>0</kill>
+    <kill>1</kill>
     <deaths>0</deaths>
-    <victorias>0</victorias>
+    <victorias>1</victorias>
     <derrotas>0</derrotas>
     <descripcionBot>Uno de los lideres de los jinetes del apocalipsis, su hambre no tiene comparacion y tampoco nada lo sacia</descripcionBot>
     <carro>
@@ -92,9 +92,9 @@
   </Datos__BOT>
   <Datos__BOT>
     <nombre>Peste</nombre>
-    <kill>1</kill>
+    <kill>0</kill>
     <deaths>0</deaths>
-    <victorias>1</victorias>
+    <victorias>0</victorias>
     <derrotas>0</derrotas>
     <descripcionBot>Una de las lideres de los jinetes del apocalipsis, carbonizada a cualquiera que se cruze en su ruta o tenga alguna peste</descripcionBot>
     <carro>

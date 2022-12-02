@@ -1,3 +1,4 @@
+import net.xqj.exist.bin.I;
 import org.xmldb.api.DatabaseManager;
 import org.xmldb.api.base.*;
 import org.xmldb.api.modules.XPathQueryService;
@@ -545,6 +546,22 @@ public class Metodos_main {
                                 listarCarr();
 
                                 break;
+                            case 2:
+                                System.out.println("Da le nombre del vbehiculo");
+                                String nombre = br.readLine();
+                                System.out.println("Da el daño del vehiculo");
+                                int danio = Integer.parseInt(br.readLine());
+                                System.out.println("Durabilidad del carro");
+                                int durabilidad = Integer.parseInt(br.readLine());
+                                System.out.println("Descripcion del carro");
+                                String descripcion = br.readLine();
+                                System.out.println("Tipo del carro");
+                                String tipo = br.readLine();
+                                System.out.println("Categoria del carro");
+                                String categoria = br.readLine();
+
+                                insertarCarr(danio, nombre, durabilidad, descripcion, tipo, categoria);
+                                break;
 
 
                         }
@@ -597,7 +614,7 @@ public class Metodos_main {
                 XPathQueryService servicio;
                 servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
                 //Preparamos la consulta
-                ResourceSet result = servicio.query("for $carro in /vehiculos/Datos__Carro return $carro");
+                ResourceSet result = servicio.query("for $carro in //Datos__Carro return $carro");
                 // recorrer los datos del recurso.
                 ResourceIterator i;
                 i = result.getIterator();
@@ -619,11 +636,12 @@ public class Metodos_main {
         }
 
     }
-    private static void insertardep(int dep, String dnombre, String loc) {
+
+    private static void insertarCarr(int danio, String nombre, int durabilidad, String descripcion, String tipo, String categoria) {
 
         //Caso concreto: sabemos cuáles son los nodos
-        String nuevodep = "<DEP_ROW><DEPT_NO>" + dep + "</DEPT_NO>"
-                + "<DNOMBRE>" + dnombre + "</DNOMBRE><LOC>" + loc + "</LOC>"
+        String nuevodep = "<Datos__Carro>><Clasificacion tipo= " + tipo + " >" + categoria + "</Clasificacion>"
+                + "<durabilidad>" + durabilidad + "</durabilidad><nombre>" + nombre + "</nombre><danio>" + danio + "</danio><descripcion>" + descripcion + "</descripcion>"
                 + "</DEP_ROW>";
 
         if (conectar() != null) {
@@ -631,11 +649,11 @@ public class Metodos_main {
                 XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
                 System.out.printf("Inserto: %s \n", nuevodep);
                 //Consulta para insertar --> update insert ... into
-                ResourceSet result = servicio.query("update insert " + nuevodep + " into /departamentos");
+                ResourceSet result = servicio.query("update insert " + nuevodep + " into /vehiculos");
                 col.close(); //borramos
-                System.out.println("Dep insertado.");
+                System.out.println("CARRO insertado.");
             } catch (Exception e) {
-                System.out.println("Error al insertar empleado.");
+                System.out.println("Error al insertar carro.");
                 e.printStackTrace();
             }
         } else {
