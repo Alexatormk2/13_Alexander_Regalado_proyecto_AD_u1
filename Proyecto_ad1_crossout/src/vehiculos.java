@@ -2,32 +2,56 @@ import java.io.Serializable;
 
 public class vehiculos implements Serializable {
 
+     Clascificacion clascificacion;
     int durabilidad;
     String nombre;
     int danio;
     String descripcion;
-    String tipo;
 
 
-    public vehiculos(int durabilidad, String nombre, int danio, String description, String tipo) {
+
+    public vehiculos(int danio,String nombre,int durabilidad,      String descripcion, Clascificacion clascificacion) {
+        this.clascificacion = clascificacion;
         this.durabilidad = durabilidad;
         this.nombre = nombre;
         this.danio = danio;
-        this.tipo = tipo;
-        this.descripcion = description;
+        this.descripcion = descripcion;
     }
 
-    public String getTipo() {
-        return tipo;
+    public Clascificacion getClascificacion() {
+        return clascificacion;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setClascificacion(Clascificacion clascificacion) {
+        this.clascificacion = clascificacion;
     }
 
-    public vehiculos() {
+    static class Clascificacion implements  Serializable{
+        String tipo;
+        String categoria;
 
+        public Clascificacion(String tipo, String categoria) {
+            this.tipo = tipo;
+            this.categoria = categoria;
+        }
+
+        public String getTipo() {
+            return tipo;
+        }
+
+        public void setTipo(String tipo) {
+            this.tipo = tipo;
+        }
+
+        public String getCategoria() {
+            return categoria;
+        }
+
+        public void setCategoria(String categoria) {
+            this.categoria = categoria;
+        }
     }
+
 
 
     public String getDescripcion() {

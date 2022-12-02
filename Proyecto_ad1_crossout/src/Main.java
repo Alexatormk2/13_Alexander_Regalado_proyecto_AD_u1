@@ -89,6 +89,7 @@ public class Main {
             case 2:
                 Metodos_main.newUser();
                 break;
+
             case 3:
                 System.exit(0);
                 break;
@@ -103,7 +104,8 @@ public class Main {
                 System.out.println("1.Batalla");
                 System.out.println("2.Cambiar Carro");
                 System.out.println("3.Borrar usuario :D");
-                System.out.println("4.Salir");
+                System.out.println("4.Administracion exist");
+                System.out.println("5.Salir");
 
                 opcion = Integer.parseInt(br.readLine());
 
@@ -148,14 +150,23 @@ public class Main {
                     case 3:
                         Metodos_main.BorrarUser();
                         break;
-
                     case 4:
+
+                        if ((Main.playerActual.getNomnbre().equals("IVY_XO") || Main.playerActual.getNomnbre().equals("Foxy"))) {
+                            Metodos_main.consultasExist();
+                        } else {
+
+                            System.out.println("Error no se poseen datos de admin");
+                        }
+                        break;
+
+                    case 5:
 
                         break;
                 }
 
 
-            } while (opcion != 4);
+            } while (opcion != 5);
             Metodos_main.guardarDatos();
             Metodos_main.guardarDatosBot();
             exportarPlayer();
@@ -332,7 +343,7 @@ public class Main {
         ObjectInputStream dataIS = new ObjectInputStream(fileCarro);
         System.out.println("Comienza el proceso de creación del fichero a XML ...");
 //Creamos un objeto Lista de Personas
-        ListaCarro listaCa = new ListaCarro();
+        Carros listaCa = new Carros();
         try {
             while (true) { //lectura del fichero
                 vehiculos carro = (vehiculos) dataIS.readObject(); //leer una Persona
@@ -346,12 +357,12 @@ public class Main {
         try {
             XStream xstream = new XStream();
 //cambiar de nombre a las etiquetas XML
-            xstream.alias("Lista_Carro", ListaCarro.class);
+
             xstream.alias("Datos_Carro", vehiculos.class);
 //quitar etiqueta lista (atributo de la clase ListaPersonas)
-            xstream.addImplicitCollection(ListaCarro.class, "lista");
-            xstream.useAttributeFor(vehiculos.class, "tipo");
-            xstream.aliasField("categoria", vehiculos.class, "tipo");
+
+            xstream.useAttributeFor(vehiculos.Clascificacion.class, "tipo");
+            xstream.aliasField("Tipo", vehiculos.Clascificacion.class, "tipo");
 //Insrtar los objetos en el XML
             xstream.toXML(listaCa, new FileOutputStream("Vehiculos.xml"));
             System.out.println("Creado fichero XML....");

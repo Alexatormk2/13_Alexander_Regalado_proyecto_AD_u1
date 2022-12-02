@@ -1,10 +1,20 @@
+import org.xmldb.api.DatabaseManager;
+import org.xmldb.api.base.*;
+import org.xmldb.api.modules.XPathQueryService;
+
 import javax.sound.midi.Soundbank;
 import java.io.*;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLOutput;
 import java.util.Objects;
 
 public class Metodos_main {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static String driver = "org.exist.xmldb.DatabaseImpl"; //Driver para eXist
+    static String URI = "xmldb:exist://localhost:8080/exist/xmlrpc/db/ColeccionCross"; //URI colección
+    static String usu = "admin"; //Usuario
+    static String usuPwd = "admin"; //Clave
+    static Collection col;
 
     public static void inicializador() throws IOException {
 
@@ -23,10 +33,12 @@ public class Metodos_main {
                 String nombre = carro.getNombre();
                 String descripcion = carro.getDescripcion();
                 int danio = carro.getDanio();
+                vehiculos.Clascificacion clascificacion = carro.getClascificacion();
                 int durabilidad = carro.getDurabilidad();
-                String tipo = carro.getTipo();
-
-                vehiculos a = new vehiculos(durabilidad, nombre, danio, descripcion, tipo);
+                String tipo = carro.clascificacion.getTipo();
+                String categoria = carro.clascificacion.getCategoria();
+                clascificacion = new vehiculos.Clascificacion(tipo, categoria);
+                vehiculos a = new vehiculos(durabilidad, nombre, danio, descripcion, clascificacion);
                 Main.listaCarros[aj] = a;
                 aj++;
 
@@ -492,7 +504,7 @@ public class Metodos_main {
 
                 try {
                     itemBot.writeObject(Main.listaBots[a]);
-            
+
                 } catch (Exception e) {
                     System.out.println("Error inesperado");
                 }
@@ -503,6 +515,132 @@ public class Metodos_main {
         }
 
 
+    }
+
+    public static void consultasExist() {
+
+        int op = 0;
+        do {
+            try {
+                System.out.println("............................................................\n"
+                        + ".  1 Gestion carros. \n"
+                        + ".  2 Gestion Bots .  \n"
+                        + ".  3 SALIR.\n"
+                        + "............................................................\n");
+                op = Integer.parseInt(br.readLine());
+                switch (op) {
+                    case 1:
+                        System.out.println("............................................................\n"
+                                + ".  1 Listar carro. \n"
+                                + ".  2 Insertar carro.  \n"
+                                + ".  3 Borrar carro.  \n"
+                                + ".  4 Modificar carro.  \n"
+                                + ".  5 Buscar por nombre carro.  \n"
+                                + ".  3 SALIR.\n"
+                                + "............................................................\n");
+                        int opCar = 0;
+                        opCar = Integer.parseInt(br.readLine());
+                        switch (opCar) {
+                            case 1:
+                                listarCarr();
+
+                                break;
+
+
+                        }
+
+
+                        break;
+
+
+                }
+            } catch (NumberFormatException | IOException as) {
+                System.out.println("Se esperaba un numero por favor revise");
+            }
+        } while (op != 3);
+
+
+    }
+
+    public static Collection conectar() {
+
+        try {
+            Class cl = Class.forName(driver); //Cargar del driver
+            Database database = (Database) cl.getDeclaredConstructor().newInstance(); //Instancia de la BD
+            DatabaseManager.registerDatabase(database); //Registro del driver
+            col = DatabaseManager.getCollection(URI, usu, usuPwd);
+            return col;
+        } catch (XMLDBException e) {
+            System.out.println("Error al inicializar la BD eXist.");
+            //e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            System.out.println("Error en el driver.");
+            //e.printStackTrace();
+        } catch (InstantiationException e) {
+            System.out.println("Error al instanciar la BD.");
+            //e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            System.out.println("Error al instanciar la BD.");
+            //e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    ////metodos consultas exist
+    private static void listarCarr() {
+        if (conectar() != null) {
+            try {
+                XPathQueryService servicio;
+                servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
+                //Preparamos la consulta
+                ResourceSet result = servicio.query("for $carro in /vehiculos/Datos__Carro return $carro");
+                // recorrer los datos del recurso.
+                ResourceIterator i;
+                i = result.getIterator();
+                if (!i.hasMoreResources()) {
+                    System.out.println(" LA CONSULTA NO DEVUELVE NADA O ESTÁ MAL ESCRITA");
+                }
+                while (i.hasMoreResources()) {
+                    Resource r = i.nextResource();
+                    System.out.println("--------------------------------------------");
+                    System.out.println((String) r.getContent());
+                }
+                col.close();
+            } catch (XMLDBException e) {
+                System.out.println(" ERROR AL CONSULTAR DOCUMENTO.");
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("Error en la conexión. Comprueba datos.");
+        }
+
+    }
+    private static void insertardep(int dep, String dnombre, String loc) {
+
+        //Caso concreto: sabemos cuáles son los nodos
+        String nuevodep = "<DEP_ROW><DEPT_NO>" + dep + "</DEPT_NO>"
+                + "<DNOMBRE>" + dnombre + "</DNOMBRE><LOC>" + loc + "</LOC>"
+                + "</DEP_ROW>";
+
+        if (conectar() != null) {
+            try {
+                XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
+                System.out.printf("Inserto: %s \n", nuevodep);
+                //Consulta para insertar --> update insert ... into
+                ResourceSet result = servicio.query("update insert " + nuevodep + " into /departamentos");
+                col.close(); //borramos
+                System.out.println("Dep insertado.");
+            } catch (Exception e) {
+                System.out.println("Error al insertar empleado.");
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("Error en la conexión. Comprueba datos.");
+        }
     }
 }
 

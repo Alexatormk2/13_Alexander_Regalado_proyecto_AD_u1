@@ -1,62 +1,94 @@
-<Lista__Carro>
-  <Datos__Carro>
-    <durabilidad>575</durabilidad>
-    <nombre>Viper</nombre>
-    <danio>420</danio>
-    <descripcion>Un pequeño buggy armado con 3 escopetas</descripcion>
-  </Datos__Carro>
-  <Datos__Carro>
-    <durabilidad>1575</durabilidad>
-    <nombre>Bombarder</nombre>
-    <danio>420</danio>
-    <descripcion>Un camion armado con artilleria infectado por un parasito ravager  ,seguro que quiere usarlo? </descripcion>
-  </Datos__Carro>
-  <Datos__Carro>
-    <durabilidad>600</durabilidad>
-    <nombre>Equilibrium</nombre>
-    <danio>220</danio>
-    <descripcion>Rapido y resistente poco, de quien fue la ide a de poner mecheros es como arma ?</descripcion>
-  </Datos__Carro>
-  <Datos__Carro>
-    <durabilidad>400</durabilidad>
-    <nombre>starter</nombre>
-    <danio>360</danio>
-    <descripcion>Lo mas simple y con lo que se empieza</descripcion>
-  </Datos__Carro>
-  <Datos__Carro>
-    <durabilidad>800</durabilidad>
-    <nombre>Pestilence</nombre>
-    <danio>500</danio>
-    <descripcion>Un carro creado para acabar con las plagas que se encuentran por le valle, con fuego</descripcion>
-  </Datos__Carro>
-  <Datos__Carro>
-    <durabilidad>1250</durabilidad>
-    <nombre>War_Machine</nombre>
-    <danio>350</danio>
-    <descripcion>Un gran vehiculo armado con una ballesta y lanzacohetes, listo para la querra</descripcion>
-  </Datos__Carro>
-  <Datos__Carro>
-    <durabilidad>900</durabilidad>
-    <nombre>Famine_Machine</nombre>
-    <danio>420</danio>
-    <descripcion>Un vehiculo   hambriento el cual desea devorar tanto carros como survivors</descripcion>
-  </Datos__Carro>
-  <Datos__Carro>
-    <durabilidad>1001</durabilidad>
-    <nombre>Song of hell</nombre>
-    <danio>420</danio>
-    <descripcion>Cuadno escuchas una cancion en las tierras de wasteland no es el camion de los helados es solo alquien que viene a por tu vida</descripcion>
-  </Datos__Carro>
-  <Datos__Carro>
-    <durabilidad>500</durabilidad>
-    <nombre>Fire koopa</nombre>
-    <danio>480</danio>
-    <descripcion>Rapido y letal para quemar a quienes se ponganen tu camino</descripcion>
-  </Datos__Carro>
-  <Datos__Carro>
-    <durabilidad>1200</durabilidad>
-    <nombre>Death_Machine</nombre>
-    <danio>320</danio>
-    <descripcion>Un vehiculo que usa drones robados para luchar</descripcion>
-  </Datos__Carro>
-</Lista__Carro>
+<Carros>
+  <carro>
+    <Datos__Carro>
+      <clascificacion Tipo="buggy">
+        <categoria>Ligero</categoria>
+      </clascificacion>
+      <durabilidad>420</durabilidad>
+      <nombre>Viper</nombre>
+      <danio>575</danio>
+      <descripcion>Un pequeño buggy armado con 3 escopetas</descripcion>
+    </Datos__Carro>
+    <Datos__Carro>
+      <clascificacion Tipo="Camion de artilleria Ravager">
+        <categoria>Pesado</categoria>
+      </clascificacion>
+      <durabilidad>420</durabilidad>
+      <nombre>Bombarder</nombre>
+      <danio>1575</danio>
+      <descripcion>Un camion armado con artilleria infectado por un parasito ravager  ,seguro que quiere usarlo? </descripcion>
+    </Datos__Carro>
+    <Datos__Carro>
+      <clascificacion Tipo="Deportivo">
+        <categoria>Ligero</categoria>
+      </clascificacion>
+      <durabilidad>220</durabilidad>
+      <nombre>Equilibrium</nombre>
+      <danio>600</danio>
+      <descripcion>Rapido y resistente poco, de quien fue la ide a de poner mecheros es como arma ?</descripcion>
+    </Datos__Carro>
+    <Datos__Carro>
+      <clascificacion Tipo="Camioneta">
+        <categoria>Medio</categoria>
+      </clascificacion>
+      <durabilidad>360</durabilidad>
+      <nombre>starter</nombre>
+      <danio>400</danio>
+      <descripcion>Lo mas simple y con lo que se empieza</descripcion>
+    </Datos__Carro>
+    <Datos__Carro>
+      <clascificacion Tipo="Maquina anti plagas">
+        <categoria>ligero</categoria>
+      </clascificacion>
+      <durabilidad>500</durabilidad>
+      <nombre>Pestilence</nombre>
+      <danio>800</danio>
+      <descripcion>Un carro creado para acabar con las plagas que se encuentran por le valle, con fuego</descripcion>
+    </Datos__Carro>
+    <Datos__Carro>
+      <clascificacion Tipo="Blindado de guerra">
+        <categoria>Pesado</categoria>
+      </clascificacion>
+      <durabilidad>350</durabilidad>
+      <nombre>War_Machine</nombre>
+      <danio>1250</danio>
+      <descripcion>Un gran vehiculo armado con una ballesta y lanzacohetes, listo para la querra</descripcion>
+    </Datos__Carro>
+    <Datos__Carro>
+      <clascificacion Tipo="Maquina hambrienta">
+        <categoria>Medio</categoria>
+      </clascificacion>
+      <durabilidad>420</durabilidad>
+      <nombre>Famine_Machine</nombre>
+      <danio>900</danio>
+      <descripcion>Un vehiculo   hambriento el cual desea devorar tanto carros como survivors</descripcion>
+    </Datos__Carro>
+    <Datos__Carro>
+      <clascificacion Tipo="Deportivo Ravager">
+        <categoria>Ligero</categoria>
+      </clascificacion>
+      <durabilidad>420</durabilidad>
+      <nombre>Song of hell</nombre>
+      <danio>1001</danio>
+      <descripcion>Cuadno escuchas una cancion en las tierras de wasteland no es el camion de los helados es solo alquien que viene a por tu vida</descripcion>
+    </Datos__Carro>
+    <Datos__Carro>
+      <clascificacion Tipo="Carro blindado">
+        <categoria>ligero</categoria>
+      </clascificacion>
+      <durabilidad>480</durabilidad>
+      <nombre>Fire koopa</nombre>
+      <danio>500</danio>
+      <descripcion>Rapido y letal para quemar a quienes se ponganen tu camino</descripcion>
+    </Datos__Carro>
+    <Datos__Carro>
+      <clascificacion Tipo="Funebre">
+        <categoria>Medio</categoria>
+      </clascificacion>
+      <durabilidad>320</durabilidad>
+      <nombre>Death_Machine</nombre>
+      <danio>1200</danio>
+      <descripcion>Un vehiculo que usa drones robados para luchar</descripcion>
+    </Datos__Carro>
+  </carro>
+</Carros>

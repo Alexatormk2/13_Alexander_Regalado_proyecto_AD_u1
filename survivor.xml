@@ -1,51 +1,23 @@
 <Lista__Registro__survivors>
   <Datos__Survivor>
-    <nomnbre>loki</nomnbre>
-    <kills>0</kills>
-    <deaths>0</deaths>
-    <derrotas>0</derrotas>
-    <victorias>0</victorias>
-    <carro>
-      <durabilidad>1200</durabilidad>
-      <nombre>Death_Machine</nombre>
-      <danio>320</danio>
-      <descripcion>Un vehiculo que usa drones robados para luchar</descripcion>
-    </carro>
-    <scrap>0</scrap>
-    <copper>0</copper>
-    <gold>100.0</gold>
-  </Datos__Survivor>
-  <Datos__Survivor>
-    <nomnbre>ikue</nomnbre>
-    <kills>0</kills>
-    <deaths>0</deaths>
-    <derrotas>0</derrotas>
-    <victorias>0</victorias>
-    <carro>
-      <durabilidad>800</durabilidad>
-      <nombre>Pestilence</nombre>
-      <danio>500</danio>
-      <descripcion>Un carro creado para acabar con las plagas que se encuentran por le valle, con fuego</descripcion>
-    </carro>
-    <scrap>0</scrap>
-    <copper>0</copper>
-    <gold>100.0</gold>
-  </Datos__Survivor>
-  <Datos__Survivor>
     <nomnbre>IVY_XO</nomnbre>
     <kills>0</kills>
-    <deaths>0</deaths>
-    <derrotas>0</derrotas>
+    <deaths>1</deaths>
+    <derrotas>1</derrotas>
     <victorias>0</victorias>
     <carro>
-      <durabilidad>575</durabilidad>
+      <clascificacion>
+        <tipo>buggy</tipo>
+        <categoria>Ligero</categoria>
+      </clascificacion>
+      <durabilidad>420</durabilidad>
       <nombre>Viper</nombre>
-      <danio>420</danio>
+      <danio>575</danio>
       <descripcion>Un pequeño buggy armado con 3 escopetas</descripcion>
     </carro>
-    <scrap>0</scrap>
+    <scrap>25</scrap>
     <copper>0</copper>
-    <gold>100.0</gold>
+    <gold>115.0</gold>
   </Datos__Survivor>
   <Datos__Survivor>
     <nomnbre>Foxy</nomnbre>
@@ -54,9 +26,13 @@
     <derrotas>0</derrotas>
     <victorias>0</victorias>
     <carro>
-      <durabilidad>400</durabilidad>
+      <clascificacion>
+        <tipo>Camioneta</tipo>
+        <categoria>Medio</categoria>
+      </clascificacion>
+      <durabilidad>360</durabilidad>
       <nombre>starter</nombre>
-      <danio>360</danio>
+      <danio>400</danio>
       <descripcion>Lo mas simple y con lo que se empieza</descripcion>
     </carro>
     <scrap>0</scrap>
