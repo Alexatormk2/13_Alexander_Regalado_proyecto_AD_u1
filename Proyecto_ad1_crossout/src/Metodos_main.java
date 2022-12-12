@@ -675,7 +675,7 @@ public class Metodos_main {
         if (conectar() != null) {
             try {
                 XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
-                    
+
 
                 //Consulta para consultar la información de un departamento
                 ResourceSet result = servicio.query("/Carros/carro/vehiculos[nombre=" + nombre + "]");
