@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="da89f297-2a9b-4889-b0ea-a04694a55b93" name="Changes" comment="" />
+    <list default="true" id="da89f297-2a9b-4889-b0ea-a04694a55b93" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/_xmlrpc_server_3_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BOT.dat" beforeDir="false" afterPath="$PROJECT_DIR$/BOT.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto_ad1_crossout/Proyecto_ad1_crossout.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto_ad1_crossout/Proyecto_ad1_crossout.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto_ad1_crossout/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto_ad1_crossout/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Proyecto_ad1_crossout/src/Metodos_main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto_ad1_crossout/src/Metodos_main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vehiculos.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Vehiculos.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bot.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/survivor.dat" beforeDir="false" afterPath="$PROJECT_DIR$/survivor.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/survivor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/survivor.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,24 +40,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/9fdam12/Documents/aelxander_regalado_13_procesos_final&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/9fdam12/Documents/13_Alexander_Regalado_proyecto_AD_u1/lib/xstream-1.4.19.jar",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Crear_dat" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Crear_dat" />
@@ -85,6 +97,7 @@
       <workItem from="1667501054278" duration="477000" />
       <workItem from="1669403224775" duration="35000" />
       <workItem from="1669656766157" duration="18000" />
+      <workItem from="1670866713432" duration="5031000" />
     </task>
     <task id="LOCAL-00001" summary="depura un poco de codgio que no debia estar en un sitio de guardar datos bot(dat)">
       <created>1669830518471</created>

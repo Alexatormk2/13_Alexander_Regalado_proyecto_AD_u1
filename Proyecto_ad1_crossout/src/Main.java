@@ -9,6 +9,8 @@ import org.xmldb.api.base.Database;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.XMLResource;
 
+import javax.sound.midi.Soundbank;
+
 public class Main {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     //listas--------------
@@ -31,7 +33,7 @@ public class Main {
         Metodos_main.inicializador();
 
 
-        int opcion, opcion2 = 0, opcionMenu, playerChoose, mercado;
+        int opcion =0, opcion2 = 0, opcionMenu, playerChoose, mercado;
         opcionMenu = 0;
         //menu el cual se encarga de dar acceso al programa esta fuera del do while por si se falla para que se cierre
         System.out.println("Hola antes de empezar mira si tu cuenta es una de estas o sino  crea una");
@@ -66,14 +68,18 @@ public class Main {
 
                 try {
                     playerChoose = Integer.parseInt(br.readLine());
-
-                    if (playerChoose == 400) {
-
+String revisar = String.valueOf(playerChoose);
+                    if ( playerChoose==400 ||listaPlayers[playerChoose]==null|| revisar.equals("")) {
+                        System.out.println("Usuario no existente");
                         System.exit(0);
 
                     } else {
 
                         playerActual = listaPlayers[playerChoose];
+                        if(playerActual ==null){
+                            System.out.println("Usuario no existente");
+                            System.exit(0);
+                        }
                     }
                 } catch (NumberFormatException e) {
 
@@ -82,6 +88,8 @@ public class Main {
                 } catch (IOException e) {
                     System.out.println("Error de valor revise");
                     ;
+                }catch (ArrayIndexOutOfBoundsException e){
+                    System.out.println("Error no existe ese usuario");
                 }
 
                 break;
@@ -99,7 +107,10 @@ public class Main {
         try {
             do {
 
-
+                if (playerActual ==null){
+                    System.out.println("Se entro sin usuario cerrando");
+                    System.exit(0);
+                }else {
                 System.out.println("Menu del juego");
                 System.out.println("1.Batalla");
                 System.out.println("2.Cambiar Carro");
@@ -110,61 +121,61 @@ public class Main {
                 opcion = Integer.parseInt(br.readLine());
 
 
-                switch (opcion) {
-                    case 1:
-                        //Menu para seleccionar la batalla que se luchara
-                        System.out.println("1. A por chatarra");
-                        System.out.println("2. A por cobre");
-                        System.out.println("3. Volver a atras");
+    switch (opcion) {
+        case 1:
+            //Menu para seleccionar la batalla que se luchara
+            System.out.println("1. A por chatarra");
+            System.out.println("2. A por cobre");
+            System.out.println("3. Volver a atras");
 
-                        try {
-                            opcion2 = Integer.parseInt(br.readLine());
-                        } catch (NumberFormatException e) {
-                            System.out.println("Error de un numero por favor");
-                        } catch (IOException e) {
-                            System.out.println("Error inesperado");
-                        }
+            try {
+                opcion2 = Integer.parseInt(br.readLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Error de un numero por favor");
+            } catch (IOException e) {
+                System.out.println("Error inesperado");
+            }
 
-                        switch (opcion2) {
-                            //Segun la opcion dada llamada a uno de los 2 metodos
-                            case 1:
-                                Metodos_main.chatarra();
+            switch (opcion2) {
+                //Segun la opcion dada llamada a uno de los 2 metodos
+                case 1:
+                    Metodos_main.chatarra();
 
-                                break;
-                            case 2:
-                                Metodos_main.cobre();
+                    break;
+                case 2:
+                    Metodos_main.cobre();
 
-                                break;
+                    break;
 
-                            case 3:
-                                System.out.println("Volviendo a menu principal");
+                case 3:
+                    System.out.println("Volviendo a menu principal");
 
 
-                                break;
+                    break;
 
-                        }
-                        break;
-                    case 2:
-                        Metodos_main.cambiarCarro();
-                        break;
-                    case 3:
-                        Metodos_main.BorrarUser();
-                        break;
-                    case 4:
+            }
+            break;
+        case 2:
+            Metodos_main.cambiarCarro();
+            break;
+        case 3:
+            Metodos_main.BorrarUser();
+            break;
+        case 4:
 
-                        if ((Main.playerActual.getNomnbre().equals("IVY_XO") || Main.playerActual.getNomnbre().equals("Foxy"))) {
-                            Metodos_main.consultasExist();
-                        } else {
+            if ((Main.playerActual.getNomnbre().equals("IVY_XO") || Main.playerActual.getNomnbre().equals("Foxy"))) {
+                Metodos_main.consultasExist();
+            } else {
 
-                            System.out.println("Error no se poseen datos de admin");
-                        }
-                        break;
+                System.out.println("Error no se poseen datos de admin");
+            }
+            break;
 
-                    case 5:
+        case 5:
 
-                        break;
-                }
-
+            break;
+    }
+}
 
             } while (opcion != 5);
             Metodos_main.guardarDatos();
@@ -346,8 +357,8 @@ public class Main {
         Carros listaCa = new Carros();
         try {
             while (true) { //lectura del fichero
-                vehiculos carro = (vehiculos) dataIS.readObject(); //leer una Persona
-                listaCa.add(carro); //añaadir persona a la lista
+                vehiculos vehiculos = (vehiculos) dataIS.readObject(); //leer una Persona
+                listaCa.add(vehiculos); //añaadir persona a la lista
             }
         } catch (EOFException eo) {
         } catch (IOException | ClassNotFoundException e) {
@@ -358,7 +369,7 @@ public class Main {
             XStream xstream = new XStream();
 //cambiar de nombre a las etiquetas XML
 
-            xstream.alias("Datos_Carro", vehiculos.class);
+
 //quitar etiqueta lista (atributo de la clase ListaPersonas)
 
             xstream.useAttributeFor(vehiculos.Clascificacion.class, "tipo");

@@ -1,25 +1,5 @@
 <Lista__Registro__survivors>
   <Datos__Survivor>
-    <nomnbre>Foxy</nomnbre>
-    <kills>0</kills>
-    <deaths>1</deaths>
-    <derrotas>1</derrotas>
-    <victorias>0</victorias>
-    <carro>
-      <clascificacion>
-        <tipo>Camioneta</tipo>
-        <categoria>Medio</categoria>
-      </clascificacion>
-      <durabilidad>360</durabilidad>
-      <nombre>starter</nombre>
-      <danio>400</danio>
-      <descripcion>Lo mas simple y con lo que se empieza</descripcion>
-    </carro>
-    <scrap>25</scrap>
-    <copper>0</copper>
-    <gold>115.0</gold>
-  </Datos__Survivor>
-  <Datos__Survivor>
     <nomnbre>IVY_XO</nomnbre>
     <kills>0</kills>
     <deaths>0</deaths>
@@ -30,10 +10,30 @@
         <tipo>buggy</tipo>
         <categoria>Ligero</categoria>
       </clascificacion>
-      <durabilidad>420</durabilidad>
+      <durabilidad>575</durabilidad>
       <nombre>Viper</nombre>
-      <danio>575</danio>
+      <danio>420</danio>
       <descripcion>Un pequeño buggy armado con 3 escopetas</descripcion>
+    </carro>
+    <scrap>0</scrap>
+    <copper>0</copper>
+    <gold>100.0</gold>
+  </Datos__Survivor>
+  <Datos__Survivor>
+    <nomnbre>Foxy</nomnbre>
+    <kills>0</kills>
+    <deaths>0</deaths>
+    <derrotas>0</derrotas>
+    <victorias>0</victorias>
+    <carro>
+      <clascificacion>
+        <tipo>Camioneta</tipo>
+        <categoria>Medio</categoria>
+      </clascificacion>
+      <durabilidad>360</durabilidad>
+      <nombre>starter</nombre>
+      <danio>400</danio>
+      <descripcion>Lo mas simple y con lo que se empieza</descripcion>
     </carro>
     <scrap>0</scrap>
     <copper>0</copper>

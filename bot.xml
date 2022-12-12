@@ -72,9 +72,9 @@
   </Datos__BOT>
   <Datos__BOT>
     <nombre>Hambre</nombre>
-    <kill>1</kill>
+    <kill>0</kill>
     <deaths>0</deaths>
-    <victorias>1</victorias>
+    <victorias>0</victorias>
     <derrotas>0</derrotas>
     <descripcionBot>Uno de los lideres de los jinetes del apocalipsis, su hambre no tiene comparacion y tampoco nada lo sacia</descripcionBot>
     <carro>

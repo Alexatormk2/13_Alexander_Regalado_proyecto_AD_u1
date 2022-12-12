@@ -563,7 +563,12 @@ public class Metodos_main {
                                 insertarCarr(danio, nombre, durabilidad, descripcion, tipo, categoria);
                                 break;
 
-
+                            case 3:
+                                listarCarr();
+                                System.out.println("Da el nombre del carro a borrar");
+                                String nombreBorrar = br.readLine();
+                                borrarregistroCarro(nombreBorrar);
+                                break;
                         }
 
 
@@ -614,12 +619,13 @@ public class Metodos_main {
                 XPathQueryService servicio;
                 servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
                 //Preparamos la consulta
-                ResourceSet result = servicio.query("for $carro in //Datos__Carro return $carro");
+                ResourceSet result = servicio.query("for $carro in //Carros return $carro");
                 // recorrer los datos del recurso.
                 ResourceIterator i;
                 i = result.getIterator();
                 if (!i.hasMoreResources()) {
                     System.out.println(" LA CONSULTA NO DEVUELVE NADA O ESTÁ MAL ESCRITA");
+
                 }
                 while (i.hasMoreResources()) {
                     Resource r = i.nextResource();
@@ -637,19 +643,75 @@ public class Metodos_main {
 
     }
 
-    private static void insertarCarr(int danio, String nombre, int durabilidad, String descripcion, String tipo, String categoria) {
+    private static void borrarregistroCarro(String nombre) {
+        System.out.println(nombre + "  Nombre carro");
+        if (comprobardep(nombre)) {
+            if (conectar() != null) {
+                try {
+                    System.out.printf("Borro el carro: %s\n", nombre);
+
+
+                    XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
+                    //Consulta para borrar un departamento --> update delete
+                    ResourceSet result = servicio.query(
+                            "update delete /Carros/carro/vehiculos[nombre=" + nombre + "]");
+                    col.close();
+                    System.out.println("Carro borrado.");
+                } catch (Exception e) {
+                    System.out.println("Error al borrar.");
+                    e.printStackTrace();
+                }
+            } else {
+                System.out.println("Error en la conexión. Comprueba datos.");
+            }
+        } else {
+            System.out.println("El carro no existe");
+        }
+
+    }
+
+    private static boolean comprobardep(String nombre) {
+        //Devuelve true si el dep existe
+        if (conectar() != null) {
+            try {
+                XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
+                    
+
+                //Consulta para consultar la información de un departamento
+                ResourceSet result = servicio.query("/Carros/carro/vehiculos[nombre=" + nombre + "]");
+                ResourceIterator i;
+                i = result.getIterator();
+                col.close();
+                if (!i.hasMoreResources()) {
+                    return false;
+                } else {
+                    return true;
+                }
+            } catch (Exception e) {
+                System.out.println("Error al consultar.");
+                // e.printStackTrace();
+            }
+        } else {
+            System.out.println("Error en la conexión. Comprueba datos.");
+        }
+
+        return false;
+
+    }
+
+    private static void insertarCarr(int danio, String nombre, int durabilidad, String descripcion, String
+            tipo, String categoria) {
 
         //Caso concreto: sabemos cuáles son los nodos
-        String nuevodep = "<Datos__Carro>><Clasificacion tipo= " + tipo + " >" + categoria + "</Clasificacion>"
-                + "<durabilidad>" + durabilidad + "</durabilidad><nombre>" + nombre + "</nombre><danio>" + danio + "</danio><descripcion>" + descripcion + "</descripcion>"
-                + "</DEP_ROW>";
+        String carroNuevo = "<Carros><carro><vehiculos><clasificacion tipo= \"" + tipo + "\" ><categoria>" + categoria + "</categoria></clasificacion>"
+                + "<durabilidad>" + durabilidad + "</durabilidad><nombre>" + nombre + "</nombre><danio>" + danio + "</danio><descripcion>" + descripcion + "</descripcion></vehiculos></carro></Carros>";
 
         if (conectar() != null) {
             try {
                 XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
-                System.out.printf("Inserto: %s \n", nuevodep);
+                System.out.printf("Inserto: %s \n", carroNuevo);
                 //Consulta para insertar --> update insert ... into
-                ResourceSet result = servicio.query("update insert " + nuevodep + " into /vehiculos");
+                ResourceSet result = servicio.query("update insert " + carroNuevo + " into /Carros");
                 col.close(); //borramos
                 System.out.println("CARRO insertado.");
             } catch (Exception e) {
