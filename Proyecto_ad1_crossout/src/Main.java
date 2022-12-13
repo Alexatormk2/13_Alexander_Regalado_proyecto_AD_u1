@@ -265,8 +265,8 @@ String revisar = String.valueOf(playerChoose);
         try {
             XStream xstream = new XStream();
 //cambiar de nombre a las etiquetas XML
-            xstream.alias("Lista_Registro_bot", ListaBot.class);
-            xstream.alias("Datos_BOT", BOT.class);
+            xstream.alias("Registro", ListaBot.class);
+            xstream.alias("BOT", BOT.class);
 //quitar etiqueta lista (atributo de la clase ListaPersonas)
             xstream.addImplicitCollection(ListaBot.class, "lista");
 //Insrtar los objetos en el XML

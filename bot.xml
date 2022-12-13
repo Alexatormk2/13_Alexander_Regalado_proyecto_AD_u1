@@ -1,5 +1,5 @@
-<Lista__Registro__bot>
-  <Datos__BOT>
+<Registro>
+  <BOT>
     <nombre>Megatron</nombre>
     <kill>0</kill>
     <deaths>0</deaths>
@@ -18,8 +18,8 @@
     </carro>
     <fraseVictoria>Muere,survivor muere</fraseVictoria>
     <fraseDerrota>....... Todavia sigo funcionando</fraseDerrota>
-  </Datos__BOT>
-  <Datos__BOT>
+  </BOT>
+  <BOT>
     <nombre>Muerte</nombre>
     <kill>0</kill>
     <deaths>0</deaths>
@@ -38,8 +38,8 @@
     </carro>
     <fraseVictoria>La muerte es algo con lo que te as encontrado y no has podido escapar</fraseVictoria>
     <fraseDerrota>.................</fraseDerrota>
-  </Datos__BOT>
-  <Datos__BOT>
+  </BOT>
+  <BOT>
     <nombre>Bowser</nombre>
     <kill>0</kill>
     <deaths>0</deaths>
@@ -58,19 +58,19 @@
     </carro>
     <fraseVictoria>Yo el gran bowser e aplastado a un insecto</fraseVictoria>
     <fraseDerrota>Noooooooooooooo</fraseDerrota>
-  </Datos__BOT>
-  <Datos__BOT>
+  </BOT>
+  <BOT>
     <nombre>Miku</nombre>
     <kill>0</kill>
     <deaths>0</deaths>
     <victorias>0</victorias>
     <derrotas>0</derrotas>
     <descripcionBot>Una Cantante virtual del viejo mundo, algun idiota le hizo un cuerpo usando un par de cadaveres y una unidad ravager y la dejo libre por el valle</descripcionBot>
-    <carro reference="../../Datos__BOT[3]/carro"/>
+    <carro reference="../../BOT[3]/carro"/>
     <fraseVictoria>Me diverti bastante espero que no estes enfadado conmigo :D</fraseVictoria>
     <fraseDerrota>Fui creada para cantar no para luchar, pero estoy feliz de probar cosas distintas</fraseDerrota>
-  </Datos__BOT>
-  <Datos__BOT>
+  </BOT>
+  <BOT>
     <nombre>Hambre</nombre>
     <kill>0</kill>
     <deaths>0</deaths>
@@ -89,8 +89,8 @@
     </carro>
     <fraseVictoria>Comsumire todo a mi paso</fraseVictoria>
     <fraseDerrota>Esto no es lo planeado joder</fraseDerrota>
-  </Datos__BOT>
-  <Datos__BOT>
+  </BOT>
+  <BOT>
     <nombre>Peste</nombre>
     <kill>0</kill>
     <deaths>0</deaths>
@@ -109,8 +109,8 @@
     </carro>
     <fraseVictoria>Las llamas purificaran tu carne</fraseVictoria>
     <fraseDerrota>.... No estas emfermo seguro ?.........Podria darte una muerte rapida con mis llamas</fraseDerrota>
-  </Datos__BOT>
-  <Datos__BOT>
+  </BOT>
+  <BOT>
     <nombre>Guerra</nombre>
     <kill>0</kill>
     <deaths>0</deaths>
@@ -129,5 +129,5 @@
     </carro>
     <fraseVictoria>Tu final a llegado</fraseVictoria>
     <fraseDerrota>.... La guerra nunca cambia no lo olvides</fraseDerrota>
-  </Datos__BOT>
-</Lista__Registro__bot>
+  </BOT>
+</Registro>
