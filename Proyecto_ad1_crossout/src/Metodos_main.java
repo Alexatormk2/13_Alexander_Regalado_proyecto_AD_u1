@@ -1,3 +1,5 @@
+import jdk.security.jarsigner.JarSigner;
+import org.exist.security.xacml.NullAccessContextException;
 import org.xmldb.api.DatabaseManager;
 import org.xmldb.api.base.*;
 import org.xmldb.api.modules.XPathQueryService;
@@ -124,6 +126,7 @@ public class Metodos_main {
         int danioTotal = 0;
         int vida = health;
         int contador = 0;
+
         //random que seleciona el bot de forma aleatoria
         for (contador = 0; contador < Main.listaBots.length; contador++) {
             if (Main.listaBots[contador] == null) {
@@ -552,22 +555,11 @@ public class Metodos_main {
         int op = 0;
         do {
             try {
-                System.out.println("............................................................\n"
-                        + ".  1 Gestion carros. \n"
-                        + ".  2 Gestion Bots .  \n"
-                        + ".  3 SALIR.\n"
-                        + "............................................................\n");
+                System.out.println("............................................................\n" + ".  1 Gestion carros. \n" + ".  2 Gestion Bots .  \n" + ".  3 SALIR.\n" + "............................................................\n");
                 op = Integer.parseInt(br.readLine());
                 switch (op) {
                     case 1:
-                        System.out.println("............................................................\n"
-                                + ".  1 Listar carro. \n"
-                                + ".  2 Insertar carro.  \n"
-                                + ".  3 Borrar carro.  \n"
-                                + ".  4 Modificar carro.  \n"
-                                + ".  5 Buscar por nombre carro.  \n"
-                                + ".  3 SALIR.\n"
-                                + "............................................................\n");
+                        System.out.println("............................................................\n" + ".  1 Listar carro. \n" + ".  2 Insertar carro.  \n" + ".  3 Borrar carro.  \n" + ".  4 Modificar carro.  \n" + ".  5 Buscar por nombre carro.  \n" + ".  6 SALIR.\n" + "............................................................\n");
                         int opCar = 0;
                         opCar = Integer.parseInt(br.readLine());
                         switch (opCar) {
@@ -610,10 +602,76 @@ public class Metodos_main {
 
                         break;
 
+                    case 2:
 
+                        System.out.println("............................................................\n" + ".  1 Listar bots. \n" + ".  2 Insertar bot.  \n" + ".  3 Borrar bot.  \n" + ".  4 Modificar bot.  \n" + ".  5 Buscar por nombre bot.  \n" + ".  6 SALIR.\n" + "............................................................\n");
+                        int opbot = 0;
+                        opbot = Integer.parseInt(br.readLine());
+                        switch (opbot) {
+                            case 1:
+                                listarbot();
+                                break;
+                            case 2:
+                                System.out.println("--------------------");
+                                System.out.println("Da un nombre para le bot");
+                                String nombre = br.readLine();
+                                int kill = 0;
+                                int deaths = 0;
+
+                                int victorias = 0;
+                                int derrotas = 0;
+                                System.out.println("--------------------");
+                                System.out.println("Descripcion del bot");
+                                String descripcionBot = br.readLine();
+                                vehiculos carro;
+                                System.out.println("--------------------");
+                                System.out.println("Selecciona un carro para el bot");
+                                for (int o = 0; o < Main.listaCarros.length; o++) {
+                                    if (Main.listaCarros[o] == null) {
+                                        break;
+                                    }
+                                    System.out.println(o + "_  " + Main.listaCarros[o].nombre);
+
+                                }
+                                int opcion = Integer.parseInt(br.readLine());
+                                System.out.println("--------------------");
+                                carro = Main.listaCarros[opcion];
+
+                                System.out.println("--------------------");
+                                System.out.println("Da la frase de victoria del bot");
+                                String fraseVictoria = br.readLine();
+
+                                System.out.println("--------------------");
+                                System.out.println("Da la frase de derrota del bot");
+                                String fraseDerrota = br.readLine();
+
+
+                                insertarbot(nombre, kill, deaths, victorias, derrotas, descripcionBot, carro, fraseVictoria, fraseDerrota);
+                                break;
+                            case 3:
+                                listarbot();
+                                System.out.println("Da el nombre del bot a borrar");
+                                String nombreBorrar = br.readLine();
+
+                                borrarregistroBot(nombreBorrar);
+                                break;
+
+                            case 4:
+                                modificarBot();
+                                break;
+
+                            case 5:
+                                buscarBotNombre();
+                                break;
+
+
+                        }
+                        break;
                 }
             } catch (NumberFormatException | IOException as) {
                 System.out.println("Se esperaba un numero por favor revise");
+            } catch (NullAccessContextException e) {
+                System.out.println("No hay mas datos en la lista");
             }
         } while (op != 3);
 
@@ -654,7 +712,6 @@ public class Metodos_main {
         if (comprobarCarro(nombre)) {
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             if (conectar() != null) {
-                listarCarr();
 
 
                 System.out.println("Durabilidad:");
@@ -662,12 +719,16 @@ public class Metodos_main {
                 System.out.println("Danio");
                 int danio = Integer.parseInt(br.readLine());
                 try {
-                    System.out.printf("Actualizo el jugador: %s\n", nombre);
+                    System.out.printf("Actualizo el carro: %s\n", nombre);
                     XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
                     //Consulta para modificar/actualizar un valor --> update value
-                    ResourceSet result = servicio.query("update value /jugadores/jugador[nombre = \"" + nombre + "\"]/durabilidad with " + durabilidad);
-                    result = servicio.query("update value /jugadores/jugador[nombre = \"" + nombre + "\"]/danio with " + danio);
+                    ResourceSet result = servicio.query("update value /Carros/carro/vehiculos[nombre = \"" + nombre + "\"]/durabilidad with " + durabilidad);
+                    result = servicio.query("update value /Carros/carro/vehiculos[nombre = \"" + nombre + "\"]/danio with " + danio);
                     for (int k = 0; k < Main.listaCarros.length; k++) {
+
+                        if (Main.listaCarros[k] == null) {
+                            break;
+                        }
                         if (Main.listaCarros[k].getNombre() == nombre) {
 
                             Main.listaCarros[k].setDanio(danio);
@@ -676,7 +737,7 @@ public class Metodos_main {
                     }
 
                     col.close();
-                    System.out.println("Jugador actualizado.");
+                    System.out.println("Carro actualizado.");
                 } catch (Exception e) {
                     System.out.println("Error al actualizar.");
                     e.printStackTrace();
@@ -688,6 +749,59 @@ public class Metodos_main {
             System.out.println("El carro no existe");
         }
     }
+
+    public static void modificarBot() throws IOException {
+        listarbot();
+        System.out.println("Nombre bot editar:");
+        String nombre = br.readLine();
+        if (comprobarBOT(nombre)) {
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            if (conectar() != null) {
+
+
+                System.out.println("Descripcion:");
+                String descripcion = br.readLine();
+                System.out.println("Frase victoria:");
+                String vic = br.readLine();
+                System.out.println("Frase derrota:");
+                String def = br.readLine();
+
+                try {
+
+                    XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
+                    //Consulta para modificar/actualizar un valor --> update value
+                    ResourceSet result = servicio.query("update value /Registro/BOT[nombre = \"" + nombre + "\"]/descripcionBot with " + descripcion);
+                    result = servicio.query("update value /Registro/BOT[nombre = \"" + nombre + "\"]/fraseDerrota with " + def);
+                    result = servicio.query("update value /Registro/BOT[nombre = \"" + nombre + "\"]/fraseVictoria with " + vic);
+
+                    for (int k = 0; k < Main.listaBots.length; k++) {
+                        if (Main.listaBots[k] == null) {
+
+                            break;
+                        }
+                        if (Main.listaBots[k].getNombre() == nombre) {
+
+                            Main.listaBots[k].setFraseDerrota(def);
+                            Main.listaBots[k].setDescripcionBot(descripcion);
+                            Main.listaBots[k].setFraseVictoria(vic);
+
+                        }
+                    }
+
+                    col.close();
+                    System.out.println("Bot actualizado.");
+                } catch (Exception e) {
+                    System.out.println("Error al actualizar.");
+                    e.printStackTrace();
+                }
+            } else {
+                System.out.println("Error en la conexión. Comprueba datos.");
+            }
+        } else {
+            System.out.println("El Bot no existe");
+        }
+    }
+
 
     ////metodos consultas exist
     private static void listarCarr() {
@@ -726,7 +840,7 @@ public class Metodos_main {
                 XPathQueryService servicio;
                 servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
                 //Preparamos la consulta
-                ResourceSet result = servicio.query("for $carro in //Carros return $carro");
+                ResourceSet result = servicio.query("/Registro/BOT/concat(\"Nombre: \",nombre,\"  Kills:\",kill,\"   Deaths:\",deaths,\"   Victorias:\",victorias,\"   Derrotas:\",derrotas,\"    DescripcionBot:  \",descripcionBot,\"     fraseVictoria:  \",fraseVictoria,\"   fraseDerrota:\",fraseDerrota)");
                 // recorrer los datos del recurso.
                 ResourceIterator i;
                 i = result.getIterator();
@@ -763,8 +877,7 @@ public class Metodos_main {
 
                         XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
                         //Consulta para borrar un departamento --> update delete
-                        ResourceSet result = servicio.query(
-                                "update delete /Carros/carro/vehiculos[nombre=\"" + nombre + "\"]");
+                        ResourceSet result = servicio.query("update delete /Carros/carro/vehiculos[nombre=\"" + nombre + "\"]");
                         col.close();
                         for (int o = 0; o < Main.listaCarros.length; o++) {
                             if (Main.listaCarros[o].getNombre() == nombre) {
@@ -773,7 +886,9 @@ public class Metodos_main {
 
                             }
                             if (Main.listaBots[o].carro.getNombre() == nombre) {
-                                Main.listaBots[o].carro = null;
+                                vehiculos.Clascificacion clasiStart = new vehiculos.Clascificacion("Camioneta", "Medio");
+                                vehiculos v = new vehiculos(400, "starter", 360, "Lo mas simple y con lo que se empieza", clasiStart);
+                                Main.listaBots[o].carro = v;
                             }
                             if (Main.listaPlayers[o].carro.getNombre() == nombre) {
                                 Main.listaPlayers[o].carro = null;
@@ -800,6 +915,48 @@ public class Metodos_main {
 
     }
 
+    private static void borrarregistroBot(String nombre) {
+        System.out.println(nombre + "  Nombre carro");
+        if (comprobarBOT(nombre)) {
+            if (conectar() != null) {
+                try {
+                    if (nombre == "Miku") {
+                        System.out.println("Este bot no se puede borrar");
+                    } else {
+                        System.out.printf("Borro el bot: %s\n", nombre);
+
+
+                        XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
+                        //Consulta para borrar un departamento --> update delete
+                        ResourceSet result = servicio.query("update delete /Registro/BOT[nombre=\"" + nombre + "\"]");
+                        col.close();
+                        for (int o = 0; o < Main.listaBots.length; o++) {
+                            if (Main.listaBots[o] == null) {
+                                break;
+                            }
+                            if (Main.listaBots[o].getNombre() == nombre) {
+                                Main.listaBots[o] = null;
+
+
+                            }
+
+                        }
+
+                        System.out.println("Bot borrado.");
+                    }
+                } catch (Exception e) {
+                    System.out.println("Error al borrar.");
+                    e.printStackTrace();
+                }
+            } else {
+                System.out.println("Error en la conexión. Comprueba datos.");
+            }
+        } else {
+            System.out.println("El bot no existe");
+        }
+
+    }
+
     private static boolean comprobarCarro(String nombre) {
         //Devuelve true si el dep existe
         if (conectar() != null) {
@@ -809,6 +966,36 @@ public class Metodos_main {
 
                 //Consulta para consultar la información de un departamento
                 ResourceSet result = servicio.query("/Carros/carro/vehiculos[nombre=\"" + nombre + "\"]");
+                ResourceIterator i;
+                i = result.getIterator();
+                col.close();
+                if (!i.hasMoreResources()) {
+                    return false;
+                } else {
+                    return true;
+                }
+            } catch (Exception e) {
+                System.out.println("Error al consultar.");
+                // e.printStackTrace();
+            }
+        } else {
+            System.out.println("Error en la conexión. Comprueba datos.");
+        }
+
+        return false;
+
+    }
+
+
+    private static boolean comprobarBOT(String nombre) {
+        //Devuelve true si el dep existe
+        if (conectar() != null) {
+            try {
+                XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
+
+
+                //Consulta para consultar la información de un departamento
+                ResourceSet result = servicio.query("/Registro/BOT[nombre=\"" + nombre + "\"]");
                 ResourceIterator i;
                 i = result.getIterator();
                 col.close();
@@ -865,12 +1052,50 @@ public class Metodos_main {
 
     }
 
-    private static void insertarCarr(int danio, String nombre, int durabilidad, String descripcion, String
-            tipo, String categoria) {
+    private static void buscarBotNombre() throws IOException {
 
+        System.out.println("Da el nombre del  bot a buscar");
+        String nombre = br.readLine();
+        if (conectar() != null) {
+            try {
+                XPathQueryService servicio;
+                servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
+                //Preparamos la consulta
+                ResourceSet result = servicio.query("/Registro/BOT[nombre=\"" + nombre + "\"]");
+                // recorrer los datos del recurso.
+                ResourceIterator i;
+                i = result.getIterator();
+                if (!i.hasMoreResources()) {
+                    System.out.println(" LA CONSULTA NO DEVUELVE NADA O ESTÁ MAL ESCRITA");
+
+                }
+                while (i.hasMoreResources()) {
+                    Resource r = i.nextResource();
+                    System.out.println("--------------------------------------------");
+                    System.out.println((String) r.getContent());
+                }
+                col.close();
+            } catch (XMLDBException e) {
+                System.out.println(" ERROR AL CONSULTAR DOCUMENTO.");
+                e.printStackTrace();
+            } catch (Exception e) {
+
+                System.out.println("Error a la hora de recibir datos desde la consola");
+            }
+        } else {
+            System.out.println("Error en la conexión. Comprueba datos.");
+        }
+
+
+    }
+
+    private static void insertarCarr(int danio, String nombre, int durabilidad, String descripcion, String tipo, String categoria) {
+        vehiculos.Clascificacion clas = new vehiculos.Clascificacion(tipo, categoria);
+        vehiculos carro = new vehiculos(danio, nombre, durabilidad, descripcion, clas);
+        int a;
         //Caso concreto: sabemos cuáles son los nodos
-        String carroNuevo = "<Carros><carro><vehiculos><clasificacion tipo= \"" + tipo + "\" ><categoria>" + categoria + "</categoria></clasificacion>"
-                + "<durabilidad>" + durabilidad + "</durabilidad><nombre>" + nombre + "</nombre><danio>" + danio + "</danio><descripcion>" + descripcion + "</descripcion></vehiculos></carro></Carros>";
+        String carroNuevo = "<Carros><carro><vehiculos><clasificacion tipo= \"" + tipo + "\" ><categoria>" + categoria + "</categoria></clasificacion>" + "<durabilidad>" + durabilidad + "</durabilidad><nombre>" + nombre + "</nombre><danio>" + danio + "</danio><descripcion>" + descripcion + "</descripcion></vehiculos></carro></Carros>";
+
 
         if (conectar() != null) {
             try {
@@ -879,9 +1104,51 @@ public class Metodos_main {
                 //Consulta para insertar --> update insert ... into
                 ResourceSet result = servicio.query("update insert " + carroNuevo + " into /Carros");
                 col.close(); //borramos
+                for (a = 0; a < Main.listaCarros.length; a++) {
+
+                    if (Main.listaCarros[a] == null) {
+                        a++;
+                        break;
+
+                    }
+
+                }
+                Main.listaCarros[a] = carro;
                 System.out.println("CARRO insertado.");
             } catch (Exception e) {
                 System.out.println("Error al insertar carro.");
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("Error en la conexión. Comprueba datos.");
+        }
+    }
+
+
+    private static void insertarbot(String nombre, int kill, int deaths, int victorias, int derrotas, String descripcionBot, vehiculos carro, String fraseVictoria, String fraseDerrota) {
+
+        BOT bot = new BOT(nombre, kill, deaths, carro, descripcionBot, fraseVictoria, fraseDerrota, victorias, derrotas);
+        int a;
+        //Caso concreto: sabemos cuáles son los nodos
+        String BotNuevo = "<BOT><nombre>" + nombre + "</nombre><kill>" + kill + "</kill><deaths>" + deaths + "</deaths><victorias>" + victorias + "</victorias><derrotas>" + derrotas + "</derrotas><descripcionBot>" + descripcionBot + "</descripcionBot><carro><clasificacion tipo= \"" + carro.clascificacion.tipo + "\" ><categoria>" + carro.clascificacion.categoria + "</categoria></clasificacion><durabilidad>" + carro.durabilidad + "</durabilidad><nombre>" + carro.nombre + "</nombre><danio>" + carro.danio + "</danio>" + "<descripcion> " + carro.descripcion + "</descripcion></carro><fraseVictoria>" + fraseVictoria + "</fraseVictoria><fraseDerrota>" + fraseDerrota + "</fraseDerrota></BOT>";
+        if (conectar() != null) {
+            try {
+                XPathQueryService servicio = (XPathQueryService) col.getService("XPathQueryService", "1.0");
+                System.out.printf("Inserto: %s \n", BotNuevo);
+                //Consulta para insertar --> update insert ... into
+                ResourceSet result = servicio.query("update insert " + BotNuevo + " into /Registro");
+                col.close(); //borramos
+                for (a = 0; a < Main.listaBots.length; a++) {
+
+                    if (Main.listaBots[a] == null) {
+                        a++;
+                        break;
+                    }
+                }
+                Main.listaBots[a] = bot;
+                System.out.println("BOT insertado.");
+            } catch (Exception e) {
+                System.out.println("Error al insertar BOT.");
                 e.printStackTrace();
             }
         } else {
